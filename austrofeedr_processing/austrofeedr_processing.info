@@ -1,0 +1,8 @@
+core = "7.x"
+description = "Processing components for the Austrofeedr distribution"
+name = "austrofeedr_processing"
+package = "Features"
+project = "austrofeedr_processing"
+version = "7.x-1.0-beta1"
+dependencies[] = "austrofeedr_common"
+

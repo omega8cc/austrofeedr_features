@@ -1,0 +1,9 @@
+core = "7.x"
+dependencies[] = "feeds"
+description = "Aggregation components for the Austrofeedr distribution"
+name = "austrofeedr_aggregation"
+package = "Features"
+project = "austrofeedr_aggregation"
+version = "7.x-1.0-beta1"
+dependencies[] = "austrofeedr_common"
+
