@@ -1,6 +1,6 @@
 core = "7.x"
-dependencies[] = "push_hub"
-dependencies[] = "pusher"
+;dependencies[] = "push_hub"
+;dependencies[] = "pusher"
 dependencies[] = "austrofeedr_common"
 description = "Publishing components for the Austrofeedr distribution"
 name = "austrofeedr_publishing"
