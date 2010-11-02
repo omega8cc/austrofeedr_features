@@ -39,50 +39,30 @@ function austrofeedr_aggregation_feeds_importer_default() {
             'unique' => FALSE,
           ),
           1 => array(
+            'source' => 'url',
+            'target' => 'guid',
+            'unique' => 1,
+          ),
+          2 => array(
             'source' => 'description',
             'target' => 'body',
             'unique' => FALSE,
           ),
-          2 => array(
+          3 => array(
             'source' => 'tags',
             'target' => 'field_austrofeedr_in_tags',
-            'unique' => FALSE,
-          ),
-          3 => array(
-            'source' => 'timestamp',
-            'target' => 'created',
-            'unique' => FALSE,
-          ),
-          4 => array(
-            'source' => 'author_name',
-            'target' => 'field_austrofeedr_author',
-            'unique' => FALSE,
-          ),
-          5 => array(
-            'source' => 'guid',
-            'target' => 'guid',
-            'unique' => 1,
-          ),
-          6 => array(
-            'source' => 'url',
-            'target' => 'url',
-            'unique' => 0,
-          ),
-          7 => array(
-            'source' => 'url',
-            'target' => 'field_austrofeedr_item_url',
             'unique' => FALSE,
           ),
         ),
         'update_existing' => '0',
       ),
     ),
-    'content_type' => 'austrofeedr_feed',
+    'content_type' => '',
     'update' => 0,
-    'import_period' => '1800',
+    'import_period' => 1800,
     'expire_period' => 3600,
-    'import_on_create' => 1,
-    'process_in_background' => 0,
+    'import_on_create' => TRUE,
+    'process_in_background' => FALSE,
   );
   $export['austrofeedr_feed'] = $feeds_importer;
 

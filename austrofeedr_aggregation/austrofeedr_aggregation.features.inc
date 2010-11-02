@@ -15,6 +15,14 @@ function austrofeedr_aggregation_ctools_plugin_api() {
  */
 function austrofeedr_aggregation_node_info() {
   $items = array(
+    'austrofeedr_feed' => array(
+      'name' => t('AustroFeedr Feed'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'austrofeedr_update' => array(
       'name' => t('AustroFeedr Update'),
       'base' => 'node_content',
