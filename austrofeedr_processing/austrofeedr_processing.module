@@ -1,3 +1,3 @@
 <?php
 
-include_once('austrofeedr_processing.features.inc');
+// Drupal needs this blank file.
