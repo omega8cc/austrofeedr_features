@@ -28,9 +28,9 @@ function austrofeedr_aggregation_feeds_importer_default() {
     'processor' => array(
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
-        'content_type' => 'article',
-        'input_format' => -1,
-        'expire' => -1,
+        'content_type' => 'austrofeedr_update',
+        'input_format' => 'filtered_html',
+        'expire' => '-1',
         'author' => 0,
         'mappings' => array(
           0 => array(
@@ -44,17 +44,17 @@ function austrofeedr_aggregation_feeds_importer_default() {
             'unique' => 1,
           ),
           2 => array(
-            'source' => 'tags',
-            'target' => 'field_tags',
-            'unique' => FALSE,
-          ),
-          3 => array(
             'source' => 'description',
             'target' => 'body',
             'unique' => FALSE,
           ),
+          3 => array(
+            'source' => 'tags',
+            'target' => 'field_austrofeedr_in_tags',
+            'unique' => FALSE,
+          ),
         ),
-        'update_existing' => 0,
+        'update_existing' => '0',
       ),
     ),
     'content_type' => '',
