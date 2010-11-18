@@ -23,6 +23,9 @@ function austrofeedr_publishing_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'entity_id' => 'entity_id',
@@ -143,11 +146,11 @@ function austrofeedr_publishing_views_default_views() {
   $handler->display->display_options['fields']['url']['hide_empty'] = 0;
   $handler->display->display_options['fields']['url']['empty_zero'] = 0;
   $handler->display->display_options['fields']['url']['display_as_link'] = 1;
-  /* Sort criterion: Node revision: Created date */
-  $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';
-  $handler->display->display_options['sorts']['timestamp']['table'] = 'node_revision';
-  $handler->display->display_options['sorts']['timestamp']['field'] = 'timestamp';
-  $handler->display->display_options['sorts']['timestamp']['order'] = 'DESC';
+  /* Sort criterion: Node: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Filter: Node: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -156,8 +159,14 @@ function austrofeedr_publishing_views_default_views() {
     'austrofeedr_update' => 'austrofeedr_update',
   );
   
-/* Display: Updates detailed */
-  $handler = $view->new_display('page', 'Updates detailed', 'updates_detailed');
+/* Display: Updates details */
+  $handler = $view->new_display('page', 'Updates details', 'updates_details');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    '3' => '3',
+    '2' => '2',
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Node: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -316,7 +325,7 @@ function austrofeedr_publishing_views_default_views() {
   $handler->display->display_options['fields']['feed_nid']['hide_empty'] = 0;
   $handler->display->display_options['fields']['feed_nid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['feed_nid']['format_plural'] = 0;
-  $handler->display->display_options['path'] = 'updates';
+  $handler->display->display_options['path'] = 'updates_details';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Detailed Updates';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -326,7 +335,7 @@ function austrofeedr_publishing_views_default_views() {
   $handler = $view->new_display('page', 'Updates overview', 'updates_overview');
   $handler->display->display_options['path'] = 'updates_overview';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Updates overview';
+  $handler->display->display_options['menu']['title'] = 'Updates';
   $handler->display->display_options['menu']['weight'] = '-10';
   $handler->display->display_options['menu']['name'] = 'main-menu';
 
