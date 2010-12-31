@@ -1,0 +1,3 @@
+<?php
+
+include_once('austrofeedr_hochwasser_base.features.inc');
