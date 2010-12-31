@@ -30,12 +30,15 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
       ),
     ),
     'behaviors' => array(
-      'openlayers_behavior_popup' => array(
+      'openlayers_behavior_tooltip' => array(
         'layers' => array(
           'af_messstellen_openlayers_1' => 'af_messstellen_openlayers_1',
         ),
       ),
       'openlayers_behavior_keyboarddefaults' => array(),
+      'openlayers_behavior_layerswitcher' => array(
+        'ascending' => 1,
+      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 1,
       ),
@@ -43,6 +46,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
     ),
     'default_layer' => 'google_physical',
     'layers' => array(
+      'mapbox_world_light' => 'mapbox_world_light',
       'google_physical' => 'google_physical',
       'af_messstellen_openlayers_1' => 'af_messstellen_openlayers_1',
     ),
