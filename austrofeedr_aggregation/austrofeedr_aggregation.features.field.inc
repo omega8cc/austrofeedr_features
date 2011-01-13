@@ -64,6 +64,7 @@ function austrofeedr_aggregation_field_default_fields() {
       'settings' => array(
         'display_summary' => TRUE,
         'text_processing' => 1,
+        'user_register_form' => FALSE,
       ),
       'widget' => array(
         'module' => 'text',
@@ -128,7 +129,9 @@ function austrofeedr_aggregation_field_default_fields() {
       'field_name' => 'field_austrofeedr_tags',
       'label' => 'Predefined Tags',
       'required' => 0,
-      'settings' => array(),
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
       'widget' => array(
         'active' => 0,
         'module' => 'taxonomy',
@@ -224,6 +227,7 @@ function austrofeedr_aggregation_field_default_fields() {
       'settings' => array(
         'display_summary' => TRUE,
         'text_processing' => 1,
+        'user_register_form' => FALSE,
       ),
       'widget' => array(
         'module' => 'text',
@@ -292,6 +296,7 @@ function austrofeedr_aggregation_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
+        'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
@@ -355,7 +360,9 @@ function austrofeedr_aggregation_field_default_fields() {
       'field_name' => 'field_austrofeedr_in_tags',
       'label' => 'Incoming Tags',
       'required' => 0,
-      'settings' => array(),
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
       'widget' => array(
         'active' => 0,
         'module' => 'taxonomy',
@@ -423,6 +430,7 @@ function austrofeedr_aggregation_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
+        'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
@@ -486,7 +494,9 @@ function austrofeedr_aggregation_field_default_fields() {
       'field_name' => 'field_austrofeedr_tags',
       'label' => 'Tags',
       'required' => 0,
-      'settings' => array(),
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
       'widget' => array(
         'active' => 0,
         'module' => 'taxonomy',
@@ -583,7 +593,9 @@ function austrofeedr_aggregation_field_default_fields() {
       'field_name' => 'field_related_austrofeedr_tags',
       'label' => 'Internal terms to assign',
       'required' => 0,
-      'settings' => array(),
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
       'widget' => array(
         'active' => 0,
         'module' => 'taxonomy',

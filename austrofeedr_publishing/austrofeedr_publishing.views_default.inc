@@ -12,10 +12,12 @@ function austrofeedr_publishing_views_default_views() {
   $view->description = '';
   $view->tag = 'austrofeedr';
   $view->base_table = 'node';
+  $view->human_name = '';
+  $view->core = 0;
   $view->api_version = '3.0-alpha1';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  
-/* Display: Defaults */
+
+  /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -158,14 +160,14 @@ function austrofeedr_publishing_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'austrofeedr_update' => 'austrofeedr_update',
   );
-  
-/* Display: Updates details */
+
+  /* Display: Updates details */
   $handler = $view->new_display('page', 'Updates details', 'updates_details');
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    '3' => '3',
-    '2' => '2',
+    3 => '3',
+    2 => '2',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Node: Post date */
@@ -330,14 +332,44 @@ function austrofeedr_publishing_views_default_views() {
   $handler->display->display_options['menu']['title'] = 'Detailed Updates';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  
-/* Display: Updates overview */
+
+  /* Display: Updates overview */
   $handler = $view->new_display('page', 'Updates overview', 'updates_overview');
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['path'] = 'updates_overview';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Updates';
   $handler->display->display_options['menu']['weight'] = '-10';
   $handler->display->display_options['menu']['name'] = 'main-menu';
+  $translatables['austrofeedr_updates'] = array(
+    t('Defaults'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort By'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('Post date'),
+    t('Title'),
+    t('tags'),
+    t('body'),
+    t('Item URL'),
+    t('Updates details'),
+    t('Updated date'),
+    t('incoming tags'),
+    t('field_austrofeedr_author'),
+    t('field_austrofeedr_item_url'),
+    t('Import date'),
+    t('Item GUID'),
+    t('Owner feed nid'),
+    t('.'),
+    t(','),
+    t('Updates overview'),
+  );
 
   $views[$view->name] = $view;
 

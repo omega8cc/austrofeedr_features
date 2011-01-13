@@ -9,7 +9,7 @@ function austrofeedr_aggregation_taxonomy_default_vocabularies() {
       'name' => 'Austrofeedr Incoming Tags',
       'machine_name' => 'austrofeedr_tags_in',
       'description' => 'Incoming tags from austrofeedr aggregation sources',
-      'hierarchy' => '0',
+      'hierarchy' => '1',
       'module' => 'taxonomy',
       'weight' => '0',
       'rdf_mapping' => array(
