@@ -6,7 +6,7 @@
 "Bregenz","Vorarlberg"
 "Bruck an der Leitha","Niederösterreich"
 "Bruck an der Mur","Steiermark"
-"Burgenland",
+"Burgenland","Austria"
 "Deutschlandsberg","Steiermark"
 "Dornbirn","Vorarlberg"
 "Eferding","Oberösterreich"
@@ -35,7 +35,7 @@
 "Innsbruck-Stadt","Tirol"
 "Jennersdorf","Burgenland"
 "Judenburg","Steiermark"
-"Kärnten",
+"Kärnten","Austria"
 "Kirchdorf an der Krems","Oberösterreich"
 "Kitzbühel","Tirol"
 "Klagenfurt (Stadt)","Kärnten"
@@ -62,8 +62,8 @@
 "Mürzzuschlag","Steiermark"
 "Neunkirchen","Niederösterreich"
 "Neusiedl am See","Burgenland"
-"Niederösterreich",
-"Oberösterreich",
+"Niederösterreich","Austria"
+"Oberösterreich","Austria"
 "Oberpullendorf","Burgenland"
 "Oberwart","Burgenland"
 "Perg","Oberösterreich"
@@ -71,7 +71,7 @@
 "Reutte","Tirol"
 "Ried im Innkreis","Oberösterreich"
 "Rohrbach","Oberösterreich"
-"Salzburg",
+"Salzburg","Austria"
 "Salzburg (Stadt)","Salzburg"
 "Salzburg-Umgebung","Salzburg"
 "Sankt Johann im Pongau","Salzburg"
@@ -83,11 +83,11 @@
 "Schwaz","Tirol"
 "Schwechat","Niederösterreich"
 "Spittal an der Drau","Kärnten"
-"Steiermark",
+"Steiermark","Austria"
 "Steyr (Stadt)","Oberösterreich"
 "Steyr-Land","Oberösterreich"
 "Tamsweg","Salzburg"
-"Tirol",
+"Tirol","Austria"
 "Tulln","Niederösterreich"
 "Urfahr-Umgebung","Oberösterreich"
 "Villach (Stadt)","Kärnten"
@@ -95,13 +95,13 @@
 "Vöcklabruck","Oberösterreich"
 "Voitsberg","Steiermark"
 "Völkermarkt","Kärnten"
-"Vorarlberg",
+"Vorarlberg","Austria"
 "Waidhofen an der Thaya","Niederösterreich"
 "Waidhofen an der Ybbs (Stadt)","Niederösterreich"
 "Weiz","Steiermark"
 "Wels (Stadt)","Oberösterreich"
 "Wels-Land","Oberösterreich"
-"Wien",
+"Wien","Austria"
 "Wien(Stadt)","Wien"
 "Wien-Umgebung","Niederösterreich"
 "Wiener Neustadt (Land)","Niederösterreich"
