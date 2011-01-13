@@ -15,7 +15,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
   $openlayers_presets->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => '',
+    'image_path' => 'http://js.mapbox.com/theme/dark/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -47,7 +47,16 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
     'default_layer' => 'google_physical',
     'layers' => array(
       'mapbox_world_light' => 'mapbox_world_light',
+      'google_satellite' => 'google_satellite',
+      'google_hybrid' => 'google_hybrid',
+      'google_normal' => 'google_normal',
       'google_physical' => 'google_physical',
+      'virtualearth_street' => 'virtualearth_street',
+      'virtualearth_satellite' => 'virtualearth_satellite',
+      'virtualearth_hybrid' => 'virtualearth_hybrid',
+      'osm_mapnik' => 'osm_mapnik',
+      'osm_tah' => 'osm_tah',
+      'osm_cycle' => 'osm_cycle',
       'af_messstellen_openlayers_1' => 'af_messstellen_openlayers_1',
     ),
     'layer_styles' => array(
