@@ -13,9 +13,9 @@ include_once('austrofeedr_hochwasser_messstellen_import.features.inc');
  * @todo: move this to a features_rebuild() callback.
  */
 function austrofeedr_hochwasser_messstellen_import_enable() {
-  $file = 'austrofeedr_hochwasser_messstellen.csv';
-  $path = file_directory_path() . '/messstellen';
-  if (file_check_directory($path, TRUE)) {
+  $file = 'feeds_import/austrofeedr_hochwasser_messstellen.csv';
+  $path = drupal_realpath('public://messstellen');
+  if (file_prepare_directory($path, TRUE)) {
     $filepath = "{$path}/{$file}";
 
     // Copy messstellen csv to file directory, avoid using shell_exec() for
