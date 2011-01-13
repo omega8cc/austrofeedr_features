@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_views_default_views().
  */
-function austrofeedr_publishing_views_default_views() {
+function austrofeedr_base_publishing_views_default_views() {
   $views = array();
 
   // Exported view: austrofeedr_updates

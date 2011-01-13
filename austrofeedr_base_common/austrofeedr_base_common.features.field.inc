@@ -3,11 +3,11 @@
 /**
  * Implementation of hook_field_default_fields().
  */
-function austrofeedr_publishing_field_default_fields() {
+function austrofeedr_base_common_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-austrofeedr_subscription-body'
-  $fields['node-austrofeedr_subscription-body'] = array(
+  // Exported field: 'node-austrofeedr_update-body'
+  $fields['node-austrofeedr_update-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -35,7 +35,7 @@ function austrofeedr_publishing_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_subscription',
+      'bundle' => 'austrofeedr_update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -45,6 +45,30 @@ function austrofeedr_publishing_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'rss' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'search_index' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'search_result' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
@@ -64,6 +88,7 @@ function austrofeedr_publishing_field_default_fields() {
       'settings' => array(
         'display_summary' => TRUE,
         'text_processing' => 1,
+        'user_register_form' => FALSE,
       ),
       'widget' => array(
         'module' => 'text',
@@ -78,14 +103,14 @@ function austrofeedr_publishing_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_subscription-field_geo_placeholder'
-  $fields['node-austrofeedr_subscription-field_geo_placeholder'] = array(
+  // Exported field: 'node-austrofeedr_update-field_austrofeedr_author'
+  $fields['node-austrofeedr_update-field_austrofeedr_author'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_geo_placeholder',
+      'field_name' => 'field_austrofeedr_author',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -107,7 +132,7 @@ function austrofeedr_publishing_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_subscription',
+      'bundle' => 'austrofeedr_update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -117,7 +142,7 @@ function austrofeedr_publishing_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 3,
+          'weight' => 2,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -127,11 +152,12 @@ function austrofeedr_publishing_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_geo_placeholder',
-      'label' => 'Geo Position Placeholder',
+      'field_name' => 'field_austrofeedr_author',
+      'label' => 'Author',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
+        'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
@@ -145,138 +171,14 @@ function austrofeedr_publishing_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_subscription-field_subscription_delivery'
-  $fields['node-austrofeedr_subscription-field_subscription_delivery'] = array(
+  // Exported field: 'node-austrofeedr_update-field_austrofeedr_in_tags'
+  $fields['node-austrofeedr_update-field_austrofeedr_in_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_subscription_delivery',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          '0' => 'value',
-        ),
-      ),
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => 'Web only
-Server (configure IP ...)
-Mobile (configure Number ...)',
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '1',
-      'type' => 'list_text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'austrofeedr_subscription',
-      'default_value' => array(
-        '0' => array(
-          'value' => 'Web only',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 4,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_subscription_delivery',
-      'label' => 'Delivery mode',
-      'required' => 1,
-      'settings' => array(),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => 0,
-      ),
-    ),
-  );
-
-  // Exported field: 'node-austrofeedr_subscription-field_subscription_tags'
-  $fields['node-austrofeedr_subscription-field_subscription_tags'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_subscription_tags',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'tid' => array(
-          '0' => 'tid',
-        ),
-      ),
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          '0' => array(
-            'parent' => '0',
-            'vocabulary' => 'austrofeedr_tags',
-          ),
-        ),
-      ),
-      'translatable' => '1',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'austrofeedr_subscription',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 1,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_subscription_tags',
-      'label' => 'Subscription Tags',
-      'required' => 0,
-      'settings' => array(),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '-3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-austrofeedr_subscription-field_subscription_tags_in'
-  $fields['node-austrofeedr_subscription-field_subscription_tags_in'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_subscription_tags_in',
+      'field_name' => 'field_austrofeedr_in_tags',
       'foreign keys' => array(),
       'indexes' => array(
         'tid' => array(
@@ -296,7 +198,7 @@ Mobile (configure Number ...)',
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_subscription',
+      'bundle' => 'austrofeedr_update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -306,7 +208,7 @@ Mobile (configure Number ...)',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => 1,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -316,16 +218,214 @@ Mobile (configure Number ...)',
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_subscription_tags_in',
-      'label' => 'Additional unprocesses subscription tags',
+      'field_name' => 'field_austrofeedr_in_tags',
+      'label' => 'Incoming Tags',
       'required' => 0,
-      'settings' => array(),
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
       'widget' => array(
         'active' => 0,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
         'weight' => '-2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-austrofeedr_update-field_austrofeedr_item_url'
+  $fields['node-austrofeedr_update-field_austrofeedr_item_url'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_austrofeedr_item_url',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          '0' => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'austrofeedr_update',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 3,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_austrofeedr_item_url',
+      'label' => 'Item URL',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '0',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-austrofeedr_update-field_austrofeedr_tags'
+  $fields['node-austrofeedr_update-field_austrofeedr_tags'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_austrofeedr_tags',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'tid' => array(
+          '0' => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          '0' => array(
+            'parent' => '0',
+            'vocabulary' => 'austrofeedr_tags',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'austrofeedr_update',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 4,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_austrofeedr_tags',
+      'label' => 'Tags',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'taxonomy_term-austrofeedr_tags-field_internal_terms'
+  $fields['taxonomy_term-austrofeedr_tags-field_internal_terms'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_internal_terms',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'tid' => array(
+          '0' => 'tid',
+        ),
+      ),
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          '0' => array(
+            'parent' => '0',
+            'vocabulary' => 'austrofeedr_tags_in',
+          ),
+        ),
+      ),
+      'translatable' => '1',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'austrofeedr_tags',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'taxonomy_term',
+      'field_name' => 'field_internal_terms',
+      'label' => 'Internal terms to assign',
+      'required' => FALSE,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '1',
       ),
     ),
   );

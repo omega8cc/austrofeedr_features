@@ -1,7 +1,0 @@
-core = "7.x"
-dependencies[] = "taxonomy"
-description = "Foundational components for the Austrofeedr distribution"
-name = "austrofeedr_common"
-package = "Features"
-project = "austrofeedr_common"
-version = "7.x-1.0-beta1"
