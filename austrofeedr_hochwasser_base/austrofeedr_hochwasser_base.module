@@ -1,3 +1,53 @@
 <?php
 
 include_once('austrofeedr_hochwasser_base.features.inc');
+
+/**
+ * Implementation of hook_enable().
+ *
+ * @todo: move this to a features_rebuild() callback.
+ */
+function austrofeedr_hochwasser_base_enable() {
+  $vocs = taxonomy_vocabulary_load_multiple(FALSE);
+  if(length($vocs) < 1) {
+  	return;
+  }
+
+	// @todo drupal_get_path('profile', 'austrofeedr') didn't work here,
+	// therefore path hardcoded.
+  $import_dir = "profiles/austrofeedr/taxonomy_import/";
+
+  // Use Taxonomy CSV to import terms from a file.
+  $module_dir = drupal_get_path('module', "taxonomy_csv");
+  require_once("$module_dir/import/taxonomy_csv.import.api.inc");
+
+	foreach($vocs as $voc) {
+	  // Import terms for each voc, where a .csv file exits.
+	  $filename = $import_dir . $voc->machine_name . '.csv';
+	  if (!file_exists($filename)) {
+	    break;
+	  }
+
+	  // Set options for import.
+	  $options['import_format'] = TAXONOMY_CSV_FORMAT_PARENTS;
+	  $options['enclosure'] = '"';
+	  $options['vocabulary_target'] = 'existing';
+	  $options['vocabulary_id'] = $voc->vid;
+	  $options['check_hierarchy'] = FALSE;
+	  $options['set_hierarchy'] = 1;
+	  $options['existing_items'] = TAXONOMY_CSV_EXISTING_UPDATE_MERGE;
+	  $options['url'] = $filename;
+	  taxonomy_csv_import($options);
+
+	}
+
+}
+
+/**
+ * Implementation of hook_disable().
+ *
+ * @todo: move this to a features_rebuild() callback.
+ */
+function austrofeedr_hochwasser_base_disable() {
+  // TODO Delete terms?
+}
