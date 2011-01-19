@@ -1,6 +1,6 @@
 README
 
-To import terms into existing vocabularies druing installation, following steps have to be performed:
+To import terms into existing vocabularies during installation, following steps have to be performed:
 
 1. Export Terms with Taxonomy CSV module and settings:
     - CSV Format: First level parents
