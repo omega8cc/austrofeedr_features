@@ -1,0 +1,6 @@
+core = "7.x"
+dependencies[] = "austrofeedr_hochwasser_base"
+dependencies[] = "austrofeedr_hochwasser_messstellen_import"
+description = "Hochwasser Default Import Tasks"
+name = "AustroFeedr Hochwasser Default Data"
+package = "Features"
