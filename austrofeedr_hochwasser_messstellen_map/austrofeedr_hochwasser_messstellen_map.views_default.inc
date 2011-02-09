@@ -59,9 +59,9 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'openlayers_data';
   $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'wkt',
-    'other_lat' => 'entity_id_3',
-    'other_lon' => 'entity_id_3',
+    'value' => 'other_latlon',
+    'other_lat' => 'entity_id_1',
+    'other_lon' => 'entity_id_2',
     'wkt' => 'entity_id_3',
     'other_top' => 'title',
     'other_right' => 'title',
