@@ -1,0 +1,8 @@
+core = "7.x"
+dependencies[] = "austrofeedr_base_common"
+dependencies[] = "rules_autotag"
+description = "Rules Autotag functionality for the Austrofeedr distribution"
+features[rules_config][] = "processing_autotag"
+name = "AustroFeedr Base Processing Autotag"
+package = "Features"
+php = "5.2.4"
