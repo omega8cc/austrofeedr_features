@@ -16,7 +16,7 @@ function austrofeedr_base_subscription_ctools_plugin_api() {
 function austrofeedr_base_subscription_node_info() {
   $items = array(
     'subscription_feed' => array(
-      'name' => t('AustroFeedr Feed'),
+      'name' => t('AustroFeedr Subscription Feed'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

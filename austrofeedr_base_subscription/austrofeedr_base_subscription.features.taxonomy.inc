@@ -8,7 +8,7 @@ function austrofeedr_base_subscription_taxonomy_default_vocabularies() {
     'update_tags_in' => array(
       'name' => 'Austrofeedr Incoming Tags',
       'machine_name' => 'update_tags_in',
-      'description' => 'Incoming tags from austrofeedr aggregation sources',
+      'description' => 'Incoming tags from austrofeedr subscription sources',
       'hierarchy' => '1',
       'module' => 'taxonomy',
       'weight' => '0',

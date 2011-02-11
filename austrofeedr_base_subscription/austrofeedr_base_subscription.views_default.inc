@@ -9,7 +9,7 @@ function austrofeedr_base_subscription_views_default_views() {
   // Exported view: subscription_list
   $view = new view;
   $view->name = 'subscription_list';
-  $view->description = 'Configured AustroFeedr aggregations for sources feeds, web services';
+  $view->description = 'Configured AustroFeedr subscriptions for sources feeds, web services';
   $view->tag = 'austrofeedr';
   $view->base_table = 'node';
   $view->human_name = '';
@@ -106,7 +106,7 @@ function austrofeedr_base_subscription_views_default_views() {
   $handler->display->display_options['path'] = 'sources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Sources';
-  $handler->display->display_options['menu']['description'] = 'Configured sources for AustroFeedr aggregation';
+  $handler->display->display_options['menu']['description'] = 'Configured sources for AustroFeedr Subscription';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $translatables['subscription_list'] = array(
