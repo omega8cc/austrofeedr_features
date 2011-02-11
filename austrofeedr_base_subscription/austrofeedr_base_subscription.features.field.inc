@@ -214,7 +214,7 @@ function austrofeedr_base_subscription_field_default_fields() {
         ),
       ),
       'deleted' => '0',
-      'description' => 'Assign which internal tags should be assigned by the Basic Term Processor if an incoming update has this specific tag or any of its sub-tags.',
+      'description' => 'Assign which update tags should be assigned by the Basic Term Processor if an incoming update has this specific tag or any of its sub-tags.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -292,7 +292,7 @@ function austrofeedr_base_subscription_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_update_subscription_tags',
-      'label' => 'Incoming Tags',
+      'label' => 'Subscription Tags',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,

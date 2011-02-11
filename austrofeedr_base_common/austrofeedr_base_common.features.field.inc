@@ -289,7 +289,7 @@ function austrofeedr_base_common_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_update_tags',
-      'label' => 'Tags',
+      'label' => 'Update Tags',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
