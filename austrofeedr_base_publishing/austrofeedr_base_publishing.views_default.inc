@@ -115,7 +115,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['limit'] = 0;
   $handler->display->display_options['fields']['tid_1']['vocabularies'] = array(
     'update_tags' => 'update_tags',
-    'update_tags_in' => 0,
+    'subscription_tags' => 0,
     'tags' => 0,
   );
   /* Field: Fields: body */
@@ -210,7 +210,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid']['link_to_taxonomy'] = 1;
   $handler->display->display_options['fields']['tid']['limit'] = 0;
   $handler->display->display_options['fields']['tid']['vocabularies'] = array(
-    'update_tags_in' => 'update_tags_in',
+    'subscription_tags' => 'subscription_tags',
     'update_tags' => 0,
     'tags' => 0,
   );
@@ -233,7 +233,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['limit'] = 0;
   $handler->display->display_options['fields']['tid_1']['vocabularies'] = array(
     'update_tags' => 'update_tags',
-    'update_tags_in' => 0,
+    'subscription_tags' => 0,
     'tags' => 0,
   );
   /* Field: Fields: body */

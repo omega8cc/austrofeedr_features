@@ -5,9 +5,9 @@
  */
 function austrofeedr_base_subscription_taxonomy_default_vocabularies() {
   return array(
-    'update_tags_in' => array(
-      'name' => 'Austrofeedr Incoming Tags',
-      'machine_name' => 'update_tags_in',
+    'subscription_tags' => array(
+      'name' => 'Austrofeedr Subscription Tags',
+      'machine_name' => 'subscription_tags',
       'description' => 'Incoming tags from austrofeedr subscription sources',
       'hierarchy' => '1',
       'module' => 'taxonomy',

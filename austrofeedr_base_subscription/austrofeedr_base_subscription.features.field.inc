@@ -145,8 +145,8 @@ function austrofeedr_base_subscription_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-update_tags_in-field_related_update_tags'
-  $fields['taxonomy_term-update_tags_in-field_related_update_tags'] = array(
+  // Exported field: 'taxonomy_term-subscription_tags-field_related_update_tags'
+  $fields['taxonomy_term-subscription_tags-field_related_update_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -172,7 +172,7 @@ function austrofeedr_base_subscription_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'update_tags_in',
+      'bundle' => 'subscription_tags',
       'default_value' => array(
         '0' => array(
           'description' => '',

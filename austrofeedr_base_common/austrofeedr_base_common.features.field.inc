@@ -190,7 +190,7 @@ function austrofeedr_base_common_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'update_tags_in',
+            'vocabulary' => 'subscription_tags',
           ),
         ),
       ),
@@ -360,65 +360,6 @@ function austrofeedr_base_common_field_default_fields() {
       ),
       'widget' => array(
         'active' => 0,
-        'module' => 'taxonomy',
-        'settings' => array(
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'size' => 60,
-        ),
-        'type' => 'taxonomy_autocomplete',
-        'weight' => '1',
-      ),
-    ),
-  );
-
-  // Exported field: 'taxonomy_term-update_tags-field_internal_terms'
-  $fields['taxonomy_term-update_tags-field_internal_terms'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_internal_terms',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'tid' => array(
-          '0' => 'tid',
-        ),
-      ),
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          '0' => array(
-            'parent' => '0',
-            'vocabulary' => 'update_tags_in',
-          ),
-        ),
-      ),
-      'translatable' => '1',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'update_tags',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'taxonomy_term',
-      'field_name' => 'field_internal_terms',
-      'label' => 'Internal terms to assign',
-      'required' => FALSE,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
         'module' => 'taxonomy',
         'settings' => array(
           'autocomplete_path' => 'taxonomy/autocomplete',
