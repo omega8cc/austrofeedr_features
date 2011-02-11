@@ -204,14 +204,14 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-af_messstelle-field_austrofeedr_item_url'
-  $fields['node-af_messstelle-field_austrofeedr_item_url'] = array(
+  // Exported field: 'node-af_messstelle-field_update_url'
+  $fields['node-af_messstelle-field_update_url'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_austrofeedr_item_url',
+      'field_name' => 'field_update_url',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -253,7 +253,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_austrofeedr_item_url',
+      'field_name' => 'field_update_url',
       'label' => 'URL',
       'required' => 0,
       'settings' => array(

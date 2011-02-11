@@ -3,11 +3,11 @@
 /**
  * Implementation of hook_field_default_fields().
  */
-function austrofeedr_base_aggregation_field_default_fields() {
+function austrofeedr_base_subscription_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-austrofeedr_feed-body'
-  $fields['node-austrofeedr_feed-body'] = array(
+  // Exported field: 'node-subscription_feed-body'
+  $fields['node-subscription_feed-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -35,7 +35,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_feed',
+      'bundle' => 'subscription_feed',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -79,14 +79,14 @@ function austrofeedr_base_aggregation_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_feed-field_austrofeedr_tags'
-  $fields['node-austrofeedr_feed-field_austrofeedr_tags'] = array(
+  // Exported field: 'node-subscription_feed-field_update_tags'
+  $fields['node-subscription_feed-field_update_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_austrofeedr_tags',
+      'field_name' => 'field_update_tags',
       'foreign keys' => array(),
       'indexes' => array(
         'tid' => array(
@@ -98,7 +98,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'austrofeedr_tags',
+            'vocabulary' => 'update_tags',
           ),
         ),
       ),
@@ -106,7 +106,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_feed',
+      'bundle' => 'subscription_feed',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'These tags will be automatically applied to updates from this subscription.',
@@ -126,7 +126,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_austrofeedr_tags',
+      'field_name' => 'field_update_tags',
       'label' => 'Predefined Tags',
       'required' => 0,
       'settings' => array(
@@ -145,14 +145,14 @@ function austrofeedr_base_aggregation_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-austrofeedr_tags_in-field_related_austrofeedr_tags'
-  $fields['taxonomy_term-austrofeedr_tags_in-field_related_austrofeedr_tags'] = array(
+  // Exported field: 'taxonomy_term-update_tags_in-field_related_update_tags'
+  $fields['taxonomy_term-update_tags_in-field_related_update_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_related_austrofeedr_tags',
+      'field_name' => 'field_related_update_tags',
       'foreign keys' => array(),
       'indexes' => array(
         'tid' => array(
@@ -164,7 +164,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'austrofeedr_tags',
+            'vocabulary' => 'update_tags',
           ),
         ),
       ),
@@ -172,7 +172,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_tags_in',
+      'bundle' => 'update_tags_in',
       'default_value' => array(
         '0' => array(
           'description' => '',
@@ -209,7 +209,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
           ),
           'tid' => '95',
           'vid' => '3',
-          'vocabulary_machine_name' => 'austrofeedr_tags',
+          'vocabulary_machine_name' => 'update_tags',
           'weight' => '8',
         ),
       ),
@@ -225,7 +225,7 @@ function austrofeedr_base_aggregation_field_default_fields() {
         ),
       ),
       'entity_type' => 'taxonomy_term',
-      'field_name' => 'field_related_austrofeedr_tags',
+      'field_name' => 'field_related_update_tags',
       'label' => 'Internal terms to assign',
       'required' => 0,
       'settings' => array(

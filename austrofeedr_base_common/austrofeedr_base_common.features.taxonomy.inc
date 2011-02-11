@@ -5,10 +5,10 @@
  */
 function austrofeedr_base_common_taxonomy_default_vocabularies() {
   return array(
-    'austrofeedr_tags' => array(
-      'name' => 'Austrofeedr Tags',
-      'machine_name' => 'austrofeedr_tags',
-      'description' => 'Tags set by austrofeedr processing',
+    'update_tags' => array(
+      'name' => 'Austrofeedr Update Tags',
+      'machine_name' => 'update_tags',
+      'description' => 'Tags to classify austrofeedr updates',
       'hierarchy' => '1',
       'module' => 'taxonomy',
       'weight' => '0',

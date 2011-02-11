@@ -3,11 +3,11 @@
 /**
  * Implementation of hook_taxonomy_default_vocabularies().
  */
-function austrofeedr_base_aggregation_taxonomy_default_vocabularies() {
+function austrofeedr_base_subscription_taxonomy_default_vocabularies() {
   return array(
-    'austrofeedr_tags_in' => array(
+    'update_tags_in' => array(
       'name' => 'Austrofeedr Incoming Tags',
-      'machine_name' => 'austrofeedr_tags_in',
+      'machine_name' => 'update_tags_in',
       'description' => 'Incoming tags from austrofeedr aggregation sources',
       'hierarchy' => '1',
       'module' => 'taxonomy',

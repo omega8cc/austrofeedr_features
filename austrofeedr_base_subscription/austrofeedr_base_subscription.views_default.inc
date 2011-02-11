@@ -3,12 +3,12 @@
 /**
  * Implementation of hook_views_default_views().
  */
-function austrofeedr_base_aggregation_views_default_views() {
+function austrofeedr_base_subscription_views_default_views() {
   $views = array();
 
-  // Exported view: austrofeedr_sources
+  // Exported view: subscription_list
   $view = new view;
-  $view->name = 'austrofeedr_sources';
+  $view->name = 'subscription_list';
   $view->description = 'Configured AustroFeedr aggregations for sources feeds, web services';
   $view->tag = 'austrofeedr';
   $view->base_table = 'node';
@@ -49,9 +49,9 @@ function austrofeedr_base_aggregation_views_default_views() {
   $handler->display->display_options['fields']['config']['field'] = 'config';
   $handler->display->display_options['fields']['config']['hide_empty'] = 0;
   $handler->display->display_options['fields']['config']['empty_zero'] = 0;
-  /* Field: Fields: field_austrofeedr_tags */
+  /* Field: Fields: field_update_tags */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_austrofeedr_tags';
+  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_update_tags';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
@@ -98,7 +98,7 @@ function austrofeedr_base_aggregation_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'austrofeedr_feed' => 'austrofeedr_feed',
+    'subscription_feed' => 'subscription_feed',
   );
 
   /* Display: Page */
@@ -109,7 +109,7 @@ function austrofeedr_base_aggregation_views_default_views() {
   $handler->display->display_options['menu']['description'] = 'Configured sources for AustroFeedr aggregation';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  $translatables['austrofeedr_sources'] = array(
+  $translatables['subscription_list'] = array(
     t('Defaults'),
     t('more'),
     t('Apply'),
@@ -122,7 +122,7 @@ function austrofeedr_base_aggregation_views_default_views() {
     t('Offset'),
     t('Title'),
     t('Source'),
-    t('field_austrofeedr_tags'),
+    t('field_update_tags'),
     t('Post date'),
     t('Name'),
     t('Page'),

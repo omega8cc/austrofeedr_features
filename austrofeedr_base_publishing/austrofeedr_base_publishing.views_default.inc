@@ -6,9 +6,9 @@
 function austrofeedr_base_publishing_views_default_views() {
   $views = array();
 
-  // Exported view: austrofeedr_updates
+  // Exported view: publishing_updates_list
   $view = new view;
-  $view->name = 'austrofeedr_updates';
+  $view->name = 'publishing_updates_list';
   $view->description = '';
   $view->tag = 'austrofeedr';
   $view->base_table = 'node';
@@ -114,8 +114,8 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['link_to_taxonomy'] = 1;
   $handler->display->display_options['fields']['tid_1']['limit'] = 0;
   $handler->display->display_options['fields']['tid_1']['vocabularies'] = array(
-    'austrofeedr_tags' => 'austrofeedr_tags',
-    'austrofeedr_tags_in' => 0,
+    'update_tags' => 'update_tags',
+    'update_tags_in' => 0,
     'tags' => 0,
   );
   /* Field: Fields: body */
@@ -158,7 +158,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'austrofeedr_update' => 'austrofeedr_update',
+    'update' => 'update',
   );
 
   /* Display: Updates details */
@@ -210,8 +210,8 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid']['link_to_taxonomy'] = 1;
   $handler->display->display_options['fields']['tid']['limit'] = 0;
   $handler->display->display_options['fields']['tid']['vocabularies'] = array(
-    'austrofeedr_tags_in' => 'austrofeedr_tags_in',
-    'austrofeedr_tags' => 0,
+    'update_tags_in' => 'update_tags_in',
+    'update_tags' => 0,
     'tags' => 0,
   );
   /* Field: Taxonomy: All terms */
@@ -232,8 +232,8 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['link_to_taxonomy'] = 1;
   $handler->display->display_options['fields']['tid_1']['limit'] = 0;
   $handler->display->display_options['fields']['tid_1']['vocabularies'] = array(
-    'austrofeedr_tags' => 'austrofeedr_tags',
-    'austrofeedr_tags_in' => 0,
+    'update_tags' => 'update_tags',
+    'update_tags_in' => 0,
     'tags' => 0,
   );
   /* Field: Fields: body */
@@ -266,9 +266,9 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['url']['hide_empty'] = 0;
   $handler->display->display_options['fields']['url']['empty_zero'] = 0;
   $handler->display->display_options['fields']['url']['display_as_link'] = 1;
-  /* Field: Fields: field_austrofeedr_author */
+  /* Field: Fields: field_update_author */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
-  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_austrofeedr_author';
+  $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_update_author';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
@@ -280,9 +280,9 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
   $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
-  /* Field: Fields: field_austrofeedr_item_url */
+  /* Field: Fields: field_update_url */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
-  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_austrofeedr_item_url';
+  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_update_url';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
   /* Field: Feeds item: Import date */
   $handler->display->display_options['fields']['imported']['id'] = 'imported';
@@ -342,7 +342,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['menu']['title'] = 'Updates';
   $handler->display->display_options['menu']['weight'] = '-10';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  $translatables['austrofeedr_updates'] = array(
+  $translatables['updates'] = array(
     t('Defaults'),
     t('more'),
     t('Apply'),
@@ -361,8 +361,8 @@ function austrofeedr_base_publishing_views_default_views() {
     t('Updates details'),
     t('Updated date'),
     t('incoming tags'),
-    t('field_austrofeedr_author'),
-    t('field_austrofeedr_item_url'),
+    t('field_update_author'),
+    t('field_update_url'),
     t('Import date'),
     t('Item GUID'),
     t('Owner feed nid'),

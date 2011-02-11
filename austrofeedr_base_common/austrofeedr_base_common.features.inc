@@ -5,7 +5,7 @@
  */
 function austrofeedr_base_common_node_info() {
   $items = array(
-    'austrofeedr_update' => array(
+    'update' => array(
       'name' => t('AustroFeedr Update'),
       'base' => 'node_content',
       'description' => '',

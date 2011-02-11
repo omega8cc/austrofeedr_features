@@ -6,8 +6,8 @@
 function austrofeedr_base_common_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-austrofeedr_update-body'
-  $fields['node-austrofeedr_update-body'] = array(
+  // Exported field: 'node-update-body'
+  $fields['node-update-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -35,7 +35,7 @@ function austrofeedr_base_common_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_update',
+      'bundle' => 'update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -103,14 +103,14 @@ function austrofeedr_base_common_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_update-field_austrofeedr_author'
-  $fields['node-austrofeedr_update-field_austrofeedr_author'] = array(
+  // Exported field: 'node-update-field_update_author'
+  $fields['node-update-field_update_author'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_austrofeedr_author',
+      'field_name' => 'field_update_author',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -132,7 +132,7 @@ function austrofeedr_base_common_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_update',
+      'bundle' => 'update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -152,7 +152,7 @@ function austrofeedr_base_common_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_austrofeedr_author',
+      'field_name' => 'field_update_author',
       'label' => 'Author',
       'required' => 0,
       'settings' => array(
@@ -171,14 +171,14 @@ function austrofeedr_base_common_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_update-field_austrofeedr_in_tags'
-  $fields['node-austrofeedr_update-field_austrofeedr_in_tags'] = array(
+  // Exported field: 'node-update-field_update_in_tags'
+  $fields['node-update-field_update_in_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_austrofeedr_in_tags',
+      'field_name' => 'field_update_in_tags',
       'foreign keys' => array(),
       'indexes' => array(
         'tid' => array(
@@ -190,7 +190,7 @@ function austrofeedr_base_common_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'austrofeedr_tags_in',
+            'vocabulary' => 'update_tags_in',
           ),
         ),
       ),
@@ -198,7 +198,7 @@ function austrofeedr_base_common_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_update',
+      'bundle' => 'update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -218,7 +218,7 @@ function austrofeedr_base_common_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_austrofeedr_in_tags',
+      'field_name' => 'field_update_in_tags',
       'label' => 'Incoming Tags',
       'required' => 0,
       'settings' => array(
@@ -237,14 +237,14 @@ function austrofeedr_base_common_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_update-field_austrofeedr_item_url'
-  $fields['node-austrofeedr_update-field_austrofeedr_item_url'] = array(
+  // Exported field: 'node-update-field_update_url'
+  $fields['node-update-field_update_url'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_austrofeedr_item_url',
+      'field_name' => 'field_update_url',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -266,7 +266,7 @@ function austrofeedr_base_common_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_update',
+      'bundle' => 'update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -286,7 +286,7 @@ function austrofeedr_base_common_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_austrofeedr_item_url',
+      'field_name' => 'field_update_url',
       'label' => 'Item URL',
       'required' => 0,
       'settings' => array(
@@ -305,14 +305,14 @@ function austrofeedr_base_common_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-austrofeedr_update-field_austrofeedr_tags'
-  $fields['node-austrofeedr_update-field_austrofeedr_tags'] = array(
+  // Exported field: 'node-update-field_update_tags'
+  $fields['node-update-field_update_tags'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_austrofeedr_tags',
+      'field_name' => 'field_update_tags',
       'foreign keys' => array(),
       'indexes' => array(
         'tid' => array(
@@ -324,7 +324,7 @@ function austrofeedr_base_common_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'austrofeedr_tags',
+            'vocabulary' => 'update_tags',
           ),
         ),
       ),
@@ -332,7 +332,7 @@ function austrofeedr_base_common_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_update',
+      'bundle' => 'update',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -352,7 +352,7 @@ function austrofeedr_base_common_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_austrofeedr_tags',
+      'field_name' => 'field_update_tags',
       'label' => 'Tags',
       'required' => 0,
       'settings' => array(
@@ -371,8 +371,8 @@ function austrofeedr_base_common_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-austrofeedr_tags-field_internal_terms'
-  $fields['taxonomy_term-austrofeedr_tags-field_internal_terms'] = array(
+  // Exported field: 'taxonomy_term-update_tags-field_internal_terms'
+  $fields['taxonomy_term-update_tags-field_internal_terms'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -390,7 +390,7 @@ function austrofeedr_base_common_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'austrofeedr_tags_in',
+            'vocabulary' => 'update_tags_in',
           ),
         ),
       ),
@@ -398,7 +398,7 @@ function austrofeedr_base_common_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'austrofeedr_tags',
+      'bundle' => 'update_tags',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
