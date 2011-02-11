@@ -14,8 +14,13 @@ function austrofeedr_base_processing_autotag_default_rules_configuration() {
         { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_update_tags" } }
       ],
       "DO" : [
-        { "entity_fetch" : {
-            "USING" : { "type" : "taxonomy_vocabulary", "id" : "2" },
+        { "entity_query" : {
+            "USING" : {
+              "type" : "taxonomy_vocabulary",
+              "property" : "machine_name",
+              "value" : "update_tags",
+              "limit" : "1"
+            },
             "PROVIDE" : { "entity_fetched" : { "voc" : "Vocabulary" } }
           }
         },
