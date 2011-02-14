@@ -9,8 +9,8 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
   $openlayers_presets = new stdClass;
   $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
   $openlayers_presets->api_version = 1;
-  $openlayers_presets->name = 'af_messstellen';
-  $openlayers_presets->title = 'AustroFeedr Messstellen';
+  $openlayers_presets->name = 'hw_messstellen_preset';
+  $openlayers_presets->title = 'AustroFeedr Hochwasser Messstellen';
   $openlayers_presets->description = 'AustroFeedr Hochwasser Messstellen Map';
   $openlayers_presets->data = array(
     'width' => 'auto',
@@ -32,7 +32,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
     'behaviors' => array(
       'openlayers_behavior_tooltip' => array(
         'layers' => array(
-          'af_messstellen_openlayers_1' => 'af_messstellen_openlayers_1',
+          'hw_messstellen_openlayers_1' => 'hw_messstellen_openlayers_1',
         ),
       ),
       'openlayers_behavior_keyboarddefaults' => array(),
@@ -52,26 +52,26 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
       'google_physical' => 'google_physical',
       'osm_mapnik' => 'osm_mapnik',
       'osm_tah' => 'osm_tah',
-      'af_messstellen_openlayers_1' => 'af_messstellen_openlayers_1',
+      'hw_messstellen_openlayers_1' => 'hw_messstellen_openlayers_1',
     ),
     'layer_styles' => array(
-      'af_messstellen_openlayers_1' => 'messstellen_style',
+      'hw_messstellen_openlayers_1' => 'hw_messstellen_style',
     ),
     'layer_activated' => array(
-      'af_messstellen_openlayers_1' => 'af_messstellen_openlayers_1',
+      'hw_messstellen_openlayers_1' => 'hw_messstellen_openlayers_1',
     ),
     'layer_switcher' => array(
-      'af_messstellen_openlayers_1' => 0,
+      'hw_messstellen_openlayers_1' => 0,
     ),
     'projection' => '900913',
     'displayProjection' => '4326',
     'styles' => array(
-      'default' => 'messstellen_style',
-      'select' => 'messstellen_style',
-      'temporary' => 'messstellen_style',
+      'default' => 'hw_messstellen_style',
+      'select' => 'hw_messstellen_style',
+      'temporary' => 'hw_messstellen_style',
     ),
   );
-  $export['af_messstellen'] = $openlayers_presets;
+  $export['hw_messstellen_preset'] = $openlayers_presets;
 
   return $export;
 }

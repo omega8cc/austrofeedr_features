@@ -9,7 +9,7 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
   $feeds_importer = new stdClass;
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
-  $feeds_importer->id = 'af_hochwasser_messstellen';
+  $feeds_importer->id = 'hw_hochwasser_messstellen_cvs_importer';
   $feeds_importer->config = array(
     'name' => 'AustroFeedr Hochwasser Messtellen',
     'description' => '',
@@ -30,7 +30,7 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
     'processor' => array(
       'plugin_key' => 'FeedsNodeProcessor',
       'config' => array(
-        'content_type' => 'af_messstelle',
+        'content_type' => 'hw_messstelle',
         'expire' => '-1',
         'author' => 0,
         'mappings' => array(
@@ -46,7 +46,7 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
           ),
           2 => array(
             'source' => 'bezirk',
-            'target' => 'field_af_bezirk',
+            'target' => 'field_hw_bezirk',
             'unique' => FALSE,
           ),
           3 => array(
@@ -61,12 +61,12 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
           ),
           5 => array(
             'source' => 'lat',
-            'target' => 'field_af_geoposition:lat',
+            'target' => 'field_hw_geoposition:lat',
             'unique' => FALSE,
           ),
           6 => array(
             'source' => 'lng',
-            'target' => 'field_af_geoposition:lon',
+            'target' => 'field_hw_geoposition:lon',
             'unique' => FALSE,
           ),
         ),
@@ -81,7 +81,7 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
     'import_on_create' => TRUE,
     'process_in_background' => FALSE,
   );
-  $export['af_hochwasser_messstellen'] = $feeds_importer;
+  $export['hw_hochwasser_messstellen_cvs_importer'] = $feeds_importer;
 
   return $export;
 }

@@ -95,7 +95,7 @@ function austrofeedr_hochwasser_data_messstellen_import() {
     // is available when installing with Aegir.
     ctools_include('export');
     ctools_export_load_object_reset('feeds_importer');
-    $source = feeds_source('af_hochwasser_messstellen');
+    $source = feeds_source('hw_hochwasser_messstellen_cvs_importer');
     $source->addConfig(
       array(
         'FeedsFileFetcher' => array(
@@ -109,6 +109,6 @@ function austrofeedr_hochwasser_data_messstellen_import() {
 
 function austrofeedr_hochwasser_data_messstellen_clear() {
   // Dump all items from locations importer.
-  $source = feeds_source('af_hochwasser_messstellen');
+  $source = feeds_source('hw_hochwasser_messstellen_cvs_importer');
   $source->clear();
 }

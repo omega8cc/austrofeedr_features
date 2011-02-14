@@ -6,8 +6,8 @@
 function austrofeedr_hochwasser_base_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-af_messstelle-body'
-  $fields['node-af_messstelle-body'] = array(
+  // Exported field: 'node-hw_messstelle-body'
+  $fields['node-hw_messstelle-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -35,7 +35,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'af_messstelle',
+      'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -79,14 +79,14 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-af_messstelle-field_af_bezirk'
-  $fields['node-af_messstelle-field_af_bezirk'] = array(
+  // Exported field: 'node-hw_messstelle-field_hw_bezirk'
+  $fields['node-hw_messstelle-field_hw_bezirk'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_af_bezirk',
+      'field_name' => 'field_hw_bezirk',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -113,7 +113,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'af_messstelle',
+      'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -133,7 +133,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_af_bezirk',
+      'field_name' => 'field_hw_bezirk',
       'label' => 'Bezirk',
       'required' => 0,
       'settings' => array(
@@ -152,14 +152,14 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-af_messstelle-field_af_geoposition'
-  $fields['node-af_messstelle-field_af_geoposition'] = array(
+  // Exported field: 'node-hw_messstelle-field_hw_geoposition'
+  $fields['node-hw_messstelle-field_hw_geoposition'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_af_geoposition',
+      'field_name' => 'field_hw_geoposition',
       'foreign keys' => array(),
       'indexes' => array(),
       'module' => 'geofield',
@@ -168,7 +168,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'geofield',
     ),
     'field_instance' => array(
-      'bundle' => 'af_messstelle',
+      'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -188,7 +188,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_af_geoposition',
+      'field_name' => 'field_hw_geoposition',
       'label' => 'Geo Position',
       'required' => 0,
       'settings' => array(
@@ -204,8 +204,8 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-af_messstelle-field_update_url'
-  $fields['node-af_messstelle-field_update_url'] = array(
+  // Exported field: 'node-hw_messstelle-field_update_url'
+  $fields['node-hw_messstelle-field_update_url'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -233,7 +233,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'af_messstelle',
+      'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -272,8 +272,8 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-af_messstelle-field_lat'
-  $fields['node-af_messstelle-field_lat'] = array(
+  // Exported field: 'node-hw_messstelle-field_lat'
+  $fields['node-hw_messstelle-field_lat'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -291,7 +291,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'number_float',
     ),
     'field_instance' => array(
-      'bundle' => 'af_messstelle',
+      'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -336,8 +336,8 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-af_messstelle-field_lng'
-  $fields['node-af_messstelle-field_lng'] = array(
+  // Exported field: 'node-hw_messstelle-field_lng'
+  $fields['node-hw_messstelle-field_lng'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -354,7 +354,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'number_float',
     ),
     'field_instance' => array(
-      'bundle' => 'af_messstelle',
+      'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
