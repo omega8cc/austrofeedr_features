@@ -105,7 +105,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'allowed_values' => array(
           '0' => array(
             'parent' => '0',
-            'vocabulary' => 'austria',
+            'vocabulary' => 'hw_austria',
           ),
         ),
       ),
@@ -400,8 +400,8 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-austria-field_lat'
-  $fields['taxonomy_term-austria-field_lat'] = array(
+  // Exported field: 'taxonomy_term-hw_austria-field_lat'
+  $fields['taxonomy_term-hw_austria-field_lat'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -418,7 +418,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'number_float',
     ),
     'field_instance' => array(
-      'bundle' => 'austria',
+      'bundle' => 'hw_austria',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -457,8 +457,8 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-austria-field_lng'
-  $fields['taxonomy_term-austria-field_lng'] = array(
+  // Exported field: 'taxonomy_term-hw_austria-field_lng'
+  $fields['taxonomy_term-hw_austria-field_lng'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -475,7 +475,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'type' => 'number_float',
     ),
     'field_instance' => array(
-      'bundle' => 'austria',
+      'bundle' => 'hw_austria',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',

@@ -5,9 +5,9 @@
  */
 function austrofeedr_hochwasser_base_taxonomy_default_vocabularies() {
   return array(
-    'austria' => array(
+    'hw_austria' => array(
       'name' => 'Austria',
-      'machine_name' => 'austria',
+      'machine_name' => 'hw_austria',
       'description' => '',
       'hierarchy' => '1',
       'module' => 'taxonomy',
