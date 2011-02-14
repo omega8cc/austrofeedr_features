@@ -6,7 +6,7 @@
 function austrofeedr_hochwasser_base_node_info() {
   $items = array(
     'hw_messstelle' => array(
-      'name' => t('AustroFeedr Hochwasser Messstelle'),
+      'name' => t('Hochwasser Messstelle'),
       'base' => 'node_content',
       'description' => t('Hochwasser Messstelle'),
       'has_title' => '1',

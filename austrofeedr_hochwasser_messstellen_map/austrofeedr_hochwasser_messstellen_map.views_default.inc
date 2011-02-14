@@ -12,7 +12,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $view->description = 'openlayers';
   $view->tag = 'austrofeedr';
   $view->base_table = 'node';
-  $view->human_name = 'AustroFeedr Hochwasser Messstellen';
+  $view->human_name = 'Hochwasser Messstellen';
   $view->core = 0;
   $view->api_version = '3.0-alpha1';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */

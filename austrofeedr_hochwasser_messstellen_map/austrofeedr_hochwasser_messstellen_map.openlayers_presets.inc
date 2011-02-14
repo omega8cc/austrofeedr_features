@@ -10,7 +10,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
   $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
   $openlayers_presets->api_version = 1;
   $openlayers_presets->name = 'hw_messstellen_preset';
-  $openlayers_presets->title = 'AustroFeedr Hochwasser Messstellen';
+  $openlayers_presets->title = 'Hochwasser Messstellen';
   $openlayers_presets->description = 'AustroFeedr Hochwasser Messstellen Map';
   $openlayers_presets->data = array(
     'width' => 'auto',
