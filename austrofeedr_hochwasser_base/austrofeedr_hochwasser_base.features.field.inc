@@ -285,6 +285,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'module' => 'number',
       'settings' => array(
         'decimal_separator' => '.',
+        'precision' => '10',
       ),
       'translatable' => '1',
       'type' => 'number_float',
@@ -366,6 +367,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'prefix_suffix' => TRUE,
             'scale' => 2,
             'thousand_separator' => ' ',
+            'precision' => '10',
           ),
           'type' => 'number_decimal',
           'weight' => 2,
