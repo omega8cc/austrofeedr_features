@@ -95,10 +95,52 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_lat';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['entity_id_1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['entity_id_1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['entity_id_1']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '10',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['entity_id_1']['field_api_classes'] = 0;
   /* Field: Fields: field_lng */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_lng';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_2']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['entity_id_2']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['entity_id_2']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['entity_id_2']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '10',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['entity_id_2']['field_api_classes'] = 0;
   /* Field: Fields: field_hw_bezirk */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';

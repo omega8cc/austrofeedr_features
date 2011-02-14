@@ -9,7 +9,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_styles() {
   $openlayers_styles = new stdClass;
   $openlayers_styles->disabled = FALSE; /* Edit this to true to make a default openlayers_styles disabled initially */
   $openlayers_styles->api_version = 1;
-  $openlayers_styles->name = 'messstellen_style';
+  $openlayers_styles->name = 'hw_messstellen_style';
   $openlayers_styles->title = 'Messstellen Style';
   $openlayers_styles->description = 'Basic Messstellen style.';
   $openlayers_styles->data = array(
@@ -24,7 +24,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_styles() {
     'graphicOpacity' => 1,
     'labelAlign' => 'cm',
   );
-  $export['messstellen_style'] = $openlayers_styles;
+  $export['hw_messstellen_style'] = $openlayers_styles;
 
   return $export;
 }
