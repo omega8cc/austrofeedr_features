@@ -35,22 +35,29 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
 
   // Add info about the REST service, which the user has to provide via the UI.
   $service->datatypes = array(
-    'pegelaktuell_result' => array(
-      'label' => 'Pegelaktuell result',
+    'pegelaktuell_list' => array(
+      'label' => 'Pegelaktuell liste',
       'property info' => array(
         'pegelListe' => array(
-          'type' => 'list<struct>',
+          'type' => 'list<pegelaktuell_item>',
           'label' => 'Liste von Hochwasserstand Aktualisierungen',
-          'property info' => array(
-            'wert' => array(
-              'type' => 'decimal',
-              'label' => 'Hochwasserstand',
-            ),
-            'aktualisierung' => array(
-              'type' => 'date',
-              'label' => 'Zeitpunkt',
-            ),
-          ),
+        ),
+      ),
+    ),
+    'pegelaktuell_item' => array(
+      'label' => 'Pegelaktuell item',
+      'property info' => array(
+        'wert' => array(
+          'type' => 'decimal',
+          'label' => 'Hochwasserstand',
+        ),
+        'aktualisierung' => array(
+          'type' => 'date',
+          'label' => 'Zeitpunkt',
+        ),
+        'dbmsnr' => array(
+          'type' => 'text',
+          'label' => 'Messstellen ID (dbmsnr)',
         ),
       ),
     ),
