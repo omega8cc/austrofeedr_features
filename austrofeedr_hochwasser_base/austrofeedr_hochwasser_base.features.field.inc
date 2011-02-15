@@ -45,7 +45,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -73,7 +73,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '8',
+        'weight' => '9',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -123,7 +123,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 4,
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -178,7 +178,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'geofield',
           'settings' => array(),
           'type' => 'default',
-          'weight' => 5,
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -199,7 +199,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'geofield',
         'settings' => array(),
         'type' => 'geofield_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -248,7 +248,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 6,
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -318,7 +318,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 6,
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -383,7 +383,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 3,
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -407,6 +407,59 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '255',
         ),
         'type' => 'text_textfield',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_werte'
+  $fields['node-hw_messstelle-field_hw_werte'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_werte',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'datastore_field',
+      'settings' => array(),
+      'translatable' => '1',
+      'type' => 'datastore_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'datastore_field',
+          'settings' => array(),
+          'type' => 'datastore_field_default_formatter',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_werte',
+      'label' => 'Wasserstand Werte',
+      'required' => 0,
+      'settings' => array(
+        'multiple' => TRUE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'datastore_field',
+        'settings' => array(),
+        'type' => 'datastore_field_widget_hidden',
         'weight' => '4',
       ),
     ),
@@ -446,7 +499,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => 1,
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -471,7 +524,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -504,13 +557,12 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
-            'precision' => '10',
             'prefix_suffix' => TRUE,
             'scale' => 2,
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => 2,
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -535,7 +587,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
