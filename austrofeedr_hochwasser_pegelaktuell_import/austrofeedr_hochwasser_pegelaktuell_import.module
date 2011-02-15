@@ -1,3 +1,17 @@
 <?php
 
 include_once('austrofeedr_hochwasser_pegelaktuell_import.features.inc');
+
+class HochwasserHttpClientXMLFormatter extends HttpClientXMLFormatter {
+
+  /**
+   * Override unserialization in order to preprocess Hochwasser response.
+   * Strip all namespaces as otherwise it doesn't work so far :(
+   */
+  public function unserialize($data) {
+    libxml_use_internal_errors(true);
+    $data = preg_replace("/<wfs:FeatureCollection*/","<wfs:FeatureCollection>", $data);
+    //dpm($data);
+    return parent::unserialize($data);
+  }
+}
