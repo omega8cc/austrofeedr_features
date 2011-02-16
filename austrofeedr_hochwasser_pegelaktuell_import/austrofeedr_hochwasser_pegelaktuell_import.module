@@ -12,7 +12,37 @@ class HochwasserHttpClientXMLFormatter extends HttpClientXMLFormatter {
     libxml_use_internal_errors(true);
     $data = preg_replace("/<wfs:FeatureCollection*/","<wfs:FeatureCollection>", $data);
     $xml = parent::unserialize($data);
-    return $xml;
+    $array = HochwasserHttpClientXMLFormatter::xmlToArray($xml);
+    return $array;
+  }
+
+  /**
+   * Turns the xml structure into an array of values.
+   */
+  public static function xmlToArray(SimpleXMLElement $xml) {
+    $children = $xml->children();
+    foreach ($xml->children() as $name => $element) {
+      $child = self::xmlToArray($element);
+      if(!isset($result_count[$name])) {
+        $result[$name] = $child;
+        $result_count[$name] = 0;
+      }
+      else if(isset($result_count[$name]) && ($result_count[$name] == 1)) {
+        $result_set[$name] = TRUE;
+        $buffer = $result[$name];
+        $result[$name] = array();
+        $result[$name][] = $buffer;
+        $result[$name][] = $child;
+      }
+      else {
+        $result[$name][] = $child;
+      }
+      $result_count[$name]++;
+    }
+    if (!isset($result)) {
+      $result = ($string = (string) $xml) ? $string : NULL;
+    }
+    return $result;
   }
 
 }
@@ -38,9 +68,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_rules_action_info() {
  * Rules action for debugging values.
  */
 function af_rules_debug_action($entity) {
-  //dpm($entity);
-  print_r($entity);
-  debug($entity);
+  dpm($entity);
 }
 
 /**
