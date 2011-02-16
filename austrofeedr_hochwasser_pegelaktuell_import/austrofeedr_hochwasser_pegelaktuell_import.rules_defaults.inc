@@ -12,7 +12,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
       "USES VARIABLES" : {
         "pegelaktuell_item" : {
           "label" : "Pegelaktuell item",
-          "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_item"
+          "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell"
         },
         "messstelle" : { "label" : "Messstelle", "type" : "node" }
       },
@@ -38,38 +38,17 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
       ]
     }
   }');
-  $items['rules_hw_pegelaktuell_list_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_list_processor" : {
+  $items['rules_hw_pegelaktuell_result_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_result_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell List Processor",
       "PLUGIN" : "rule",
       "REQUIRES" : [ "rules" ],
-      "USES VARIABLES" : { "pegelaktuell_list" : {
+      "USES VARIABLES" : { "pegelaktuell_result" : {
           "label" : "Pegelaktuell list",
-          "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_list"
+          "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_result"
         }
       },
       "DO" : [
-        { "drupal_message" : { "message" : "list" } },
-        { "LOOP OVER" : [
-            { "entity_query" : {
-                "USING" : {
-                  "type" : "node",
-                  "property" : "field_hw_dbmsnr",
-                  "value" : [ "list-item:dbmsnr" ],
-                  "limit" : "1"
-                },
-                "PROVIDE" : { "entity_fetched" : { "messstellen" : "Messstellen" } }
-              }
-            },
-            { "component_rules_hw_pegelaktuell_item_processor" : {
-                "USING" : {
-                  "pegelaktuell_item" : [ "list-item" ],
-                  "messstelle" : [ "messstellen:0" ]
-                },
-                "PROVIDE" : { "wert" : { "wert" : "Messwert" } }
-              }
-            }
-          ]
-        }
+        { "drupal_message" : { "message" : "list" } }
       ]
     }
   }');
@@ -84,7 +63,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
         { "wsclient_hw_ehyd_pegelaktuell_custom_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
         { "af_rules_debug_action" : { "entity" : [ "result" ] } },
         { "drupal_message" : { "message" : "asdf" } },
-        { "component_rules_hw_pegelaktuell_list_processor" : { "pegelaktuell_list" : [ "result" ] } }
+        { "component_rules_hw_pegelaktuell_result_processor" : { "pegelaktuell_result" : [ "result" ] } }
       ]
     }
   }');

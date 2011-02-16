@@ -11,10 +11,12 @@ class HochwasserHttpClientXMLFormatter extends HttpClientXMLFormatter {
   public function unserialize($data) {
     libxml_use_internal_errors(true);
     $data = preg_replace("/<wfs:FeatureCollection*/","<wfs:FeatureCollection>", $data);
-    return parent::unserialize($data);
+    $xml = parent::unserialize($data);
+    return $xml;
   }
 
 }
+
 
 /**
  * Implements hook_rules_action_info().
@@ -36,7 +38,9 @@ function austrofeedr_hochwasser_pegelaktuell_import_rules_action_info() {
  * Rules action for debugging values.
  */
 function af_rules_debug_action($entity) {
-  dpm($entity);
+  //dpm($entity);
+  print_r($entity);
+  debug($entity);
 }
 
 /**
@@ -55,23 +59,32 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
 
   // Add info about the REST service, which the user has to provide via the UI.
   $service->datatypes = array(
-    'pegelaktuell_list' => array(
-      'label' => 'Pegelaktuell liste',
+    'pegelaktuell_result' => array(
+      'label' => 'Pegelaktuell result',
       'property info' => array(
-        'pegelListe' => array(
-          'type' => 'list<pegelaktuell_item>',
-          'label' => 'Liste von Hochwasserstand Aktualisierungen',
+        'featureMember' => array(
+          'type' => 'list<featureMember>',
+          'label' => 'Liste von Pegelaktuell featureMember',
         ),
       ),
     ),
-    'pegelaktuell_item' => array(
+    'featureMember' => array(
+      'label' => 'Pegelaktuell featureMember',
+      'property info' => array(
+        'pegelaktuell' => array(
+          'type' => 'pegelaktuell',
+          'label' => 'Pegelaktuell item',
+        ),
+      ),
+    ),
+    'pegelaktuell' => array(
       'label' => 'Pegelaktuell item',
       'property info' => array(
         'wert' => array(
           'type' => 'decimal',
           'label' => 'Hochwasserstand',
         ),
-        'aktualisierung' => array(
+        'zp' => array(
           'type' => 'date',
           'label' => 'Zeitpunkt',
         ),
@@ -96,7 +109,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
   $operation['parameter']['VERSION'] = array('type' => 'hidden', 'default value' => '1.1.0');
 
   // We have to specify the version 1.0
-  $operation['result'] = array('type' => 'pegelaktuell_list', 'label' => 'Pegelaktuell');
+  $operation['result'] = array('type' => 'pegelaktuell_result', 'label' => 'Pegelaktuell');
   $service->operations['pegelaktuell'] = $operation;
   $services[$service->name] = $service;
 
