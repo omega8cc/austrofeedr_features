@@ -61,8 +61,11 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
               }
             },
             { "component_rules_hw_pegelaktuell_item_processor" : {
-                "pegelaktuell_item" : [ "list-item" ],
-                "messstelle" : [ "messstellen:0" ]
+                "USING" : {
+                  "pegelaktuell_item" : [ "list-item" ],
+                  "messstelle" : [ "messstellen:0" ]
+                },
+                "PROVIDE" : { "wert" : { "wert" : "Messwert" } }
               }
             }
           ]

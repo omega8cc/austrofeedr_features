@@ -1,6 +1,7 @@
 core = "7.x"
 dependencies[] = "austrofeedr_hochwasser_base"
 dependencies[] = "rules"
+dependencies[] = "wsclient"
 dependencies[] = "wsclient_rest"
 description = "WFS Import des Pegelaktuell Service"
 features[rules_config][] = "rules_hw_pegelaktuell_item_processor"
