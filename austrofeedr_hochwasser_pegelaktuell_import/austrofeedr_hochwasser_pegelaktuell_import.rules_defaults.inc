@@ -8,7 +8,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
   $items['rules_hw_pegelaktuell_item_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_item_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Item Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "rules", "austrofeedr_hochwasser_pegelaktuell_import" ],
       "USES VARIABLES" : {
         "pegelaktuell_item" : {
           "label" : "Pegelaktuell item",
@@ -20,15 +20,17 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
         { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } }
       ],
       "DO" : [
+        { "af_rules_debug_action" : { "entity" : [ "messstelle" ] } },
         { "data_create" : {
             "USING" : {
               "type" : "field_item_datastore_field",
-              "param_timestamp" : [ "pegelaktuell-item:aktualisierung" ],
+              "param_timestamp" : [ "pegelaktuell-item:zp" ],
               "param_value" : [ "pegelaktuell-item:wert" ]
             },
             "PROVIDE" : { "data_created" : { "wert" : "Messwert" } }
           }
         },
+        { "af_rules_debug_action" : { "entity" : [ "wert" ] } },
         { "list_add" : {
             "list" : [ "messstelle:field-hw-werte" ],
             "item" : [ "wert" ],
@@ -41,7 +43,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
   $items['rules_hw_pegelaktuell_result_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_result_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell List Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules", "austrofeedr_hochwasser_pegelaktuell_import" ],
+      "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "pegelaktuell_result" : {
           "label" : "Pegelaktuell list",
           "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_result"
@@ -49,17 +51,22 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
       },
       "DO" : [
         { "drupal_message" : { "message" : "list" } },
-        { "af_rules_debug_action" : { "entity" : [ "pegelaktuell-result" ] } },
         { "LOOP OVER" : [
-            { "variable_add" : {
+            { "entity_query" : {
                 "USING" : {
-                  "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell",
-                  "value" : [ "list-item:pegelaktuell" ]
+                  "type" : "node",
+                  "property" : "field_hw_dbmsnr",
+                  "value" : [ "list-item:pegelaktuell:dbmsnr" ],
+                  "limit" : "1"
                 },
-                "PROVIDE" : { "variable_added" : { "pegelaktuell" : "Pegelaktuell" } }
+                "PROVIDE" : { "entity_fetched" : { "messstelle" : "Messstelle" } }
               }
             },
-            { "af_rules_debug_action" : { "entity" : [ "pegelaktuell" ] } }
+            { "component_rules_hw_pegelaktuell_item_processor" : {
+                "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
+                "messstelle" : [ "messstelle:0" ]
+              }
+            }
           ]
         }
       ]
