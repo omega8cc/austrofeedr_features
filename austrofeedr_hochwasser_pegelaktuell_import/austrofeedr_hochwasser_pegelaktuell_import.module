@@ -11,7 +11,94 @@ class HochwasserHttpClientXMLFormatter extends HttpClientXMLFormatter {
   public function unserialize($data) {
     libxml_use_internal_errors(true);
     $data = preg_replace("/<wfs:FeatureCollection*/","<wfs:FeatureCollection>", $data);
-    //dpm($data);
     return parent::unserialize($data);
   }
+
+}
+
+/**
+ * Implements hook_rules_action_info().
+ */
+function austrofeedr_hochwasser_pegelaktuell_import_rules_action_info() {
+  return array(
+    'af_rules_debug_action' => array(
+      'base' => 'af_rules_debug_action',
+      'label' => t('Debug'),
+      'group' => t('AustroFeedr'),
+      'parameter' => array(
+        'entity' => array('type' => 'unknown', 'label' => t('Value to debug')),
+      ),
+    ),
+  );
+}
+
+/**
+ * Rules action for debugging values.
+ */
+function af_rules_debug_action($entity) {
+  dpm($entity);
+}
+
+/**
+ * Implementation of hook_default_wsclient_service().
+ */
+function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
+  $services = array();
+
+  // Google Translate service (REST)
+  $service = new WSClientServiceDescription();
+  $service->name = 'hw_pegelaktuell_ehyd_service';
+  $service->label = 'Hochwasser Pegelaktuell eHYD Service';
+  $service->url = 'http://localhost/afdata.xml';
+  $service->type = 'rest';
+  $service->settings['formatter'] = new HochwasserHttpClientXMLFormatter();
+
+  // Add info about the REST service, which the user has to provide via the UI.
+  $service->datatypes = array(
+    'pegelaktuell_list' => array(
+      'label' => 'Pegelaktuell liste',
+      'property info' => array(
+        'pegelListe' => array(
+          'type' => 'list<pegelaktuell_item>',
+          'label' => 'Liste von Hochwasserstand Aktualisierungen',
+        ),
+      ),
+    ),
+    'pegelaktuell_item' => array(
+      'label' => 'Pegelaktuell item',
+      'property info' => array(
+        'wert' => array(
+          'type' => 'decimal',
+          'label' => 'Hochwasserstand',
+        ),
+        'aktualisierung' => array(
+          'type' => 'date',
+          'label' => 'Zeitpunkt',
+        ),
+        'dbmsnr' => array(
+          'type' => 'text',
+          'label' => 'Messstellen ID (dbmsnr)',
+        ),
+      ),
+    ),
+  );
+
+  //xml formatter
+  // wfs:FeatureCollection/gml:featuresMember/ms:wert
+  // wfs:FeatureCollection/gml:featuresMember/ms:zp
+
+  $operation['label'] = 'Pegelaktuell';
+  $operation['url'] = '';
+  $operation['parameter']['key'] = array('type' => 'hidden', 'default value' => '8e2b2df01bef8a1ce65c0abcf6ba39fe');
+  $operation['parameter']['typename'] = array('type' => 'hidden', 'default value' => 'pegelaktuell');
+  $operation['parameter']['service'] = array('type' => 'hidden', 'default value' => 'WFS');
+  $operation['parameter']['REQUEST'] = array('type' => 'hidden', 'default value' => 'GetFeature');
+  $operation['parameter']['VERSION'] = array('type' => 'hidden', 'default value' => '1.1.0');
+
+  // We have to specify the version 1.0
+  $operation['result'] = array('type' => 'pegelaktuell_list', 'label' => 'Pegelaktuell');
+  $service->operations['pegelaktuell'] = $operation;
+  $services[$service->name] = $service;
+
+  return $services;
 }
