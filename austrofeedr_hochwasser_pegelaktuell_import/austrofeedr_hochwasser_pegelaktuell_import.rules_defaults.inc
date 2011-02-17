@@ -8,7 +8,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
   $items['rules_hw_pegelaktuell_item_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_item_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Item Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules", "austrofeedr_hochwasser_pegelaktuell_import" ],
+      "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : {
         "pegelaktuell_item" : {
           "label" : "Pegelaktuell item",
@@ -20,7 +20,6 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
         { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } }
       ],
       "DO" : [
-        { "af_rules_debug_action" : { "entity" : [ "messstelle" ] } },
         { "data_create" : {
             "USING" : {
               "type" : "field_item_datastore_field",
@@ -30,13 +29,8 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
             "PROVIDE" : { "data_created" : { "wert" : "Messwert" } }
           }
         },
-        { "af_rules_debug_action" : { "entity" : [ "wert" ] } },
-        { "list_add" : {
-            "list" : [ "messstelle:field-hw-werte" ],
-            "item" : [ "wert" ],
-            "pos" : "start"
-          }
-        }
+        { "list_add" : { "list" : [ "messstelle:field-hw-werte" ], "item" : [ "wert" ] } },
+        { "entity_save" : { "data" : [ "messstelle" ] } }
       ]
     }
   }');
@@ -50,7 +44,6 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
         }
       },
       "DO" : [
-        { "drupal_message" : { "message" : "list" } },
         { "LOOP OVER" : [
             { "entity_query" : {
                 "USING" : {
@@ -80,7 +73,6 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
       "IF" : [ { "data_is" : { "data" : [ "node:nid" ], "value" : "331" } } ],
       "DO" : [
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
-        { "drupal_message" : { "message" : "asdf" } },
         { "component_rules_hw_pegelaktuell_result_processor" : { "pegelaktuell_result" : [ "result" ] } }
       ]
     }

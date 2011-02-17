@@ -124,10 +124,6 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
     ),
   );
 
-  //xml formatter
-  // wfs:FeatureCollection/gml:featuresMember/ms:wert
-  // wfs:FeatureCollection/gml:featuresMember/ms:zp
-
   $operation['label'] = 'Pegelaktuell';
   $operation['url'] = '';
   $operation['parameter']['key'] = array('type' => 'hidden', 'default value' => '8e2b2df01bef8a1ce65c0abcf6ba39fe');
