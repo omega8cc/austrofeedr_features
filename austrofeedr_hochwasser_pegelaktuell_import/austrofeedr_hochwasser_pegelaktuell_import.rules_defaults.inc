@@ -40,16 +40,13 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
       "LABEL" : "Hochwasser Pegelaktuell Processor",
       "PLUGIN" : "rule",
       "REQUIRES" : [ "rules", "rules_scheduler", "wsclient" ],
-      "USES VARIABLES" : { "date" : {
-          "label" : "Schedule date",
-          "type" : "date"
-        }
-      },
+      "USES VARIABLES" : { "date" : { "label" : "Schedule date", "type" : "date" } },
       "DO" : [
         { "schedule" : {
             "component" : "rules_hw_pegelaktuell_processor",
-            "date" : "+1 hour",
-            "identifier" : "hochwasser_pegelaktuell"
+            "date" : { "select" : "date", "date_offset" : { "value" : 3600 } },
+            "identifier" : "hochwasser_pegelaktuell",
+            "param_date" : { "select" : "date", "date_offset" : { "value" : 3600 } }
           }
         },
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
