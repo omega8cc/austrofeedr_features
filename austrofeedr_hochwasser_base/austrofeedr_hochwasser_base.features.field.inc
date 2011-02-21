@@ -660,14 +660,14 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-update-field_update_bezirk'
-  $fields['node-update-field_update_bezirk'] = array(
+  // Exported field: 'node-update-field_hw_update_bezirk'
+  $fields['node-update-field_hw_update_bezirk'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_update_bezirk',
+      'field_name' => 'field_hw_update_bezirk',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -714,7 +714,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_update_bezirk',
+      'field_name' => 'field_hw_update_bezirk',
       'label' => 'Bezirk',
       'required' => 0,
       'settings' => array(
