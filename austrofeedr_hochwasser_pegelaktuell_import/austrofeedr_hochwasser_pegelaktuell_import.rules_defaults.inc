@@ -17,7 +17,9 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
         "messstelle" : { "label" : "Messstelle", "type" : "node" }
       },
       "IF" : [
-        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } }
+        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } },
+        { "NOT data_is_empty" : { "data" : [ "pegelaktuell-item:wert" ] } },
+        { "NOT data_is_empty" : { "data" : [ "pegelaktuell-item:zp" ] } }
       ],
       "DO" : [
         { "data_create" : {
@@ -34,16 +36,23 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
       ]
     }
   }');
-  $items['rules_hw_pegelaktuell_result_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_result_processor" : {
-      "LABEL" : "Hochwasser Pegelaktuell List Processor",
+  $items['rules_hw_pegelaktuell_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_processor" : {
+      "LABEL" : "Hochwasser Pegelaktuell Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules" ],
-      "USES VARIABLES" : { "pegelaktuell_result" : {
-          "label" : "Pegelaktuell list",
-          "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_result"
+      "REQUIRES" : [ "rules", "rules_scheduler", "wsclient" ],
+      "USES VARIABLES" : { "date" : {
+          "label" : "Schedule date",
+          "type" : "date"
         }
       },
       "DO" : [
+        { "schedule" : {
+            "component" : "rules_hw_pegelaktuell_processor",
+            "date" : "+1 hour",
+            "identifier" : "hochwasser_pegelaktuell"
+          }
+        },
+        { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
         { "LOOP OVER" : [
             { "entity_query" : {
                 "USING" : {
@@ -62,18 +71,6 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_rules_configuration(
             }
           ]
         }
-      ]
-    }
-  }');
-  $items['rules_hw_pegelaktuell_trigger'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_trigger" : {
-      "LABEL" : "Hochwasser Pegelaktuell Trigger",
-      "PLUGIN" : "reaction rule",
-      "REQUIRES" : [ "rules", "wsclient" ],
-      "ON" : [ "node_view" ],
-      "IF" : [ { "data_is" : { "data" : [ "node:nid" ], "value" : "331" } } ],
-      "DO" : [
-        { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
-        { "component_rules_hw_pegelaktuell_result_processor" : { "pegelaktuell_result" : [ "result" ] } }
       ]
     }
   }');
