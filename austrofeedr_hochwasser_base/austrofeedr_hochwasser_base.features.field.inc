@@ -73,7 +73,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '9',
+        'weight' => '10',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -147,6 +147,74 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_dbmsnr'
+  $fields['node-hw_messstelle-field_hw_dbmsnr'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_dbmsnr',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          '0' => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 9,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_dbmsnr',
+      'label' => 'ID (dbmsnr)',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
         'weight' => '1',
       ),
     ),
@@ -199,7 +267,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'geofield',
         'settings' => array(),
         'type' => 'geofield_textfield',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -269,7 +337,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -339,7 +407,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -407,7 +475,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '255',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -460,7 +528,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'datastore_field',
         'settings' => array(),
         'type' => 'datastore_field_widget_hidden',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -524,7 +592,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -587,7 +655,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
