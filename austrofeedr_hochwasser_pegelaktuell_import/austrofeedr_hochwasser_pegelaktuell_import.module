@@ -81,7 +81,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
   $service = new WSClientServiceDescription();
   $service->name = 'hw_pegelaktuell_ehyd_service';
   $service->label = 'Hochwasser Pegelaktuell eHYD Service';
-  $service->url = 'http://localhost/afdata.xml';
+  $service->url = 'http://gis.lebensministerium.at/wmsgw/';
   $service->type = 'rest';
   $service->settings['formatter'] = new HochwasserHttpClientXMLFormatter();
 
