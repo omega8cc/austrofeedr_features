@@ -23,7 +23,7 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
     'parser' => array(
       'plugin_key' => 'FeedsCSVParser',
       'config' => array(
-        'delimiter' => ',',
+        'delimiter' => ';',
         'no_headers' => 0,
       ),
     ),
@@ -67,6 +67,11 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
           6 => array(
             'source' => 'lng',
             'target' => 'field_hw_geoposition:lon',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'DBMSNR',
+            'target' => 'field_hw_dbmsnr',
             'unique' => FALSE,
           ),
         ),
