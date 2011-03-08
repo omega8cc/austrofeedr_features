@@ -53,12 +53,9 @@ function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
   else{
     $status = 'Niederwasser';
   }
-  dpm($status);
 
-  // Map to taxonomy term.
+  // Map status to taxonomy term and return.
   $terms = (taxonomy_get_term_by_name(t($status)));
   $status_term = array_shift($terms);
-  dpm($status_term);
-
   return array('hw_status_term' => $status_term->tid);
 }
