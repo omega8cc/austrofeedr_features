@@ -26,6 +26,16 @@ function austrofeedr_hochwasser_processor_rules_action_info() {
  * Rules action for Hochwasser Wasserstand Update.
  */
 function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
+  // Require all necessary fields to be set.
+  if(!(isset($pegelaktuell_item['wert'])
+   && isset($messstelle->field_hw_wert_mq['und'])
+   && isset($messstelle->field_hw_wert_mjnq['und'])
+   && isset($messstelle->field_hw_wert_hq1['und'])
+   && isset($messstelle->field_hw_wert_hq10['und'])
+   && isset($messstelle->field_hw_wert_hq30['und']))) {
+    return array();
+  }
+
   // Extract necessary fields.
   $wert = $pegelaktuell_item['wert'];
   $mq   = $messstelle->field_hw_wert_mq['und'][0]['value'];
