@@ -8,7 +8,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_pegelaktuell_item_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_item_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Item Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "rules", "austrofeedr_hochwasser_processor" ],
       "USES VARIABLES" : {
         "pegelaktuell_item" : {
           "label" : "Pegelaktuell item",
@@ -17,9 +17,11 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         "messstelle" : { "label" : "Messstelle", "type" : "node" }
       },
       "IF" : [
-        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } },
         { "NOT data_is_empty" : { "data" : [ "pegelaktuell-item:wert" ] } },
-        { "NOT data_is_empty" : { "data" : [ "pegelaktuell-item:zp" ] } }
+        { "NOT data_is_empty" : { "data" : [ "pegelaktuell-item:zp" ] } },
+        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } },
+        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_status" } },
+        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_trend" } }
       ],
       "DO" : [
         { "data_create" : {
@@ -32,6 +34,19 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
           }
         },
         { "list_add" : { "list" : [ "messstelle:field-hw-werte" ], "item" : [ "wert" ] } },
+        { "hw_wasserstand_update" : {
+            "USING" : {
+              "pegelaktuell_item" : [ "pegelaktuell_item" ],
+              "messstelle" : [ "messstelle" ]
+            },
+            "PROVIDE" : { "hw_status_term" : { "hw_status_term" : "Hochwasser status term" } }
+          }
+        },
+        { "data_set" : {
+            "data" : [ "messstelle:field-hw-status" ],
+            "value" : [ "hw-status-term" ]
+          }
+        },
         { "entity_save" : { "data" : [ "messstelle" ] } }
       ]
     }
@@ -39,7 +54,12 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_pegelaktuell_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules", "rules_scheduler", "wsclient" ],
+      "REQUIRES" : [
+        "rules",
+        "rules_scheduler",
+        "wsclient",
+        "austrofeedr_hochwasser_pegelaktuell_import"
+      ],
       "USES VARIABLES" : { "date" : { "label" : "Schedule date", "type" : "date" } },
       "DO" : [
         { "schedule" : {
@@ -50,23 +70,31 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
           }
         },
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
-        { "LOOP OVER" : [
-            { "entity_query" : {
-                "USING" : {
-                  "type" : "node",
-                  "property" : "field_hw_dbmsnr",
-                  "value" : [ "list-item:pegelaktuell:dbmsnr" ],
-                  "limit" : "1"
-                },
-                "PROVIDE" : { "entity_fetched" : { "messstelle" : "Messstelle" } }
+        { "LOOP" : {
+            "USING" : { "list" : [ "result:featureMember" ] },
+            "DO" : [
+              { "entity_query" : {
+                  "USING" : {
+                    "type" : "node",
+                    "property" : "field_hw_dbmsnr",
+                    "value" : [ "list-item:pegelaktuell:dbmsnr" ],
+                    "limit" : "1"
+                  },
+                  "PROVIDE" : { "entity_fetched" : { "messstelle" : "Messstelle" } }
+                }
+              },
+              { "component_rules_hw_pegelaktuell_item_processor" : {
+                  "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
+                  "messstelle" : [ "messstelle:0" ]
+                }
               }
-            },
-            { "component_rules_hw_pegelaktuell_item_processor" : {
-                "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
-                "messstelle" : [ "messstelle:0" ]
-              }
-            }
-          ]
+            ]
+          }
+        },
+        { "LOOP" : {
+            "USING" : { "list" : [ "site:current-user:roles" ] },
+            "DO" : [ { "af_rules_debug_action" : { "entity" : [ "list-item" ] } } ]
+          }
         }
       ]
     }
