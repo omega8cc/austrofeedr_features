@@ -74,6 +74,56 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
             'target' => 'field_hw_dbmsnr',
             'unique' => FALSE,
           ),
+          8 => array(
+            'source' => 'MJNQ',
+            'target' => 'field_hw_wert_mjnq',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'MQ',
+            'target' => 'field_hw_wert_mq',
+            'unique' => FALSE,
+          ),
+          10 => array(
+            'source' => 'HQ1',
+            'target' => 'field_hw_wert_hq1',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'HQ2',
+            'target' => 'field_hw_wert_hq2',
+            'unique' => FALSE,
+          ),
+          12 => array(
+            'source' => 'HQ5',
+            'target' => 'field_hw_wert_hq5',
+            'unique' => FALSE,
+          ),
+          13 => array(
+            'source' => 'HQ10',
+            'target' => 'field_hw_wert_hq10',
+            'unique' => FALSE,
+          ),
+          14 => array(
+            'source' => 'HQ30',
+            'target' => 'field_hw_wert_hq30',
+            'unique' => FALSE,
+          ),
+          15 => array(
+            'source' => 'HQ100',
+            'target' => 'field_hw_wert_hq100',
+            'unique' => FALSE,
+          ),
+          16 => array(
+            'source' => 'RHHQ',
+            'target' => 'field_hw_wert_rhhq',
+            'unique' => FALSE,
+          ),
+          17 => array(
+            'source' => 'INTERNET',
+            'target' => 'field_hw_url',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
