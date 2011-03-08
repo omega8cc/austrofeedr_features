@@ -1,0 +1,8 @@
+core = "7.x"
+dependencies[] = "austrofeedr_hochwasser_base"
+dependencies[] = "datastore_visualization"
+description = "austrofeedr_hochwasser_messwerte_list"
+features[views][] = "hw_messwerte_view"
+features[views_api][] = "api:3.0-alpha1"
+name = "AustroFeedr Hochwasser Messwerte List"
+package = "Features"
