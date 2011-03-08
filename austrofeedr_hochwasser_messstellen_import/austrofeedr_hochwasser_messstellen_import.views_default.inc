@@ -90,7 +90,7 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
-  /* Field: Fields: field_hw_dbmsnr */
+  /* Field: Fields: ID (dbmsnr) */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_hw_dbmsnr';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
@@ -98,10 +98,11 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  /* Field: Fields: field_hw_bezirk */
+  /* Field: Fields: Bezirk */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id']['label'] = 'field_hw_bezirk';
   $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['absolute'] = 0;
@@ -121,23 +122,23 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['delta_offset'] = '0';
   $handler->display->display_options['fields']['entity_id']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['entity_id']['field_api_classes'] = 0;
-  /* Field: Fields: field_hw_status */
+  /* Field: Fields: Wasserstand Status */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_hw_status';
   $handler->display->display_options['fields']['entity_id_3']['field'] = 'entity_id';
-  /* Field: Fields: field_hw_trend */
+  /* Field: Fields: Wasserstand Trend */
   $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
   $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_hw_trend';
   $handler->display->display_options['fields']['entity_id_4']['field'] = 'entity_id';
-  /* Field: Fields: field_hw_geoposition */
+  /* Field: Fields: Geo Position */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_hw_geoposition';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
-  /* Field: Fields: field_hw_werte */
+  /* Field: Fields: Wasserstand Werte */
   $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
   $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_hw_werte';
   $handler->display->display_options['fields']['entity_id_6']['field'] = 'entity_id';
-  /* Field: Fields: field_hw_url */
+  /* Field: Fields: URL */
   $handler->display->display_options['fields']['entity_id_5']['id'] = 'entity_id_5';
   $handler->display->display_options['fields']['entity_id_5']['table'] = 'field_data_field_hw_url';
   $handler->display->display_options['fields']['entity_id_5']['field'] = 'entity_id';
@@ -157,14 +158,14 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
     t('Sort By'),
     t('Asc'),
     t('Desc'),
-    t('field_hw_dbmsnr'),
+    t('ID (dbmsnr)'),
     t('Title'),
     t('field_hw_bezirk'),
-    t('field_hw_status'),
-    t('field_hw_trend'),
-    t('field_hw_geoposition'),
-    t('field_hw_werte'),
-    t('field_hw_url'),
+    t('Wasserstand Status'),
+    t('Wasserstand Trend'),
+    t('Geo Position'),
+    t('Wasserstand Werte'),
+    t('URL'),
     t('Updated date'),
     t('Page'),
   );
