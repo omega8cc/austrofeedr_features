@@ -5,6 +5,34 @@
  */
 function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items = array();
+  $items['rules_hochwasser_update_processing'] = entity_import('rules_config', '{ "rules_hochwasser_update_processing" : {
+      "LABEL" : "Hochwasser Update Processing",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules", "feeds" ],
+      "ON" : [ "feeds_import_subscription_feeds_importer" ],
+      "IF" : [
+        { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_update_bezirk" } }
+      ],
+      "DO" : [
+        { "entity_query" : {
+            "USING" : {
+              "type" : "taxonomy_vocabulary",
+              "property" : "machine_name",
+              "value" : "hw_austria",
+              "limit" : "1"
+            },
+            "PROVIDE" : { "entity_fetched" : { "bezirke" : "Bezirke" } }
+          }
+        },
+        { "component_rules_autotag_tag" : {
+            "text" : [ "node:body:value" ],
+            "vocabulary" : [ "bezirke:0" ],
+            "target_terms" : [ "node:field-update-bezirk" ]
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_hw_pegelaktuell_item_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_item_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Item Processor",
       "PLUGIN" : "rule",
@@ -94,34 +122,6 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "LOOP" : {
             "USING" : { "list" : [ "site:current-user:roles" ] },
             "DO" : [ { "af_rules_debug_action" : { "entity" : [ "list-item" ] } } ]
-          }
-        }
-      ]
-    }
-  }');
-  $items['rules_hochwasser_update_processing'] = entity_import('rules_config', '{ "rules_hochwasser_update_processing" : {
-      "LABEL" : "Hochwasser Update Processing",
-      "PLUGIN" : "reaction rule",
-      "REQUIRES" : [ "rules", "feeds" ],
-      "ON" : [ "feeds_import_subscription_feeds_importer" ],
-      "IF" : [
-        { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_update_bezirk" } }
-      ],
-      "DO" : [
-        { "entity_query" : {
-            "USING" : {
-              "type" : "taxonomy_vocabulary",
-              "property" : "machine_name",
-              "value" : "hw_austria",
-              "limit" : "1"
-            },
-            "PROVIDE" : { "entity_fetched" : { "bezirke" : "Bezirke" } }
-          }
-        },
-        { "component_rules_autotag_tag" : {
-            "text" : [ "node:body:value" ],
-            "vocabulary" : [ "bezirke:0" ],
-            "target_terms" : [ "node:field-update-bezirk" ]
           }
         }
       ]
