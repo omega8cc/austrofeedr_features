@@ -61,6 +61,18 @@ function austrofeedr_hochwasser_pegelaktuell_import_rules_action_info() {
         'entity' => array('type' => 'unknown', 'label' => t('Value to debug')),
       ),
     ),
+    'hw_wasserstand_update' => array(
+      'base' => 'hw_wasserstand_update_action',
+      'label' => t('Hochwasser Wasserstand Update'),
+      'group' => t('AustroFeedr'),
+      'parameter' => array(
+        'pegelaktuell_item' => array('type' => 'wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell', 'label' => t('Pegelaktuell item')),
+        'messstelle' => array('type' => 'node', 'label' => t('Messstelle')),
+      ),
+      'provides' => array(
+        'hw_status_term' => array('type' => 'taxonomy_term', 'label' => t('Hochwasser status term')),
+      ),
+    ),
   );
 }
 
@@ -70,6 +82,48 @@ function austrofeedr_hochwasser_pegelaktuell_import_rules_action_info() {
 function af_rules_debug_action($entity) {
   dpm($entity);
 }
+
+/**
+ * Rules action for Hochwasser Wasserstand Update.
+ */
+function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
+  // Extract necessary fields.
+  $wert = $pegelaktuell_item['wert'];
+  $mq   = $messstelle->field_hw_wert_mq['und'][0]['value'];
+  $mjnq = $messstelle->field_hw_wert_mjnq['und'][0]['value'];
+  $hq1  = $messstelle->field_hw_wert_hq1['und'][0]['value'];
+  $hq10 = $messstelle->field_hw_wert_hq10['und'][0]['value'];
+  $hq30 = $messstelle->field_hw_wert_hq30['und'][0]['value'];
+
+  // Hochwasserstand interpretation.
+  if($wert > $hq30) {
+    $status = 'Hochwasserstufe 3';
+  }
+  else if($wert > $hq10) {
+    $status = 'Hochwasserstufe 2';
+  }
+  else if($wert > $hq1) {
+    $status = 'Hochwasserstufe 1';
+  }
+  else if($wert > ($hq1 + $mq) / 2) {
+    $status = 'erhöhte Wasserführung';
+  }
+  else if($wert > ($mq + $mjnq) / 2) {
+    $status = 'Mittelwasser';
+  }
+  else{
+    $status = 'Niederwasser';
+  }
+  dpm($status);
+
+  // Map to taxonomy term.
+  $terms = (taxonomy_get_term_by_name(t($status)));
+  $status_term = array_shift($terms);
+  dpm($status_term);
+
+  return array('hw_status_term' => $status_term->tid);
+}
+
 
 /**
  * Implementation of hook_default_wsclient_service().
