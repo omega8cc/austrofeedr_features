@@ -82,18 +82,14 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_pegelaktuell_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [
-        "rules",
-        "rules_scheduler",
-        "wsclient",
-        "austrofeedr_hochwasser_pegelaktuell_import"
-      ],
+      "REQUIRES" : [ "rules", "rules_scheduler", "wsclient" ],
       "USES VARIABLES" : { "date" : { "label" : "Schedule date", "type" : "date" } },
       "DO" : [
         { "schedule" : {
             "component" : "rules_hw_pegelaktuell_processor",
             "date" : { "select" : "date", "date_offset" : { "value" : 3600 } },
-            "identifier" : "hochwasser_pegelaktuell"
+            "identifier" : "hochwasser_pegelaktuell",
+            "param_date" : { "select" : "date", "date_offset" : { "value" : 3600 } }
           }
         },
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
@@ -116,11 +112,6 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
                 }
               }
             ]
-          }
-        },
-        { "LOOP" : {
-            "USING" : { "list" : [ "site:current-user:roles" ] },
-            "DO" : [ { "af_rules_debug_action" : { "entity" : [ "list-item" ] } } ]
           }
         }
       ]
