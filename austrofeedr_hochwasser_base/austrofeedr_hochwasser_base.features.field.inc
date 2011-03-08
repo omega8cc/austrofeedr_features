@@ -119,7 +119,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
@@ -187,11 +187,11 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 9,
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -242,7 +242,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'geofield',
           'settings' => array(),
           'type' => 'default',
@@ -312,7 +312,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
@@ -382,7 +382,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
@@ -447,7 +447,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -480,6 +480,573 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-hw_messstelle-field_hw_wert_hq1'
+  $fields['node-hw_messstelle-field_hw_wert_hq1'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_hq1',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '1-jährliches Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '12',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_hq1',
+      'label' => 'Kennwert HQ1',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '13',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_hq10'
+  $fields['node-hw_messstelle-field_hw_wert_hq10'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_hq10',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '10-jährliches Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '15',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_hq10',
+      'label' => 'Kennwert HQ10',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '16',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_hq100'
+  $fields['node-hw_messstelle-field_hw_wert_hq100'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_hq100',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '100-jährliches Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '17',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_hq100',
+      'label' => 'Kennwert HQ100',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '18',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_hq2'
+  $fields['node-hw_messstelle-field_hw_wert_hq2'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_hq2',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '2-jährliches Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '13',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_hq2',
+      'label' => 'Kennwert HQ2',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '14',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_hq30'
+  $fields['node-hw_messstelle-field_hw_wert_hq30'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_hq30',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '30-jährliches Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '16',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_hq30',
+      'label' => 'Kennwert HQ30',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '17',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_hq5'
+  $fields['node-hw_messstelle-field_hw_wert_hq5'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_hq5',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '5-jährliches Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '14',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_hq5',
+      'label' => 'Kennwert HQ5',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '15',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_mjnq'
+  $fields['node-hw_messstelle-field_hw_wert_mjnq'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_mjnq',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Mittleres jährliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte über den gesamten Beobachtungszeitraum einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '10',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_mjnq',
+      'label' => 'Kennwert MJNQ',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '11',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_mq'
+  $fields['node-hw_messstelle-field_hw_wert_mq'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_mq',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Mittelwasser über den gesamten Beobachtungszeitraum einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '11',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_mq',
+      'label' => 'Kennwert MQ',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '12',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_wert_rhhq'
+  $fields['node-hw_messstelle-field_hw_wert_rhhq'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_wert_rhhq',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+      ),
+      'translatable' => '1',
+      'type' => 'number_float',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Rechnerisch höchstes Hochwasser einer Messstelle.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '18',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_wert_rhhq',
+      'label' => 'Kennwert RHHQ',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '19',
+      ),
+    ),
+  );
+
   // Exported field: 'node-hw_messstelle-field_hw_werte'
   $fields['node-hw_messstelle-field_hw_werte'] = array(
     'field_config' => array(
@@ -502,7 +1069,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'datastore_field',
           'settings' => array(),
           'type' => 'datastore_field_default_formatter',
@@ -558,7 +1125,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
@@ -621,7 +1188,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
@@ -847,6 +1414,37 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
     ),
   );
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('1-jährliches Hochwasser einer Messstelle.');
+  t('10-jährliches Hochwasser einer Messstelle.');
+  t('100-jährliches Hochwasser einer Messstelle.');
+  t('2-jährliches Hochwasser einer Messstelle.');
+  t('30-jährliches Hochwasser einer Messstelle.');
+  t('5-jährliches Hochwasser einer Messstelle.');
+  t('Bezirk');
+  t('Body');
+  t('Geo Position');
+  t('ID (dbmsnr)');
+  t('Kennwert HQ1');
+  t('Kennwert HQ10');
+  t('Kennwert HQ100');
+  t('Kennwert HQ2');
+  t('Kennwert HQ30');
+  t('Kennwert HQ5');
+  t('Kennwert MJNQ');
+  t('Kennwert MQ');
+  t('Kennwert RHHQ');
+  t('Latitude');
+  t('Longitude');
+  t('Mittelwasser über den gesamten Beobachtungszeitraum einer Messstelle.');
+  t('Mittleres jährliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte über den gesamten Beobachtungszeitraum einer Messstelle.');
+  t('Rechnerisch höchstes Hochwasser einer Messstelle.');
+  t('URL');
+  t('Wasserstand Status');
+  t('Wasserstand Trend');
+  t('Wasserstand Werte');
 
   return $fields;
 }
