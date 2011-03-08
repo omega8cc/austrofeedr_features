@@ -146,6 +146,68 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  /* Field: Fields: Kennwert HQ1 */
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['id'] = 'field_hw_wert_hq1';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['table'] = 'field_data_field_hw_wert_hq1';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['field'] = 'field_hw_wert_hq1';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['label'] = 'Kennwert HQ10';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['field_api_classes'] = 0;
+  /* Field: Fields: Kennwert HQ10 */
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['id'] = 'field_hw_wert_hq10';
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['table'] = 'field_data_field_hw_wert_hq10';
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['field'] = 'field_hw_wert_hq10';
+  /* Field: Fields: Kennwert HQ100 */
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['id'] = 'field_hw_wert_hq100';
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['table'] = 'field_data_field_hw_wert_hq100';
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['field'] = 'field_hw_wert_hq100';
+  /* Field: Fields: Kennwert HQ2 */
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['id'] = 'field_hw_wert_hq2';
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['table'] = 'field_data_field_hw_wert_hq2';
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['field'] = 'field_hw_wert_hq2';
+  /* Field: Fields: Kennwert HQ30 */
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['id'] = 'field_hw_wert_hq30';
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['table'] = 'field_data_field_hw_wert_hq30';
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['field'] = 'field_hw_wert_hq30';
+  /* Field: Fields: Kennwert HQ5 */
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['id'] = 'field_hw_wert_hq5';
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['table'] = 'field_data_field_hw_wert_hq5';
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['field'] = 'field_hw_wert_hq5';
+  /* Field: Fields: Kennwert MJNQ */
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['id'] = 'field_hw_wert_mjnq';
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['table'] = 'field_data_field_hw_wert_mjnq';
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['field'] = 'field_hw_wert_mjnq';
+  /* Field: Fields: Kennwert MQ */
+  $handler->display->display_options['fields']['field_hw_wert_mq']['id'] = 'field_hw_wert_mq';
+  $handler->display->display_options['fields']['field_hw_wert_mq']['table'] = 'field_data_field_hw_wert_mq';
+  $handler->display->display_options['fields']['field_hw_wert_mq']['field'] = 'field_hw_wert_mq';
+  /* Field: Fields: Kennwert RHHQ */
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['id'] = 'field_hw_wert_rhhq';
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['table'] = 'field_data_field_hw_wert_rhhq';
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['field'] = 'field_hw_wert_rhhq';
+  /* Field: Fields: URL */
+  $handler->display->display_options['fields']['field_hw_url']['id'] = 'field_hw_url';
+  $handler->display->display_options['fields']['field_hw_url']['table'] = 'field_data_field_hw_url';
+  $handler->display->display_options['fields']['field_hw_url']['field'] = 'field_hw_url';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
@@ -167,6 +229,14 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
     t('Wasserstand Werte'),
     t('URL'),
     t('Updated date'),
+    t('Kennwert HQ10'),
+    t('Kennwert HQ100'),
+    t('Kennwert HQ2'),
+    t('Kennwert HQ30'),
+    t('Kennwert HQ5'),
+    t('Kennwert MJNQ'),
+    t('Kennwert MQ'),
+    t('Kennwert RHHQ'),
     t('Page'),
   );
 
