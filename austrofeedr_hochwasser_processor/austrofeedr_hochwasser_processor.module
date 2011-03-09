@@ -88,27 +88,30 @@ function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
 function hw_wasserstand_update_trend_action($pegelaktuell_item, $messstelle) {
   // Require all necessary fields to be set.
   if(!(isset($pegelaktuell_item['wert'])
-   && isset($messstelle->field_hw_werte['und']))) {
+   && isset($messstelle->field_hw_werte['und'])
+   && (count($messstelle->field_hw_werte['und']) > 1))) {
     return array();
   }
 
   // Extract necessary fields.
   $wert = $pegelaktuell_item['wert'];
-  $old = $messstelle->field_hw_werte['und'][0]['value'];
+  $index = count($messstelle->field_hw_werte['und']) - 2;
+  $old = $messstelle->field_hw_werte['und'][$index]['value'];
 
   // Hochwasserstand interpretation.
   if($wert > $old) {
-    $status = 'steigend';
+    $trend = 'steigend';
   }
   else if($wert == $old) {
-    $status = 'gleichbleibend';
+    $trend = 'gleichbleibend';
   }
   else {
-    $status = 'fallend';
+    $trend = 'fallend';
   }
 
   // Map status to taxonomy term and return.
   $terms = (taxonomy_get_term_by_name(t($trend)));
   $status_term = array_shift($terms);
+
   return array('hw_trend_term' => $status_term->tid);
 }
