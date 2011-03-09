@@ -75,6 +75,19 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "value" : [ "hw-status-term" ]
           }
         },
+        { "hw_wasserstand_update_trend" : {
+            "USING" : {
+              "pegelaktuell_item" : [ "pegelaktuell_item" ],
+              "messstelle" : [ "messstelle" ]
+            },
+            "PROVIDE" : { "hw_trend_term" : { "hw_trend_term" : "Hochwasser trend term" } }
+          }
+        },
+        { "data_set" : {
+            "data" : [ "messstelle:field-hw-trend" ],
+            "value" : [ "hw-trend-term" ]
+          }
+        },
         { "entity_save" : { "data" : [ "messstelle" ] } }
       ]
     }
@@ -120,7 +133,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_pegelaktuell_test_trigger'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_test_trigger" : {
       "LABEL" : "Hochwasser Pegelaktuell Test Trigger",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "rules", "devel" ],
       "USES VARIABLES" : {
         "wasserstand" : { "label" : "Wasserstand", "type" : "decimal" },
         "messstelle_id_dbmsnr" : { "label" : "Messstelle ID (dbmsnr)", "type" : "text" }
@@ -150,7 +163,8 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "pegelaktuell_item" : [ "pegelaktuell_item" ],
             "messstelle" : [ "messstellen:0" ]
           }
-        }
+        },
+        { "devel_debug" : { "value" : [ "messstelle-id-dbmsnr" ] } }
       ]
     }
   }');

@@ -9,7 +9,7 @@ function austrofeedr_hochwasser_processor_rules_action_info() {
   return array(
     'hw_wasserstand_update' => array(
       'base' => 'hw_wasserstand_update_action',
-      'label' => t('Hochwasser Wasserstand Update'),
+      'label' => t('Hochwasser Wasserstand update status'),
       'group' => t('AustroFeedr'),
       'parameter' => array(
         'pegelaktuell_item' => array('type' => 'wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell', 'label' => t('Pegelaktuell item')),
@@ -19,11 +19,23 @@ function austrofeedr_hochwasser_processor_rules_action_info() {
         'hw_status_term' => array('type' => 'taxonomy_term', 'label' => t('Hochwasser status term')),
       ),
     ),
+    'hw_wasserstand_update_trend' => array(
+      'base' => 'hw_wasserstand_update_trend_action',
+      'label' => t('Hochwasser Wasserstand update trend'),
+      'group' => t('AustroFeedr'),
+      'parameter' => array(
+        'pegelaktuell_item' => array('type' => 'wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell', 'label' => t('Pegelaktuell item')),
+        'messstelle' => array('type' => 'node', 'label' => t('Messstelle')),
+      ),
+      'provides' => array(
+        'hw_trend_term' => array('type' => 'taxonomy_term', 'label' => t('Hochwasser trend term')),
+      ),
+    ),
   );
 }
 
 /**
- * Rules action for Hochwasser Wasserstand Update.
+ * Rules action for Hochwasser Wasserstand update status.
  */
 function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
   // Require all necessary fields to be set.
@@ -68,4 +80,37 @@ function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
   $terms = (taxonomy_get_term_by_name(t($status)));
   $status_term = array_shift($terms);
   return array('hw_status_term' => $status_term->tid);
+}
+
+/**
+ * Rules action for Hochwasser Wasserstand update trend.
+ */
+function hw_wasserstand_update_trend_action($pegelaktuell_item, $messstelle) {
+  // Require all necessary fields to be set.
+  if(!(isset($pegelaktuell_item['wert'])
+   && isset($messstelle->field_hw_werte['und']))) {
+    return array();
+  }
+
+  dpm($messstelle->field_hw_werte['und']);
+
+  // Extract necessary fields.
+  $wert = $pegelaktuell_item['wert'];
+  $old = $messstelle->field_hw_werte['und'][0]['value'];
+
+  // Hochwasserstand interpretation.
+  if($wert > $old) {
+    $status = 'steigend';
+  }
+  else if($wert == $old) {
+    $status = 'gleichbleibend';
+  }
+  else {
+    $status = 'fallend';
+  }
+
+  // Map status to taxonomy term and return.
+  $terms = (taxonomy_get_term_by_name(t($trend)));
+  $status_term = array_shift($terms);
+  return array('hw_trend_term' => $status_term->tid);
 }
