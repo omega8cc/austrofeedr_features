@@ -92,8 +92,6 @@ function hw_wasserstand_update_trend_action($pegelaktuell_item, $messstelle) {
     return array();
   }
 
-  dpm($messstelle->field_hw_werte['und']);
-
   // Extract necessary fields.
   $wert = $pegelaktuell_item['wert'];
   $old = $messstelle->field_hw_werte['und'][0]['value'];
