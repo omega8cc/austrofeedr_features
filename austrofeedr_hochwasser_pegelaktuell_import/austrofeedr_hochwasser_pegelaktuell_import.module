@@ -84,6 +84,8 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
   $service->label = 'Hochwasser Pegelaktuell eHYD Service';
   $service->url = 'http://gis.lebensministerium.at/wmsgw/';
   $service->type = 'rest';
+
+  // @todo: Support custom formatter to be exportable issue: http://drupal.org/node/1087538
   $service->settings['formatter'] = new HochwasserHttpClientXMLFormatter();
 
   // Add info about the REST service, which the user has to provide via the UI.
@@ -133,7 +135,6 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
   $operation['parameter']['REQUEST'] = array('type' => 'hidden', 'default value' => 'GetFeature');
   $operation['parameter']['VERSION'] = array('type' => 'hidden', 'default value' => '1.1.0');
 
-  // We have to specify the version 1.0
   $operation['result'] = array('type' => 'pegelaktuell_result', 'label' => 'Pegelaktuell');
   $service->operations['pegelaktuell'] = $operation;
   $services[$service->name] = $service;
