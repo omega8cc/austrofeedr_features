@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_messstellen_list.views_default.inc
+ */
 
 /**
  * Implementation of hook_views_default_views().
@@ -19,7 +23,6 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -82,7 +85,7 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'messstellen/list';
+  $handler->display->display_options['path'] = 'messstellen-list';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Messstellen Liste';
   $handler->display->display_options['menu']['weight'] = '0';

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_messstellen_list.features.inc
+ */
 
 /**
  * Implementation of hook_views_api().
