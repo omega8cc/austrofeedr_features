@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_messwerte_list.views_default.inc
+ */
 
 /**
  * Implementation of hook_views_default_views().
@@ -24,15 +28,39 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'datastore_fusioncharts';
-  $handler->display->display_options['style_options']['num_values'] = '0';
-  $handler->display->display_options['style_options']['chart_width'] = '400';
-  $handler->display->display_options['style_options']['chart_height'] = '300';
-  $handler->display->display_options['style_options']['chart_type'] = 'Line.swf';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '100';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['grouping'] = 'title';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
   /* Field: Fields: Wasserstand Werte */
   $handler->display->display_options['fields']['field_hw_werte']['id'] = 'field_hw_werte';
   $handler->display->display_options['fields']['field_hw_werte']['table'] = 'field_data_field_hw_werte';
   $handler->display->display_options['fields']['field_hw_werte']['field'] = 'field_hw_werte';
+  $handler->display->display_options['fields']['field_hw_werte']['label'] = '';
   $handler->display->display_options['fields']['field_hw_werte']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['alter']['absolute'] = 0;
@@ -47,7 +75,7 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['fields']['field_hw_werte']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_hw_werte']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_werte']['group_rows'] = 1;
+  $handler->display->display_options['fields']['field_hw_werte']['group_rows'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_hw_werte']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['field_api_classes'] = 0;
@@ -55,9 +83,9 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['nid']['style_plugin'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['default_argument_options']['argument'] = '215';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
 
@@ -79,7 +107,6 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('Wasserstand Werte'),
     t('All'),
     t('Page'),
   );

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_messstellen_map.openlayers_presets.inc
+ */
 
 /**
  * Implementation of hook_openlayers_presets().
