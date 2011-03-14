@@ -1,6 +1,7 @@
 core = "7.x"
 dependencies[] = "austrofeedr_base_common"
 dependencies[] = "datastore_field"
+dependencies[] = "datastore_visualization"
 dependencies[] = "features"
 dependencies[] = "geofield"
 dependencies[] = "number"

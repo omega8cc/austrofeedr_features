@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_base.features.field.inc
+ */
 
 /**
  * Implementation of hook_field_default_fields().
@@ -13,7 +17,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(
-        '0' => 'node',
+        0 => 'node',
       ),
       'field_name' => 'body',
       'foreign keys' => array(
@@ -26,7 +30,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'format' => array(
-          '0' => 'format',
+          0 => 'format',
         ),
       ),
       'module' => 'text',
@@ -54,7 +58,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -97,13 +101,13 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'tid' => array(
-          '0' => 'tid',
+          0 => 'tid',
         ),
       ),
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
-          '0' => array(
+          0 => array(
             'parent' => '0',
             'vocabulary' => 'hw_austria',
           ),
@@ -129,7 +133,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -170,7 +174,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'format' => array(
-          '0' => 'format',
+          0 => 'format',
         ),
       ),
       'module' => 'text',
@@ -197,7 +201,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -252,7 +256,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -290,13 +294,13 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'tid' => array(
-          '0' => 'tid',
+          0 => 'tid',
         ),
       ),
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
-          '0' => array(
+          0 => array(
             'parent' => '0',
             'vocabulary' => 'hw_status',
           ),
@@ -322,7 +326,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -360,13 +364,13 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'tid' => array(
-          '0' => 'tid',
+          0 => 'tid',
         ),
       ),
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
-          '0' => array(
+          0 => array(
             'parent' => '0',
             'vocabulary' => 'hw_trend',
           ),
@@ -392,7 +396,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -430,7 +434,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'format' => array(
-          '0' => 'format',
+          0 => 'format',
         ),
       ),
       'module' => 'text',
@@ -457,7 +461,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -519,7 +523,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -582,7 +586,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -645,7 +649,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -708,7 +712,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -771,7 +775,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -834,7 +838,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -897,7 +901,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -960,7 +964,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -1023,7 +1027,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -1070,16 +1074,33 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'datastore_field',
-          'settings' => array(),
-          'type' => 'datastore_field_default_formatter',
+          'module' => 'datastore_visualization',
+          'settings' => array(
+            'axis_1' => '',
+            'axis_2' => '',
+            'chart_height' => '100',
+            'chart_title' => 'title',
+            'chart_type' => 'Line 2D',
+            'chart_width' => '100',
+            'num_values' => 10,
+          ),
+          'type' => 'datastore_visualization_datastore_field_formatter',
           'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
+          'module' => 'datastore_visualization',
+          'settings' => array(
+            'axis_1' => '',
+            'axis_2' => '',
+            'chart_height' => '100',
+            'chart_title' => 'title',
+            'chart_type' => 'Line 2D',
+            'chart_width' => '100',
+            'num_values' => 10,
+          ),
+          'type' => 'datastore_visualization_datastore_field_formatter',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -1140,7 +1161,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -1203,7 +1224,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -1245,13 +1266,13 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'indexes' => array(
         'tid' => array(
-          '0' => 'tid',
+          0 => 'tid',
         ),
       ),
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
-          '0' => array(
+          0 => array(
             'parent' => '0',
             'vocabulary' => 'hw_austria',
           ),

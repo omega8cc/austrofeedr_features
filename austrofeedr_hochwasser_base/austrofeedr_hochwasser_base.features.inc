@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_base.features.inc
+ */
 
 /**
  * Implementation of hook_node_info().
