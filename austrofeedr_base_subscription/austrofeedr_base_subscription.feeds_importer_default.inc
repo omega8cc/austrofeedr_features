@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_subscription.feeds_importer_default.inc
+ */
 
 /**
  * Implementation of hook_feeds_importer_default().

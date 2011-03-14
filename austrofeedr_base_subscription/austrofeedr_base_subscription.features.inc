@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_subscription.features.inc
+ */
 
 /**
  * Implementation of hook_ctools_plugin_api().

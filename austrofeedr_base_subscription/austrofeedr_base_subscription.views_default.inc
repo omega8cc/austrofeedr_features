@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_subscription.views_default.inc
+ */
 
 /**
  * Implementation of hook_views_default_views().
@@ -49,7 +53,7 @@ function austrofeedr_base_subscription_views_default_views() {
   $handler->display->display_options['fields']['config']['field'] = 'config';
   $handler->display->display_options['fields']['config']['hide_empty'] = 0;
   $handler->display->display_options['fields']['config']['empty_zero'] = 0;
-  /* Field: Fields: field_update_tags */
+  /* Field: Fields: Update Tags */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_update_tags';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
@@ -122,7 +126,7 @@ function austrofeedr_base_subscription_views_default_views() {
     t('Offset'),
     t('Title'),
     t('Source'),
-    t('field_update_tags'),
+    t('Update Tags'),
     t('Post date'),
     t('Name'),
     t('Page'),
