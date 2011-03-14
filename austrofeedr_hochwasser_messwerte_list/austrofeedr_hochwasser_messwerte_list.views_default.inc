@@ -88,6 +88,13 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['arguments']['nid']['default_argument_options']['argument'] = '215';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
+  /* Filter: Node: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'hw_messstelle' => 'hw_messstelle',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
