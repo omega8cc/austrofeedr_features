@@ -79,6 +79,15 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['fields']['field_hw_werte']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_hw_werte']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['field_api_classes'] = 0;
+  /* Sort criterion: Node: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sort criterion: Fields: Wasserstand Werte (field_hw_werte) - timestamp */
+  $handler->display->display_options['sorts']['field_hw_werte_timestamp']['id'] = 'field_hw_werte_timestamp';
+  $handler->display->display_options['sorts']['field_hw_werte_timestamp']['table'] = 'field_data_field_hw_werte';
+  $handler->display->display_options['sorts']['field_hw_werte_timestamp']['field'] = 'field_hw_werte_timestamp';
+  $handler->display->display_options['sorts']['field_hw_werte_timestamp']['order'] = 'DESC';
   /* Argument: Node: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
