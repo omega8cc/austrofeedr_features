@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_processing_autotag.rules_defaults.inc
+ */
 
 /**
  * Implementation of hook_default_rules_configuration().
@@ -11,7 +15,8 @@ function austrofeedr_base_processing_autotag_default_rules_configuration() {
       "REQUIRES" : [ "rules" ],
       "ON" : [ "node_presave" ],
       "IF" : [
-        { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_update_tags" } }
+        { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_update_tags" } },
+        { "NOT data_is_empty" : { "data" : [ "node:body" ] } }
       ],
       "DO" : [
         { "entity_query" : {
@@ -26,7 +31,7 @@ function austrofeedr_base_processing_autotag_default_rules_configuration() {
         },
         { "component_rules_autotag_tag" : {
             "text" : [ "node:body:value" ],
-            "vocabulary" : [ "voc" ],
+            "vocabulary" : [ "voc:0" ],
             "target_terms" : [ "node:field-update-tags" ]
           }
         }
