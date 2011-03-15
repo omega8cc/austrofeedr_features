@@ -49,7 +49,7 @@ function austrofeedr_base_subscription_feeds_importer_default() {
           ),
           2 => array(
             'source' => 'tags',
-            'target' => 'field_update_in_tags',
+            'target' => 'field_update_subscription_tags',
             'unique' => FALSE,
           ),
           3 => array(
