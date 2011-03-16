@@ -129,7 +129,7 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
 
   $operation['label'] = 'Pegelaktuell';
   $operation['url'] = '';
-  $operation['parameter']['key'] = array('type' => 'hidden', 'default value' => '8e2b2df01bef8a1ce65c0abcf6ba39fe');
+  $operation['parameter']['key'] = array('type' => 'hidden', 'default value' => '3beba75084a9063c7e4de17e2e84b65c');
   $operation['parameter']['typename'] = array('type' => 'hidden', 'default value' => 'pegelaktuell');
   $operation['parameter']['service'] = array('type' => 'hidden', 'default value' => 'WFS');
   $operation['parameter']['REQUEST'] = array('type' => 'hidden', 'default value' => 'GetFeature');
