@@ -105,7 +105,8 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "schedule" : {
             "component" : "rules_hw_pegelaktuell_processor",
             "date" : { "select" : "date", "date_offset" : { "value" : 3600 } },
-            "identifier" : "hochwasser_pegelaktuell"
+            "identifier" : "hochwasser_pegelaktuell",
+            "param_date" : { "select" : "date", "date_offset" : { "value" : 3600 } }
           }
         },
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
