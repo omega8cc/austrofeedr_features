@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_publishing.features.inc
+ */
 
 /**
  * Implementation of hook_views_api().

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_publishing.views_default.inc
+ */
 
 /**
  * Implementation of hook_views_default_views().
@@ -118,7 +122,7 @@ function austrofeedr_base_publishing_views_default_views() {
     'subscription_tags' => 0,
     'tags' => 0,
   );
-  /* Field: Fields: body */
+  /* Field: Fields: Body */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
@@ -236,7 +240,7 @@ function austrofeedr_base_publishing_views_default_views() {
     'subscription_tags' => 0,
     'tags' => 0,
   );
-  /* Field: Fields: body */
+  /* Field: Fields: Body */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
@@ -266,7 +270,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['url']['hide_empty'] = 0;
   $handler->display->display_options['fields']['url']['empty_zero'] = 0;
   $handler->display->display_options['fields']['url']['display_as_link'] = 1;
-  /* Field: Fields: field_update_author */
+  /* Field: Fields: Author */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_update_author';
   $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
@@ -280,7 +284,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
   $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
-  /* Field: Fields: field_update_url */
+  /* Field: Fields: Item URL */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_update_url';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
@@ -337,12 +341,20 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler = $view->new_display('page', 'Updates overview', 'updates_overview');
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = 1;
+  $handler->display->display_options['row_options']['comments'] = 0;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'updates_overview';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Updates';
   $handler->display->display_options['menu']['weight'] = '-10';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  $translatables['updates'] = array(
+  $translatables['publishing_updates_list'] = array(
     t('Defaults'),
     t('more'),
     t('Apply'),
@@ -356,13 +368,12 @@ function austrofeedr_base_publishing_views_default_views() {
     t('Post date'),
     t('Title'),
     t('tags'),
-    t('body'),
+    t('Body'),
     t('Item URL'),
     t('Updates details'),
     t('Updated date'),
     t('incoming tags'),
-    t('field_update_author'),
-    t('field_update_url'),
+    t('Author'),
     t('Import date'),
     t('Item GUID'),
     t('Owner feed nid'),
