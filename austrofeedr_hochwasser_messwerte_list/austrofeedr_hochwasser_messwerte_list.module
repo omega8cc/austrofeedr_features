@@ -25,9 +25,10 @@ function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_forma
 		$hq30 = $messstelle->field_hw_wert_hq30['und'][0]['value'];
 		$hq100 = $messstelle->field_hw_wert_hq100['und'][0]['value'];
 
+		// Chart maximum defaults $hq100, may be overridden for teaser mode below.
 		$max = $hq100;
 
-		$trendlines = array();
+		// Create zones info.
 		$zones = array();
 		$zones[] = array(
 		  'startValue' => 0,
@@ -66,8 +67,10 @@ function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_forma
 		  'displayvalue' => t('Hochwasserstufe 3'),
 		);
 
+		// Generate TrendZones from zones info.
+		$trendlines = array();
 		foreach($zones as $zone) {
-			// Only display active zone for teaser mode.
+			// Only display active zone when in teaser mode.
 			if($chart->chart_class == 'hochwasserstand_teaser' && isset($messstelle->field_hw_status['und'])) {
 				$status = $messstelle->field_hw_status['und'][0]['taxonomy_term']->name;
 				if($status != $zone['displayvalue']) {
@@ -83,21 +86,20 @@ function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_forma
 			$trendlines[] = array(
 		      'key' => 'line',
 		      'value' => ' ',
-		      'attributes'=> $zone,
+		      'attributes'=> $zone,	// Insert zone as attribute.
 			);
 		}
 
+		// Add TrendZones to chart.
 		$trendlines_format = array(
 	      'key' => 'trendlines',
 	      'value' => $trendlines,
 		);
-		$chart->settings += array('yAxisMaxValue' => $max);
-		$chart->settings += array('showValues' => 0);
 		$chart->additional_xml = $trendlines_format;
 
-
-		//dpm($max);
-
+		// Further chart settings.
+		$chart->settings += array('yAxisMaxValue' => $max);
+		$chart->settings += array('showValues' => 0);
 	}
 
 }
