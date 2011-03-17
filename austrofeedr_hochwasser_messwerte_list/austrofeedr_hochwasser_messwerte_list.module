@@ -115,6 +115,7 @@ function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_forma
     dpm($trendlines_format);
 
     $chart->settings += array('yAxisMaxValue' => $hq100);
+    $chart->settings += array('showValues' => 0);
     $chart->additional_xml = $trendlines_format;
   }
 }
