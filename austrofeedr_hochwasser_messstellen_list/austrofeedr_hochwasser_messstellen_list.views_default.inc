@@ -23,7 +23,6 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -86,6 +85,11 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
   $handler->display->display_options['filters']['tid_1']['type'] = 'select';
   $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'hw_status';
   $handler->display->display_options['filters']['tid_1']['error_message'] = 1;
+  /* Filter: Fields: Kennwert HQ100 (field_hw_wert_hq100) */
+  $handler->display->display_options['filters']['field_hw_wert_hq100_value']['id'] = 'field_hw_wert_hq100_value';
+  $handler->display->display_options['filters']['field_hw_wert_hq100_value']['table'] = 'field_data_field_hw_wert_hq100';
+  $handler->display->display_options['filters']['field_hw_wert_hq100_value']['field'] = 'field_hw_wert_hq100_value';
+  $handler->display->display_options['filters']['field_hw_wert_hq100_value']['operator'] = 'not empty';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
