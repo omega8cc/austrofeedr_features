@@ -3,119 +3,101 @@
 include_once('austrofeedr_hochwasser_messwerte_list.features.inc');
 
 function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_formatter_alter(&$chart, &$entity, $entity_type) {
-  if($chart->chart_class == 'hochwasserstand') {
-  	dpm($entity);
-	  $messstelle = $entity;
 
-    // Require all necessary fields to be set.
-	  if(!(isset($messstelle->field_hw_wert_mq['und'])
-	   && isset($messstelle->field_hw_wert_mjnq['und'])
-	   && isset($messstelle->field_hw_wert_hq1['und'])
-	   && isset($messstelle->field_hw_wert_hq10['und'])
-	   && isset($messstelle->field_hw_wert_hq30['und'])
-	   && isset($messstelle->field_hw_wert_hq100['und']))) {
-	    return;
-	  }
+	if($chart->chart_class == 'hochwasserstand_teaser' || $chart->chart_class == 'hochwasserstand_full') {
+		$messstelle = $entity;
 
-	  // Extract necessary fields.
-	  $mq   = $messstelle->field_hw_wert_mq['und'][0]['value'];
-	  $mjnq = $messstelle->field_hw_wert_mjnq['und'][0]['value'];
-	  $hq1  = $messstelle->field_hw_wert_hq1['und'][0]['value'];
-	  $hq10 = $messstelle->field_hw_wert_hq10['und'][0]['value'];
-	  $hq30 = $messstelle->field_hw_wert_hq30['und'][0]['value'];
-	  $hq100 = $messstelle->field_hw_wert_hq100['und'][0]['value'];
+		// Require all necessary fields to be set.
+		if(!(isset($messstelle->field_hw_wert_mq['und'])
+		&& isset($messstelle->field_hw_wert_mjnq['und'])
+		&& isset($messstelle->field_hw_wert_hq1['und'])
+		&& isset($messstelle->field_hw_wert_hq10['und'])
+		&& isset($messstelle->field_hw_wert_hq30['und'])
+		&& isset($messstelle->field_hw_wert_hq100['und']))) {
+			return;
+		}
 
-    $trendlines = array();
+		// Extract necessary fields.
+		$mq   = $messstelle->field_hw_wert_mq['und'][0]['value'];
+		$mjnq = $messstelle->field_hw_wert_mjnq['und'][0]['value'];
+		$hq1  = $messstelle->field_hw_wert_hq1['und'][0]['value'];
+		$hq10 = $messstelle->field_hw_wert_hq10['und'][0]['value'];
+		$hq30 = $messstelle->field_hw_wert_hq30['und'][0]['value'];
+		$hq100 = $messstelle->field_hw_wert_hq100['und'][0]['value'];
 
-    $zones = array();
-    $zones[] = array(
-      'startValue' => 0,
-      'endValue' => ($mq + $mjnq) / 2,
-      'color' => 'A9F5A9',
-      'displayvalue' => t('Niederwasser'),
-    );
+		$max = $hq100;
 
-    $trendlines[] = array(
-      'key' => 'line',
-      'value' => ' ',
-      'attributes'=> array(
-        'startValue' => 0,
-        'endValue' => ($mq + $mjnq) / 2,
-        'color' => '088A08',
-        'isTrendZone' => '1',
-        'displayvalue' => t('Niederwasser'),
-      ),
-    );
+		$trendlines = array();
+		$zones = array();
+		$zones[] = array(
+		  'startValue' => 0,
+		  'endValue' => ($mq + $mjnq) / 2,
+		  'color' => '088A08',
+		  'displayvalue' => t('Niederwasser'),
+		);
+		$zones[] = array(
+		  'startValue' => ($mq + $mjnq) / 2,
+      'endValue' => ($hq1 + $mq) / 2,
+		  'color' => '045FB4',
+		  'displayvalue' => t('Mittelwasser'),
+		);
+		$zones[] = array(
+		  'startValue' => ($hq1 + $mq) / 2,
+		  'endValue' => $hq1,
+		  'color' => 'AEB404',
+		  'displayvalue' => t('erhöhte Wasserführung'),
+		);
+		$zones[] = array(
+		  'startValue' => $hq1,
+		  'endValue' => $hq10,
+		  'color' => 'FF8000',
+		  'displayvalue' => t('Hochwasserstufe 1'),
+		);
+		$zones[] = array(
+		  'startValue' => $hq10,
+		  'endValue' => $hq30,
+		  'color' => 'FE2E2E',
+		  'displayvalue' => t('Hochwasserstufe 2'),
+		);
+		$zones[] = array(
+		  'startValue' => $hq30,
+		  'endValue' => $hq100,
+	    'color' => 'FA58F4',
+		  'displayvalue' => t('Hochwasserstufe 3'),
+		);
 
-    $trendlines[] = array(
-      'key' => 'line',
-      'value' => ' ',
-      'attributes'=> array(
-        'startValue' => ($mq + $mjnq) / 2,
-        'endValue' => ($hq1 + $mq) / 2,
-        'color' => '045FB4',
-        'isTrendZone' => '1',
-        'displayvalue' => t('Mittelwasser'),
-      ),
-    );
+		foreach($zones as $zone) {
+			// Only display active zone for teaser mode.
+			if($chart->chart_class == 'hochwasserstand_teaser') {
+				$status = $messstelle->field_hw_status['und'][0]['taxonomy_term']->name;
+				if($status != $zone['displayvalue']) {
+					continue;
+				}
+				else {
+					$max = $zone['endValue'];
+				}
+			}
+			$zone['isTrendZone'] = '1';
+			$zone['valueOnRight'] = '1';
+			$zone['alpha'] = '33';
+			$trendlines[] = array(
+		      'key' => 'line',
+		      'value' => ' ',
+		      'attributes'=> $zone,
+			);
+		}
 
-    $trendlines[] = array(
-      'key' => 'line',
-      'value' => ' ',
-      'attributes'=> array(
-        'startValue' => ($hq1 + $mq) / 2,
-        'endValue' => $hq1,
-        'color' => 'AEB404',
-        'isTrendZone' => '1',
-        'displayvalue' => t('erhöhte Wasserführung'),
-      ),
-    );
+		$trendlines_format = array(
+	      'key' => 'trendlines',
+	      'value' => $trendlines,
+		);
+		$chart->settings += array('yAxisMaxValue' => $max);
+		$chart->settings += array('showValues' => 0);
+		$chart->additional_xml = $trendlines_format;
 
-    $trendlines[] = array(
-      'key' => 'line',
-      'value' => ' ',
-      'attributes'=> array(
-        'startValue' => $hq1,
-        'endValue' => $hq10,
-        'color' => 'FF8000',
-        'isTrendZone' => '1',
-        'displayvalue' => t('Hochwasserstufe 1'),
-      ),
-    );
 
-    $trendlines[] = array(
-      'key' => 'line',
-      'value' => ' ',
-      'attributes'=> array(
-        'startValue' => $hq10,
-        'endValue' => $hq30,
-        'color' => 'FE2E2E',
-        'isTrendZone' => '1',
-        'displayvalue' => t('Hochwasserstufe 2'),
-      ),
-    );
+		//dpm($max);
 
-    $trendlines[] = array(
-      'key' => 'line',
-      'value' => ' ',
-      'attributes'=> array(
-        'startValue' => $hq30,
-        'endValue' => $hq100,
-        'color' => 'FA58F4',
-        'isTrendZone' => '1',
-        'displayvalue' => t('Hochwasserstufe 3'),
-      ),
-    );
+	}
 
-    $trendlines_format = array(
-      'key' => 'trendlines',
-      'value' => $trendlines,
-    );
-
-    dpm($trendlines_format);
-
-    $chart->settings += array('yAxisMaxValue' => $hq100);
-    $chart->settings += array('showValues' => 0);
-    $chart->additional_xml = $trendlines_format;
-  }
 }
