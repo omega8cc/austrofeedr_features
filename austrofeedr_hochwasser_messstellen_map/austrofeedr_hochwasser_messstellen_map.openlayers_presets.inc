@@ -34,9 +34,9 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
       ),
     ),
     'behaviors' => array(
-      'openlayers_behavior_tooltip' => array(
+      'openlayers_behavior_popup' => array(
         'layers' => array(
-          'hw_messstellen_map_openlayers_1' => 0,
+          'hw_messstellen_map_openlayers_1' => 'hw_messstellen_map_openlayers_1',
         ),
       ),
       'openlayers_behavior_keyboarddefaults' => array(),
