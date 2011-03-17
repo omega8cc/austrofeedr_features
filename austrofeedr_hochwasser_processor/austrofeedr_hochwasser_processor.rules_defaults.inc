@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_processor.rules_defaults.inc
+ */
 
 /**
  * Implementation of hook_default_rules_configuration().
@@ -8,10 +12,10 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hochwasser_update_processing'] = entity_import('rules_config', '{ "rules_hochwasser_update_processing" : {
       "LABEL" : "Hochwasser Update Processing",
       "PLUGIN" : "reaction rule",
-      "REQUIRES" : [ "rules", "feeds" ],
-      "ON" : [ "feeds_import_subscription_feeds_importer" ],
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "node_presave" ],
       "IF" : [
-        { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_update_bezirk" } }
+        { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_hw_update_bezirk" } }
       ],
       "DO" : [
         { "entity_query" : {
@@ -27,7 +31,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "component_rules_autotag_tag" : {
             "text" : [ "node:body:value" ],
             "vocabulary" : [ "bezirke:0" ],
-            "target_terms" : [ "node:field-update-bezirk" ]
+            "target_terms" : [ "node:field-hw-update-bezirk" ]
           }
         }
       ]
@@ -101,8 +105,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "schedule" : {
             "component" : "rules_hw_pegelaktuell_processor",
             "date" : { "select" : "date", "date_offset" : { "value" : 3600 } },
-            "identifier" : "hochwasser_pegelaktuell",
-            "param_date" : { "select" : "date", "date_offset" : { "value" : 3600 } }
+            "identifier" : "hochwasser_pegelaktuell"
           }
         },
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
