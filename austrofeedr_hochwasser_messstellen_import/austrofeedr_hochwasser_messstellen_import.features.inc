@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_messstellen_import.features.inc
+ */
 
 /**
  * Implementation of hook_ctools_plugin_api().

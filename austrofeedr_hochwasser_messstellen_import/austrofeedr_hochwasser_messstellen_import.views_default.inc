@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_hochwasser_messstellen_import.views_default.inc
+ */
 
 /**
  * Implementation of hook_views_default_views().
@@ -208,6 +212,13 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['field_hw_url']['id'] = 'field_hw_url';
   $handler->display->display_options['fields']['field_hw_url']['table'] = 'field_data_field_hw_url';
   $handler->display->display_options['fields']['field_hw_url']['field'] = 'field_hw_url';
+  /* Filter: Node: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'hw_messstelle' => 'hw_messstelle',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
