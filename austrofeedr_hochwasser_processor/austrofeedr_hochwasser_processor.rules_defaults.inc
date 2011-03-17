@@ -53,7 +53,17 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "NOT data_is_empty" : { "data" : [ "pegelaktuell-item:zp" ] } },
         { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_werte" } },
         { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_status" } },
-        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_trend" } }
+        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_trend" } },
+        { "entity_has_field" : { "entity" : [ "messstelle" ], "field" : "field_hw_last_updated" } },
+        { "OR" : [
+            { "data_is_empty" : { "data" : [ "messstelle:field-hw-last-updated" ] } },
+            { "NOT data_is" : {
+                "data" : [ "messstelle:field-hw-last-updated" ],
+                "value" : [ "pegelaktuell-item:zp" ]
+              }
+            }
+          ]
+        }
       ],
       "DO" : [
         { "data_create" : {
@@ -66,6 +76,11 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
           }
         },
         { "list_add" : { "list" : [ "messstelle:field-hw-werte" ], "item" : [ "wert" ] } },
+        { "data_set" : {
+            "data" : [ "messstelle:field-hw-last-updated" ],
+            "value" : [ "pegelaktuell-item:zp" ]
+          }
+        },
         { "hw_wasserstand_update" : {
             "USING" : {
               "pegelaktuell_item" : [ "pegelaktuell_item" ],
