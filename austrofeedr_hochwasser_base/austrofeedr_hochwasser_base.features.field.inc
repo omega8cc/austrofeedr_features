@@ -1078,8 +1078,8 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'settings' => array(
             'axis_1' => '',
             'axis_2' => '',
-            'chart_class' => 'hochwasserstand',
-            'chart_height' => '200',
+            'chart_class' => 'hochwasserstand_full',
+            'chart_height' => '400',
             'chart_id' => '',
             'chart_title' => '',
             'chart_type' => 'Line.swf',
@@ -1096,7 +1096,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'settings' => array(
             'axis_1' => '',
             'axis_2' => '',
-            'chart_class' => '',
+            'chart_class' => 'hochwasserstand_teaser',
             'chart_height' => '150',
             'chart_id' => '',
             'chart_title' => '',
