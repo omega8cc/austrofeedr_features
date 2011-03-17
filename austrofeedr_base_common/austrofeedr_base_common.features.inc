@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * austrofeedr_base_common.features.inc
+ */
 
 /**
  * Implementation of hook_node_info().
