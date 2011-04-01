@@ -67,8 +67,6 @@ function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_forma
 		  'displayvalue' => t('Hochwasserstufe 3'),
 		);
 
-		dpm($messstelle);
-
 		// Generate TrendZones from zones info.
 		$trendlines = array();
 		foreach($zones as $zone) {
