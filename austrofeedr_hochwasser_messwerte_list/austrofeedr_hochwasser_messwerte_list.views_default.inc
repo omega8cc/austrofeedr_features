@@ -8,9 +8,8 @@
  * Implementation of hook_views_default_views().
  */
 function austrofeedr_hochwasser_messwerte_list_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: hw_messwerte_view
   $view = new view;
   $view->name = 'hw_messwerte_view';
   $view->description = '';
@@ -35,7 +34,7 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = 'title';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Node: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -56,7 +55,7 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Field: Fields: Wasserstand Werte */
+  /* Field: Content: Wasserstand Werte */
   $handler->display->display_options['fields']['field_hw_werte']['id'] = 'field_hw_werte';
   $handler->display->display_options['fields']['field_hw_werte']['table'] = 'field_data_field_hw_werte';
   $handler->display->display_options['fields']['field_hw_werte']['field'] = 'field_hw_werte';
@@ -79,25 +78,27 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['fields']['field_hw_werte']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_hw_werte']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['field_hw_werte']['field_api_classes'] = 0;
-  /* Sort criterion: Node: Title */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Sort criterion: Fields: Wasserstand Werte (field_hw_werte) - timestamp */
+  /* Sort criterion: Content: Wasserstand Werte (field_hw_werte) - timestamp */
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['id'] = 'field_hw_werte_timestamp';
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['table'] = 'field_data_field_hw_werte';
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['field'] = 'field_hw_werte_timestamp';
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['order'] = 'DESC';
-  /* Argument: Node: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['style_plugin'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['exception']['title_enable'] = 1;
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['default_argument_options']['argument'] = '215';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = 1;
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
-  /* Filter: Node: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -117,7 +118,7 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
     t('more'),
     t('Apply'),
     t('Reset'),
-    t('Sort By'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
@@ -126,8 +127,7 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
     t('All'),
     t('Page'),
   );
+  $export['hw_messwerte_view'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }

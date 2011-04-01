@@ -67,12 +67,20 @@ function austrofeedr_hochwasser_messwerte_list_datastore_fusionchart_field_forma
 		  'displayvalue' => t('Hochwasserstufe 3'),
 		);
 
+		dpm($messstelle);
+
 		// Generate TrendZones from zones info.
 		$trendlines = array();
 		foreach($zones as $zone) {
 			// Only display active zone when in teaser mode.
 			if($chart->chart_class == 'hochwasserstand_teaser' && isset($messstelle->field_hw_status['und'])) {
-				$status = $messstelle->field_hw_status['und'][0]['taxonomy_term']->name;
+				if(isset($messstelle->field_hw_status['und'][0]['taxonomy_term'])) {
+					$term = $messstelle->field_hw_status['und'][0]['taxonomy_term'];
+				}
+				else {
+					$term = taxonomy_term_load($messstelle->field_hw_status['und'][0]['tid']);
+				}
+				$status = $term->name;
 				if($status != $zone['displayvalue']) {
 					continue;
 				}

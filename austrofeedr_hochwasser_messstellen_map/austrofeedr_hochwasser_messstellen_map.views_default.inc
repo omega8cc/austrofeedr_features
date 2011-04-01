@@ -8,9 +8,8 @@
  * Implementation of hook_views_default_views().
  */
 function austrofeedr_hochwasser_messstellen_map_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: hw_messstellen_map
   $view = new view;
   $view->name = 'hw_messstellen_map';
   $view->description = 'openlayers';
@@ -32,26 +31,26 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = 1;
   $handler->display->display_options['row_options']['comments'] = 0;
-  /* Field: Fields: Bezirk */
+  /* Field: Content: Bezirk */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id']['field'] = 'field_hw_bezirk';
   /* Field: Fields: Latitude */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_lat';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_lat';
   /* Field: Fields: Longitude */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_lng';
-  $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
-  /* Filter: Node: Type */
+  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_lng';
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'hw_messstelle' => 'hw_messstelle',
   );
-  /* Filter: Node: Published or admin */
+  /* Filter criterion: Content: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
@@ -78,7 +77,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Node: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -98,7 +97,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   /* Field: Fields: Latitude */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_lat';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_lat';
   $handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
@@ -123,7 +122,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   /* Field: Fields: Longitude */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_lng';
-  $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_lng';
   $handler->display->display_options['fields']['entity_id_2']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id_2']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id_2']['alter']['absolute'] = 0;
@@ -145,14 +144,14 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['entity_id_2']['field_api_classes'] = 0;
-  /* Field: Fields: Bezirk */
+  /* Field: Content: Bezirk */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
-  /* Field: Fields: Geo Position */
+  $handler->display->display_options['fields']['entity_id']['field'] = 'field_hw_bezirk';
+  /* Field: Content: Geo Position */
   $handler->display->display_options['fields']['entity_id_3']['id'] = 'entity_id_3';
   $handler->display->display_options['fields']['entity_id_3']['table'] = 'field_data_field_hw_geoposition';
-  $handler->display->display_options['fields']['entity_id_3']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_3']['field'] = 'field_hw_geoposition';
   $handler->display->display_options['fields']['entity_id_3']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id_3']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id_3']['alter']['absolute'] = 0;
@@ -185,7 +184,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     t('more'),
     t('Apply'),
     t('Reset'),
-    t('Sort By'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
@@ -199,8 +198,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     t('Geo Position'),
     t('Page'),
   );
+  $export['hw_messstellen_map'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }

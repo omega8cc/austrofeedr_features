@@ -8,9 +8,8 @@
  * Implementation of hook_views_default_views().
  */
 function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: hw_messstellen_updates
   $view = new view;
   $view->name = 'hw_messstellen_updates';
   $view->description = '';
@@ -33,33 +32,36 @@ function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
   $handler->display->display_options['row_options']['relationship'] = 'nid';
   $handler->display->display_options['row_options']['links'] = 1;
   $handler->display->display_options['row_options']['comments'] = 0;
-  /* Relationship: Fields: Bezirk (field_hw_bezirk) - tid */
+  /* Relationship: Content: Bezirk (field_hw_bezirk) - tid */
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['id'] = 'field_hw_bezirk_tid';
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['table'] = 'field_data_field_hw_bezirk';
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['field'] = 'field_hw_bezirk_tid';
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['required'] = 0;
-  /* Relationship: Taxonomy: Node */
+  /* Relationship: Taxonomy term: Content with term */
   $handler->display->display_options['relationships']['nid']['id'] = 'nid';
   $handler->display->display_options['relationships']['nid']['table'] = 'taxonomy_index';
   $handler->display->display_options['relationships']['nid']['field'] = 'nid';
   $handler->display->display_options['relationships']['nid']['relationship'] = 'field_hw_bezirk_tid';
   $handler->display->display_options['relationships']['nid']['required'] = 0;
-  /* Argument: Node: Nid */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['style_plugin'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['exception']['title_enable'] = 1;
+  $handler->display->display_options['arguments']['nid']['title_enable'] = 1;
   $handler->display->display_options['arguments']['nid']['title'] = 'Updates zu %1';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['validate_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'hw_messstelle' => 'hw_messstelle',
   );
   $handler->display->display_options['arguments']['nid']['validate_options']['access'] = 0;
   $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['nid']['not'] = 0;
-  /* Filter: Node: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -75,7 +77,7 @@ function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
     t('more'),
     t('Apply'),
     t('Reset'),
-    t('Sort By'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
@@ -87,8 +89,7 @@ function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
     t('Updates zu %1'),
     t('Block'),
   );
+  $export['hw_messstellen_updates'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }
