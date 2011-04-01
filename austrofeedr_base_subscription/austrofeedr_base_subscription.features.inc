@@ -15,6 +15,16 @@ function austrofeedr_base_subscription_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_views_api().
+ */
+function austrofeedr_base_subscription_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => 3.0);
+  }
+}
+
+/**
  * Implementation of hook_node_info().
  */
 function austrofeedr_base_subscription_node_info() {
@@ -29,13 +39,4 @@ function austrofeedr_base_subscription_node_info() {
     ),
   );
   return $items;
-}
-
-/**
- * Implementation of hook_views_api().
- */
-function austrofeedr_base_subscription_views_api() {
-  return array(
-    'api' => '3.0-alpha1',
-  );
 }

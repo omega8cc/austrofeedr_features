@@ -8,9 +8,8 @@
  * Implementation of hook_views_default_views().
  */
 function austrofeedr_base_publishing_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: publishing_updates_list
   $view = new view;
   $view->name = 'publishing_updates_list';
   $view->description = '';
@@ -82,7 +81,7 @@ function austrofeedr_base_publishing_views_default_views() {
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
-  /* Field: Node: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -96,11 +95,11 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['created']['alter']['html'] = 0;
   $handler->display->display_options['fields']['created']['hide_empty'] = 0;
   $handler->display->display_options['fields']['created']['empty_zero'] = 0;
-  /* Field: Node: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  /* Field: Taxonomy: All terms */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_index';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -115,17 +114,10 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['tid_1']['hide_empty'] = 0;
   $handler->display->display_options['fields']['tid_1']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['tid_1']['link_to_taxonomy'] = 1;
-  $handler->display->display_options['fields']['tid_1']['limit'] = 0;
-  $handler->display->display_options['fields']['tid_1']['vocabularies'] = array(
-    'update_tags' => 'update_tags',
-    'subscription_tags' => 0,
-    'tags' => 0,
-  );
-  /* Field: Fields: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_1']['field'] = 'body';
   $handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
@@ -152,12 +144,12 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['url']['hide_empty'] = 0;
   $handler->display->display_options['fields']['url']['empty_zero'] = 0;
   $handler->display->display_options['fields']['url']['display_as_link'] = 1;
-  /* Sort criterion: Node: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter: Node: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -174,7 +166,7 @@ function austrofeedr_base_publishing_views_default_views() {
     2 => '2',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Node: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -188,15 +180,15 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['created']['alter']['html'] = 0;
   $handler->display->display_options['fields']['created']['hide_empty'] = 0;
   $handler->display->display_options['fields']['created']['empty_zero'] = 0;
-  /* Field: Node: Updated date */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  /* Field: Node: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  /* Field: Taxonomy: All terms */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -211,14 +203,7 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['tid']['hide_empty'] = 0;
   $handler->display->display_options['fields']['tid']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['tid']['link_to_taxonomy'] = 1;
-  $handler->display->display_options['fields']['tid']['limit'] = 0;
-  $handler->display->display_options['fields']['tid']['vocabularies'] = array(
-    'subscription_tags' => 'subscription_tags',
-    'update_tags' => 0,
-    'tags' => 0,
-  );
-  /* Field: Taxonomy: All terms */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_index';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -233,17 +218,10 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['tid_1']['hide_empty'] = 0;
   $handler->display->display_options['fields']['tid_1']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['tid_1']['link_to_taxonomy'] = 1;
-  $handler->display->display_options['fields']['tid_1']['limit'] = 0;
-  $handler->display->display_options['fields']['tid_1']['vocabularies'] = array(
-    'update_tags' => 'update_tags',
-    'subscription_tags' => 0,
-    'tags' => 0,
-  );
-  /* Field: Fields: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_1']['field'] = 'body';
   $handler->display->display_options['fields']['entity_id_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id_1']['alter']['absolute'] = 0;
@@ -270,10 +248,10 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['url']['hide_empty'] = 0;
   $handler->display->display_options['fields']['url']['empty_zero'] = 0;
   $handler->display->display_options['fields']['url']['display_as_link'] = 1;
-  /* Field: Fields: Author */
+  /* Field: Content: Author */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_update_author';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id']['field'] = 'field_update_author';
   $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['absolute'] = 0;
@@ -284,10 +262,10 @@ function austrofeedr_base_publishing_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
   $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
-  /* Field: Fields: Item URL */
+  /* Field: Content: Item URL */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_update_url';
-  $handler->display->display_options['fields']['entity_id_2']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_update_url';
   /* Field: Feeds item: Import date */
   $handler->display->display_options['fields']['imported']['id'] = 'imported';
   $handler->display->display_options['fields']['imported']['table'] = 'feeds_item';
@@ -359,7 +337,7 @@ function austrofeedr_base_publishing_views_default_views() {
     t('more'),
     t('Apply'),
     t('Reset'),
-    t('Sort By'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
@@ -381,8 +359,7 @@ function austrofeedr_base_publishing_views_default_views() {
     t(','),
     t('Updates overview'),
   );
+  $export['publishing_updates_list'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }

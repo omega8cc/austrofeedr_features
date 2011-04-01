@@ -13,12 +13,3 @@ function austrofeedr_hochwasser_messstellen_import_ctools_plugin_api() {
     return array("version" => 1);
   }
 }
-
-/**
- * Implementation of hook_views_api().
- */
-function austrofeedr_hochwasser_messstellen_import_views_api() {
-  return array(
-    'api' => '3.0-alpha1',
-  );
-}
