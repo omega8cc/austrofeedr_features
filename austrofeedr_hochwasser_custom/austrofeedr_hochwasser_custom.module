@@ -127,3 +127,54 @@ function austrofeedr_hochwasser_custom_openlayers_behaviors() {
     ),
 	);
 }
+
+
+/**
+ * Implements hook_theme().
+ */
+function austrofeedr_hochwasser_custom_theme() {
+  return array(
+    // Register a default popup page template.
+    'page__popup' => array(
+      'render element' => 'page',
+      'template' => 'page--popup',
+      'path' => drupal_get_path('module', 'austrofeedr_hochwasser_custom'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_TEMPLATE().
+ *
+ * Replace the page template with the slim page template if requested.
+ */
+function austrofeedr_hochwasser_custom_preprocess_page(&$variables) {
+	if((arg(0) == 'messstellen') && (arg(2) == 'popup')) {
+    $variables['theme_hook_suggestions'][] = 'page__popup';
+    module_invoke('admin_menu', 'suppress');
+	}
+}
+
+function austrofeedr_hochwasser_custom_menu() {
+    $items['messstellen/%/popup'] = array(
+	    'title' => 'Messstellen Popup',
+	    'title arguments' => array(1),
+	    'title callback' => 'austrofeedr_hochwasser_custom_messstellen_popup_title',
+	    'page arguments' => array(1),
+	    'page callback' => 'austrofeedr_hochwasser_custom_messstellen_popup_page',
+	    'access arguments' => array('access content'),
+	    'type' => MENU_CALLBACK,
+    );
+    return $items;
+  }
+
+  function austrofeedr_hochwasser_custom_messstellen_popup_title($nid) {
+    $node = node_load($nid);
+    $title = t($node->title);
+    return $title;
+  }
+
+  function austrofeedr_hochwasser_custom_messstellen_popup_page($nid) {
+    $node = node_load($nid);
+    return node_view($node, 'teaser');
+  }

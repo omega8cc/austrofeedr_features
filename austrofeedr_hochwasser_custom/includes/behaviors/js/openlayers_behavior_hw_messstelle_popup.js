@@ -25,11 +25,8 @@ Drupal.theme.prototype.openlayersPopup = function(feature) {
   var output = '';
   
   if (feature.attributes.name) {
-    output += 'asdf<div class="openlayers-popup openlayers-tooltip-name">' + feature.attributes.name + '</div>';
-  }
-  
-  if (feature.attributes.description) {
-    output += '<div class="openlayers-popup openlayers-tooltip-description">' + feature.attributes.description + '</div>';
+	nodeId = feature.attributes.nid;
+    output += '<iframe width="400px" height="300px" src="http://localhost/austrofeedr/messstellen/' + nodeId + '/popup" />';
   }
   
   return output;
@@ -67,7 +64,7 @@ Drupal.behaviors.openlayers_behavior_hw_messstelle_popup =  {
           popup = new OpenLayers.Popup.FramedCloud(
             'popup',
             feature.geometry.getBounds().getCenterLonLat(),
-            null,
+            new OpenLayers.Size(500,500),
             Drupal.theme('openlayersPopup', feature),
             null,
             true,
