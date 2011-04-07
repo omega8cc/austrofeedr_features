@@ -128,6 +128,11 @@ function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
             'target' => 'field_hw_url',
             'unique' => FALSE,
           ),
+          18 => array(
+            'source' => 'GEWASSER',
+            'target' => 'field_hw_gewaesser',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
