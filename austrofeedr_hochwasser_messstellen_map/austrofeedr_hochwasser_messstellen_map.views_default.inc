@@ -71,7 +71,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     'other_bottom' => 'title',
     'other_left' => 'title',
     'name_field' => 'title',
-    'description_field' => 'entity_id',
+    'description_field' => 'field_hw_werte',
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -165,6 +165,43 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['entity_id_3']['hide_empty'] = 0;
   $handler->display->display_options['fields']['entity_id_3']['empty_zero'] = 0;
   $handler->display->display_options['fields']['entity_id_3']['click_sort_column'] = 'lat';
+  /* Field: Content: Wasserstand Werte */
+  $handler->display->display_options['fields']['field_hw_werte']['id'] = 'field_hw_werte';
+  $handler->display->display_options['fields']['field_hw_werte']['table'] = 'field_data_field_hw_werte';
+  $handler->display->display_options['fields']['field_hw_werte']['field'] = 'field_hw_werte';
+  $handler->display->display_options['fields']['field_hw_werte']['label'] = '';
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_werte']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['type'] = 'datastore_visualization_datastore_field_formatter';
+  $handler->display->display_options['fields']['field_hw_werte']['settings'] = array(
+    'chart_id' => '',
+    'chart_class' => '',
+    'chart_type' => 'Line 2D',
+    'num_values' => '10',
+    'chart_title' => 'hochwasserstand_teaser',
+    'axis_1' => '',
+    'axis_2' => '',
+    'chart_width' => '600',
+    'chart_height' => '150',
+    'date_format' => 'd.m H:i',
+  );
+  $handler->display->display_options['fields']['field_hw_werte']['group_rows'] = 1;
+  $handler->display->display_options['fields']['field_hw_werte']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_hw_werte']['delta_reversed'] = 0;
+  $handler->display->display_options['fields']['field_hw_werte']['field_api_classes'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
