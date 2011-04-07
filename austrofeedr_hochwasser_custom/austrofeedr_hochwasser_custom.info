@@ -3,3 +3,5 @@ description = "AustroFeedr Hochwasser custom module"
 core = 7.x
 package = AustroFeedr
 dependencies[] = austrofeedr_hochwasser_base
+
+files[] = includes/behaviors/openlayers_behavior_hw_messstelle_popup.inc

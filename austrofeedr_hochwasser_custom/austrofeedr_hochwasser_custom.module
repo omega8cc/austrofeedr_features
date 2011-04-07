@@ -107,3 +107,23 @@ function austrofeedr_hochwasser_custom_datastore_fusionchart_field_formatter_alt
 	}
 
 }
+
+/**
+ * Implementation of hook_openlayers_behaviors().
+ *
+ */
+function austrofeedr_hochwasser_custom_openlayers_behaviors() {
+  return array(
+    'openlayers_behavior_hw_messstelle_popup' => array(
+      'title' => t('Hochwasser Messstelle Pop Up'),
+      'description' => t('AustroFeedr Hochwasser Messstelle iframe popups.'),
+      'type' => 'layer',
+      'path' => drupal_get_path('module', 'austrofeedr_hochwasser_custom') . '/includes/behaviors',
+      'file' => 'openlayers_behavior_hw_messstelle_popup.inc',
+      'behavior' => array(
+        'class' => 'openlayers_behavior_hw_messstelle_popup',
+        'parent' => 'openlayers_behavior_popup',
+      ),
+    ),
+	);
+}
