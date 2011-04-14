@@ -1,6 +1,5 @@
 core = "7.x"
 dependencies[] = "austrofeedr_hochwasser_pegelaktuell_import"
-dependencies[] = "devel"
 dependencies[] = "feeds"
 dependencies[] = "rules_autotag"
 dependencies[] = "rules_scheduler"

@@ -23,12 +23,16 @@ Drupal.openlayers.popup.selectedFeature = Drupal.openlayers.popup.selectedFeatur
  */
 Drupal.theme.prototype.openlayersPopup = function(feature) {
   var output = '';
-  
+
   if (feature.attributes.name) {
-	nodeId = feature.attributes.nid;
-    output += '<iframe width="400px" height="300px" src="http://localhost/austrofeedr/messstellen/' + nodeId + '/popup" />';
+    output += '<div class="openlayers-popup openlayers-tooltip-name">' + feature.attributes.name + '</div>';
   }
-  
+
+  if (feature.attributes.nid) {
+	nodeId = feature.attributes.nid;
+    output += '<iframe width="360px" height="250px" src="http://localhost/austrofeedr/messstellen/' + nodeId + '/popup" />';
+  }
+
   return output;
 }
 

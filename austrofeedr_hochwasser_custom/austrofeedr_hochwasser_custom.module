@@ -169,6 +169,17 @@ function austrofeedr_hochwasser_custom_menu() {
 	return $items;
 }
 
+/**
+ * Implements hook_preprocess_TEMPLATE().
+ *
+ * Replace the node template with the slim page template if requested.
+ */
+function austrofeedr_hochwasser_custom_preprocess_node(&$variables) {
+	if((arg(0) == 'messstellen') && (arg(2) == 'popup')) {
+    $variables['theme_hook_suggestions'][] = 'node__popup';
+	}
+}
+
 function austrofeedr_hochwasser_custom_messstellen_popup_title($nid) {
 	$node = node_load($nid);
 	$title = t($node->title);
@@ -179,8 +190,4 @@ function austrofeedr_hochwasser_custom_messstellen_popup_page($nid) {
 	$node = node_load($nid);
 	$node->title = "";
 	return node_view($node, 'teaser');
-}
-
-function austrofeedr_hochwasser_custom_preprocess_node(&$variables) {
-	dpm($variables);
 }
