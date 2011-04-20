@@ -62,21 +62,56 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
   $handler->display->display_options['filters']['status_extra']['field'] = 'status_extra';
-  /* Filter criterion: Content: Has taxonomy term */
+/* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
   $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
   $handler->display->display_options['filters']['tid']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid']['group'] = 0;
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Trend';
   $handler->display->display_options['filters']['tid']['expose']['use_operator'] = FALSE;
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Status';
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
-  $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
-  $handler->display->display_options['filters']['tid']['expose']['required'] = FALSE;
-  $handler->display->display_options['filters']['tid']['expose']['remember'] = FALSE;
-  $handler->display->display_options['filters']['tid']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['tid']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['tid']['reduce_duplicates'] = 0;
   $handler->display->display_options['filters']['tid']['type'] = 'select';
-  $handler->display->display_options['filters']['tid']['vocabulary'] = 'hw_trend';
+  $handler->display->display_options['filters']['tid']['vocabulary'] = 'hw_status';
+  $handler->display->display_options['filters']['tid']['error_message'] = 1;
+  /* Filter criterion: Content: Has taxonomy term */
+  $handler->display->display_options['filters']['tid_1']['id'] = 'tid_1';
+  $handler->display->display_options['filters']['tid_1']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid_1']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid_1']['group'] = 0;
+  $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['use_operator'] = FALSE;
+  $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Trend';
+  $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
+  $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'trend';
+  $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['tid_1']['reduce_duplicates'] = 0;
+  $handler->display->display_options['filters']['tid_1']['type'] = 'select';
+  $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'hw_trend';
+  $handler->display->display_options['filters']['tid_1']['error_message'] = 1;
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 0;
+  $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['use_operator'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Bezirk';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'bezirk';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['term_node_tid_depth']['reduce_duplicates'] = 0;
+  $handler->display->display_options['filters']['term_node_tid_depth']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'hw_austria';
+  $handler->display->display_options['filters']['term_node_tid_depth']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = 1;
+  $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '2';
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
@@ -172,6 +207,25 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_hw_bezirk';
+  $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['entity_id']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['entity_id']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['entity_id']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['entity_id']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['entity_id']['group_rows'] = 1;
+  $handler->display->display_options['fields']['entity_id']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['entity_id']['delta_reversed'] = 0;
+  $handler->display->display_options['fields']['entity_id']['field_api_classes'] = 0;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -192,6 +246,27 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['nid']['hide_empty'] = 0;
   $handler->display->display_options['fields']['nid']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nid']['link_to_node'] = 0;
+  /* Field: Content: Wasserstand Status */
+  $handler->display->display_options['fields']['field_hw_status']['id'] = 'field_hw_status';
+  $handler->display->display_options['fields']['field_hw_status']['table'] = 'field_data_field_hw_status';
+  $handler->display->display_options['fields']['field_hw_status']['field'] = 'field_hw_status';
+  $handler->display->display_options['fields']['field_hw_status']['label'] = '';
+  $handler->display->display_options['fields']['field_hw_status']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['element_label_colon'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_status']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['field_api_classes'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
@@ -221,6 +296,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     t('Latitude'),
     t('Longitude'),
     t('Content: Type'),
+    t('Trend'),
     t('Content: Has taxonomy term'),
     t('OpenLayers Data Overlay'),
     t('Title'),
