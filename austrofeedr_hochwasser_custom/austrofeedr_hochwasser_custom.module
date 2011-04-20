@@ -156,6 +156,16 @@ function austrofeedr_hochwasser_custom_preprocess_page(&$variables) {
 	}
 }
 
+/**
+ * Implements hook_page_alter().
+ */
+function austrofeedr_hochwasser_custom_page_alter(&$page) {
+  // Hide Toolbar for popups.
+	if((arg(0) == 'messstellen') && (arg(2) == 'popup') && !empty($page['page_top']['toolbar'])) {
+    $page['page_top']['toolbar']['#access'] = FALSE;
+  }
+}
+
 function austrofeedr_hochwasser_custom_menu() {
 	$items['messstellen/%/popup'] = array(
 	    'title' => 'Messstellen Popup',
