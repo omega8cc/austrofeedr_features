@@ -30,7 +30,7 @@ Drupal.theme.prototype.openlayersPopup = function(feature) {
 
   if (feature.attributes.nid) {
 	nodeId = feature.attributes.nid;
-    output += '<iframe width="360px" height="245px" src="' + Drupal.settings.basePath + '/messstellen/' + nodeId + '/popup" />';
+    output += '<iframe width="360px" height="245px" src="' + Drupal.settings.basePath + 'messstellen/' + nodeId + '/popup" />';
   }
 
   return output;
