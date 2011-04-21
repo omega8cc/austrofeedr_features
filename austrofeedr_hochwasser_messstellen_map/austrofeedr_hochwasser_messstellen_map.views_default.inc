@@ -114,6 +114,19 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['tid_1']['type'] = 'select';
   $handler->display->display_options['filters']['tid_1']['vocabulary'] = 'hw_trend';
   $handler->display->display_options['filters']['tid_1']['error_message'] = 1;
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Suche';
+  $handler->display->display_options['filters']['title']['expose']['use_operator'] = FALSE;
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['required'] = FALSE;
+  $handler->display->display_options['filters']['title']['expose']['multiple'] = FALSE;
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
@@ -292,27 +305,6 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['field_hw_trend']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_hw_trend']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_hw_trend']['field_api_classes'] = 0;
-  /* Field: Custom text: Trend URL */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Custom text: Trend URL';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'profiles/austrofeedr/themes/austrofeedr/images/[field_hw_trend].png';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = 0;
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
@@ -344,10 +336,10 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     t('Content: Type'),
     t('Status'),
     t('Trend'),
+    t('Name'),
     t('OpenLayers Data Overlay'),
     t('Title'),
     t('Nid'),
-    t('profiles/austrofeedr/themes/austrofeedr/images/[field_hw_trend].png'),
     t('Page'),
   );
   $export['hw_messstellen_map'] = $view;
