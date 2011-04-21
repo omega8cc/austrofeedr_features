@@ -268,6 +268,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['field_hw_status']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_hw_status']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_hw_status']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_status']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_hw_status']['field_api_classes'] = 0;
   /* Field: Content: Wasserstand Trend */
   $handler->display->display_options['fields']['field_hw_trend']['id'] = 'field_hw_trend';
