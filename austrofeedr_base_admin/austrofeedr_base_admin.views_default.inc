@@ -37,76 +37,6 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['pager']['options']['expose']['items_per_page'] = TRUE;
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '20, 50, 100, 500';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 1;
-  $handler->display->display_options['style_plugin'] = 'bulk';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-    'title_1' => 'title_1',
-    'changed' => 'changed',
-    'field_update_subscription_tags' => 'field_update_subscription_tags',
-    'field_update_tags' => 'field_update_tags',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'title_1' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'changed' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_update_subscription_tags' => array(
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_update_tags' => array(
-      'align' => '',
-      'separator' => '',
-    ),
-  );
-  $handler->display->display_options['style_options']['override'] = 1;
-  $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['selected_operations'] = array(
-    'views_bulk_operations_delete_node_action' => 'views_bulk_operations_delete_node_action',
-    'node_assign_owner_action' => 0,
-    'node_mass_update:a27b9efabcd054685a549378b174ad11' => 0,
-    'system_message_action' => 0,
-    'views_bulk_operations_action' => 0,
-    'views_bulk_operations_script_action' => 0,
-    'node_make_sticky_action' => 0,
-    'node_make_unsticky_action' => 0,
-    'node_mass_update:8ce21b08bb8e773d10018b484fe4815e' => 0,
-    'node_mass_update:c4d3b28efb86fd703619a50b74d43794' => 0,
-    'views_bulk_operations_taxonomy_action' => 0,
-    'views_bulk_operations_argument_selector_action' => 0,
-    'node_promote_action' => 0,
-    'node_mass_update:14de7d028b4bffdf2b4a266562ca18ac' => 0,
-    'node_publish_action' => 0,
-    'node_mass_update:9c585624b9b3af0b4687d5f97f35e047' => 0,
-    'system_goto_action' => 0,
-    'node_unpromote_action' => 0,
-    'node_save_action' => 0,
-    'system_send_email_action' => 0,
-    'node_unpublish_action' => 0,
-    'node_unpublish_by_keyword_action' => 0,
-    'node_mass_update:0ccad85c1ebe4c9ceada1aa64293b080' => 0,
-  );
-  $handler->display->display_options['style_options']['execution_type'] = '1';
-  $handler->display->display_options['style_options']['display_type'] = '0';
-  $handler->display->display_options['style_options']['skip_confirmation'] = 0;
-  $handler->display->display_options['style_options']['display_result'] = 1;
-  $handler->display->display_options['style_options']['merge_single_action'] = 1;
-  $handler->display->display_options['style_options']['hide_select_all'] = 0;
   /* Relationship: Feeds item: Owner feed */
   $handler->display->display_options['relationships']['feed_nid']['id'] = 'feed_nid';
   $handler->display->display_options['relationships']['feed_nid']['table'] = 'feeds_item';
@@ -185,7 +115,6 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['field_update_subscription_tags']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_update_subscription_tags']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_update_subscription_tags']['click_sort_column'] = 'tid';
   $handler->display->display_options['fields']['field_update_subscription_tags']['group_rows'] = 1;
   $handler->display->display_options['fields']['field_update_subscription_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_update_subscription_tags']['delta_reversed'] = 0;
@@ -208,7 +137,6 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['field_update_tags']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['field_update_tags']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_update_tags']['click_sort_column'] = 'tid';
   $handler->display->display_options['fields']['field_update_tags']['group_rows'] = 1;
   $handler->display->display_options['fields']['field_update_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_update_tags']['delta_reversed'] = 0;
@@ -239,6 +167,7 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['label'] = 'Subscription Tags';
+  $handler->display->display_options['filters']['tid']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
   $handler->display->display_options['filters']['tid']['expose']['reduce'] = 0;
@@ -253,6 +182,7 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Update Tags';
+  $handler->display->display_options['filters']['tid_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'tid_1';
   $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = 0;
@@ -269,6 +199,7 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Feed';
+  $handler->display->display_options['filters']['title']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['required'] = FALSE;
