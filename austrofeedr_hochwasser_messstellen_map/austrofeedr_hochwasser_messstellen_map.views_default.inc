@@ -15,7 +15,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $view->description = 'openlayers';
   $view->tag = 'austrofeedr';
   $view->base_table = 'node';
-  $view->human_name = 'Hochwasser Messstellen';
+  $view->human_name = 'Hochwasser Messstellen Map';
   $view->core = 0;
   $view->api_version = '3.0-alpha1';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -294,7 +294,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['preset'] = 'hw_messstellen_map_preset';
+  $handler->display->display_options['style_options']['map'] = 'hw_messstellen_map_preset';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -317,10 +317,9 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     t('Bezirk'),
     t('Latitude'),
     t('Longitude'),
-    t('Content: Type'),
+    t('Suche'),
     t('Status'),
     t('Trend'),
-    t('Name'),
     t('OpenLayers Data Overlay'),
     t('Title'),
     t('Nid'),

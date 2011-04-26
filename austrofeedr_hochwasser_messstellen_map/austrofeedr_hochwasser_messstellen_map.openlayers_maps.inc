@@ -1,22 +1,22 @@
 <?php
 /**
  * @file
- * austrofeedr_hochwasser_messstellen_map.openlayers_presets.inc
+ * austrofeedr_hochwasser_messstellen_map.openlayers_maps.inc
  */
 
 /**
- * Implementation of hook_openlayers_presets().
+ * Implementation of hook_openlayers_maps().
  */
-function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
+function austrofeedr_hochwasser_messstellen_map_openlayers_maps() {
   $export = array();
 
-  $openlayers_presets = new stdClass;
-  $openlayers_presets->disabled = FALSE; /* Edit this to true to make a default openlayers_presets disabled initially */
-  $openlayers_presets->api_version = 1;
-  $openlayers_presets->name = 'hw_messstellen_map_preset';
-  $openlayers_presets->title = 'Hochwasser Messstellen';
-  $openlayers_presets->description = 'AustroFeedr Hochwasser Messstellen Map';
-  $openlayers_presets->data = array(
+  $openlayers_maps = new stdClass;
+  $openlayers_maps->disabled = FALSE; /* Edit this to true to make a default openlayers_maps disabled initially */
+  $openlayers_maps->api_version = 1;
+  $openlayers_maps->name = 'hw_messstellen_map_preset';
+  $openlayers_maps->title = 'Hochwasser Messstellen';
+  $openlayers_maps->description = 'AustroFeedr Hochwasser Messstellen Map';
+  $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
     'image_path' => '',
@@ -75,7 +75,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_presets() {
       'temporary' => 'hw_messstellen_map_style',
     ),
   );
-  $export['hw_messstellen_map_preset'] = $openlayers_presets;
+  $export['hw_messstellen_map_preset'] = $openlayers_maps;
 
   return $export;
 }
