@@ -1299,7 +1299,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'chart_title' => '',
             'chart_type' => 'Line 2D',
             'chart_width' => '650',
-            'date_format' => '',
+            'date_format' => 'd.m H:i',
             'num_values' => '10',
           ),
           'type' => 'datastore_visualization_datastore_field_formatter',
