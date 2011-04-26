@@ -9,6 +9,36 @@
  */
 function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items = array();
+  $items['rules_hochwasser_processor_static'] = entity_import('rules_config', '{ "rules_hochwasser_processor_static" : {
+      "LABEL" : "Hochwasser Processor static",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "wsclient", "rules", "austrofeedr_hochwasser_processor" ],
+      "DO" : [
+        { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
+        { "LOOP" : {
+            "USING" : { "list" : [ "result:featureMember" ] },
+            "DO" : [
+              { "entity_query" : {
+                  "USING" : {
+                    "type" : "node",
+                    "property" : "field_hw_dbmsnr",
+                    "value" : [ "list-item:pegelaktuell:dbmsnr" ],
+                    "limit" : "1"
+                  },
+                  "PROVIDE" : { "entity_fetched" : { "messstelle" : "Messstelle" } }
+                }
+              },
+              { "hw_messstelle_update" : {
+                  "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
+                  "messstelle" : [ "messstelle:0" ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_hochwasser_update_processing'] = entity_import('rules_config', '{ "rules_hochwasser_update_processing" : {
       "LABEL" : "Hochwasser Update Processing",
       "PLUGIN" : "reaction rule",
@@ -167,9 +197,9 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "data_create" : {
             "USING" : {
               "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell",
+              "param_dbmsnr" : [ "messstelle-id-dbmsnr" ],
               "param_wert" : [ "wasserstand" ],
-              "param_zp" : "now",
-              "param_dbmsnr" : [ "messstelle-id-dbmsnr" ]
+              "param_zp" : "now"
             },
             "PROVIDE" : { "data_created" : { "pegelaktuell_item" : "Pegelaktuell item" } }
           }
