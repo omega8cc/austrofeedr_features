@@ -82,7 +82,7 @@ function austrofeedr_hochwasser_messwerte_list_views_default_views() {
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
-  /* Sort criterion: Content: Wasserstand Werte (field_hw_werte) - timestamp */
+  /* Sort criterion: Content: Wasserstand Werte (field_hw_werte:timestamp) */
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['id'] = 'field_hw_werte_timestamp';
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['table'] = 'field_data_field_hw_werte';
   $handler->display->display_options['sorts']['field_hw_werte_timestamp']['field'] = 'field_hw_werte_timestamp';

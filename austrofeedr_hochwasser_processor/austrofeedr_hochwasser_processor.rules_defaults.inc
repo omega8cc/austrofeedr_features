@@ -158,7 +158,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_pegelaktuell_test_trigger'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_test_trigger" : {
       "LABEL" : "Hochwasser Pegelaktuell Test Trigger",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules", "devel" ],
+      "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : {
         "wasserstand" : { "label" : "Wasserstand", "type" : "decimal" },
         "messstelle_id_dbmsnr" : { "label" : "Messstelle ID (dbmsnr)", "type" : "text" }
@@ -189,7 +189,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "messstelle" : [ "messstellen:0" ]
           }
         },
-        { "devel_debug" : { "value" : [ "messstelle-id-dbmsnr" ] } }
+        { "devel_debug" : [] }
       ]
     }
   }');

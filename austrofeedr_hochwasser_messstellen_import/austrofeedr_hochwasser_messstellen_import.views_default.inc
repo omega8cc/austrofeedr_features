@@ -123,7 +123,6 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
   $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['entity_id']['click_sort_column'] = 'tid';
   $handler->display->display_options['fields']['entity_id']['group_rows'] = 1;
   $handler->display->display_options['fields']['entity_id']['delta_offset'] = '0';
   $handler->display->display_options['fields']['entity_id']['delta_reversed'] = 0;

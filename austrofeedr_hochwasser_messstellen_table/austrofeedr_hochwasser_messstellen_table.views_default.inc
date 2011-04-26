@@ -690,6 +690,7 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['label'] = 'Status';
+  $handler->display->display_options['filters']['tid']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['tid']['expose']['reduce'] = 0;
@@ -705,6 +706,7 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Trend';
+  $handler->display->display_options['filters']['tid_1']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'trend';
   $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = 0;
@@ -720,6 +722,7 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Bezirk';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'bezirk';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['reduce'] = 0;

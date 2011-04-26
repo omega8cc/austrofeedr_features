@@ -153,8 +153,10 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
     t('Bezirk'),
     t('Latitude'),
     t('Longitude'),
-    t('Trend'),
+    t('Content: Type'),
+    t('Suche'),
     t('Status'),
+    t('Trend'),
     t('Page'),
   );
   $export['hw_messstellen_list'] = $view;

@@ -32,7 +32,7 @@ function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
   $handler->display->display_options['row_options']['relationship'] = 'nid';
   $handler->display->display_options['row_options']['links'] = 1;
   $handler->display->display_options['row_options']['comments'] = 0;
-  /* Relationship: Content: Bezirk (field_hw_bezirk) - tid */
+  /* Relationship: Content: Bezirk (field_hw_bezirk) */
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['id'] = 'field_hw_bezirk_tid';
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['table'] = 'field_data_field_hw_bezirk';
   $handler->display->display_options['relationships']['field_hw_bezirk_tid']['field'] = 'field_hw_bezirk_tid';

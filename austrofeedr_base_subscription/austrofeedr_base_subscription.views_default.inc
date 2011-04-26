@@ -8,9 +8,8 @@
  * Implementation of hook_views_default_views().
  */
 function austrofeedr_base_subscription_views_default_views() {
-  $views = array();
+  $export = array();
 
-  // Exported view: subscription_list
   $view = new view;
   $view->name = 'subscription_list';
   $view->description = 'Configured AustroFeedr subscriptions for sources feeds, web services';
@@ -32,7 +31,7 @@ function austrofeedr_base_subscription_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Field: Node: Title */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -53,10 +52,10 @@ function austrofeedr_base_subscription_views_default_views() {
   $handler->display->display_options['fields']['config']['field'] = 'config';
   $handler->display->display_options['fields']['config']['hide_empty'] = 0;
   $handler->display->display_options['fields']['config']['empty_zero'] = 0;
-  /* Field: Fields: Update Tags */
+  /* Field: Content: Update Tags */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_update_tags';
-  $handler->display->display_options['fields']['entity_id']['field'] = 'entity_id';
+  $handler->display->display_options['fields']['entity_id']['field'] = 'field_update_tags';
   $handler->display->display_options['fields']['entity_id']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['absolute'] = 0;
@@ -67,7 +66,7 @@ function austrofeedr_base_subscription_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
   $handler->display->display_options['fields']['entity_id']['hide_empty'] = 0;
   $handler->display->display_options['fields']['entity_id']['empty_zero'] = 0;
-  /* Field: Node: Post date */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -97,7 +96,7 @@ function austrofeedr_base_subscription_views_default_views() {
   $handler->display->display_options['fields']['name']['empty_zero'] = 0;
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
-  /* Filter: Node: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -118,7 +117,7 @@ function austrofeedr_base_subscription_views_default_views() {
     t('more'),
     t('Apply'),
     t('Reset'),
-    t('Sort By'),
+    t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
@@ -131,8 +130,7 @@ function austrofeedr_base_subscription_views_default_views() {
     t('Name'),
     t('Page'),
   );
+  $export['subscription_list'] = $view;
 
-  $views[$view->name] = $view;
-
-  return $views;
+  return $export;
 }
