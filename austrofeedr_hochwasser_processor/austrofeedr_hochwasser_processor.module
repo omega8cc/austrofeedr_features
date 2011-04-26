@@ -31,6 +31,15 @@ function austrofeedr_hochwasser_processor_rules_action_info() {
         'hw_trend_term' => array('type' => 'taxonomy_term', 'label' => t('Hochwasser trend term')),
       ),
     ),
+    'hw_messstelle_update' => array(
+      'base' => 'hw_messstelle_update_action',
+      'label' => t('Hochwasser Messstelle update'),
+      'group' => t('AustroFeedr'),
+      'parameter' => array(
+        'pegelaktuell_item' => array('type' => 'wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell', 'label' => t('Pegelaktuell item')),
+        'messstelle' => array('type' => 'node', 'label' => t('Messstelle')),
+      ),
+    ),
   );
 }
 
@@ -114,4 +123,34 @@ function hw_wasserstand_update_trend_action($pegelaktuell_item, $messstelle) {
   $status_term = array_shift($terms);
 
   return array('hw_trend_term' => $status_term->tid);
+}
+
+/**
+ * Rules action for Hochwasser Messstelle update.
+ */
+function hw_messstelle_update_action($pegelaktuell_item, $messstelle) {
+  $wrapper = entity_metadata_wrapper('node', $messstelle);
+
+  $wrapper->field_hw_parameter = $pegelaktuell_item['parameter'];
+  $wrapper->field_hw_gewaesser = $pegelaktuell_item['gewasser'];
+  $wrapper->field_hw_link->set(array('url' => $pegelaktuell_item['internet']));
+
+  // Einheit definiert durch parameter.
+  if($pegelaktuell_item['parameter'] == 'W') {
+    $wrapper->field_hw_einheit = 'cm';
+  }
+  else if($pegelaktuell_item['parameter'] == 'Q') {
+    $wrapper->field_hw_einheit = 'm³/s';
+  }
+
+  // Title should be 'Messstellenname / Gewässer'.
+  if(strpos($pegelaktuell_item['messstelle'], $pegelaktuell_item['gewasser']) === FALSE) {
+    $wrapper->title = $pegelaktuell_item['messstelle'] . ' / ' . $pegelaktuell_item['gewasser'];
+  }
+  else {
+    $wrapper->title = $pegelaktuell_item['messstelle'];
+  }
+
+  entity_save('node', $wrapper);
+  return;
 }

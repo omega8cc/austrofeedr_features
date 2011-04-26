@@ -111,6 +111,34 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
     'pegelaktuell' => array(
       'label' => 'Pegelaktuell item',
       'property info' => array(
+        'dbmsnr' => array(
+          'type' => 'text',
+          'label' => 'Messstellen ID (dbmsnr)',
+        ),
+        'gewasser' => array(
+          'type' => 'text',
+          'label' => 'gewasser',
+        ),
+        'hd' => array(
+          'type' => 'text',
+          'label' => 'hd',
+        ),
+        'messstelle' => array(
+          'type' => 'text',
+          'label' => 'messstelle',
+        ),
+        'land' => array(
+          'type' => 'text',
+          'label' => 'land',
+        ),
+        'parameter' => array(
+          'type' => 'text',
+          'label' => 'parameter',
+        ),
+        'herkunft' => array(
+          'type' => 'text',
+          'label' => 'herkunft',
+        ),
         'wert' => array(
           'type' => 'decimal',
           'label' => 'Hochwasserstand',
@@ -119,9 +147,25 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
           'type' => 'date',
           'label' => 'Zeitpunkt',
         ),
-        'dbmsnr' => array(
+        'typ' => array(
           'type' => 'text',
-          'label' => 'Messstellen ID (dbmsnr)',
+          'label' => 'typ',
+        ),
+        'farbe' => array(
+          'type' => 'text',
+          'label' => 'farbe',
+        ),
+        'datum' => array(
+          'type' => 'date',
+          'label' => 'datum',
+        ),
+        'symbol' => array(
+          'type' => 'text',
+          'label' => 'symbol',
+        ),
+        'gesamtcode' => array(
+          'type' => 'text',
+          'label' => 'gesamtcode',
         ),
       ),
     ),
