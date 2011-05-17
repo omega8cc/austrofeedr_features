@@ -8,7 +8,7 @@
 function austrofeedr_hochwasser_processor_rules_action_info() {
   return array(
     'hw_wasserstand_update' => array(
-      'base' => 'hw_wasserstand_update_action',
+      'base' => 'hw_wasserstand_update_status_action',
       'label' => t('Hochwasser Wasserstand update status'),
       'group' => t('AustroFeedr'),
       'parameter' => array(
@@ -46,7 +46,8 @@ function austrofeedr_hochwasser_processor_rules_action_info() {
 /**
  * Rules action for Hochwasser Wasserstand update status.
  */
-function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
+function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
+
   // Require all necessary fields to be set.
   if(!(isset($pegelaktuell_item['wert'])
    && isset($messstelle->field_hw_wert_mq['und'])
@@ -85,9 +86,29 @@ function hw_wasserstand_update_action($pegelaktuell_item, $messstelle) {
     $status = 'Niederwasser';
   }
 
-  // Map status to taxonomy term and return.
+  // Map status to taxonomy term.
   $terms = (taxonomy_get_term_by_name(t($status)));
   $status_term = array_shift($terms);
+
+  if(isset($messstelle->field_hw_status['und']) && isset($messstelle->field_hw_status['und'][0])) {
+      $old_status_term = taxonomy_term_load($messstelle->field_hw_status['und'][0]['tid']);
+  }
+
+  // Send warn message if status changed from below Hochwasser to above Hochwasser.
+  if((strpos($status_term->name, 'Hochwasser') === 0) &&
+     (!isset($old_status_term) || strpos($old_status_term->name, 'Hochwasser') === false))
+  {
+    $values = array(
+      'field_hw_messstelle' => array('und' => array(0 => array('nid' => $messstelle->nid))),
+      'field_hw_status_neu' => array('und' => array(0 => array('tid' => $status_term->tid)))
+    );
+    if(isset($old_status_term)) {
+      $values['field_hw_status_alt'] = array('und' => array(0 => array('tid' => $old_status_term->tid)));
+    }
+    $message = message_create('austrofeedr_hochwasser_notification', $values);
+    $message->save();
+  }
+
   return array('hw_status_term' => $status_term->tid);
 }
 
