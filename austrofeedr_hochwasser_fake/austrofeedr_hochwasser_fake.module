@@ -15,7 +15,7 @@ function austrofeedr_hochwasser_fake_default_wsclient_service() {
   $service = austrofeedr_hochwasser_pegelaktuell_import_get_wsclient_service();
   $service->name = 'hw_pegelaktuell_ehyd_fake';
   $service->label = 'Hochwasser Pegelaktuell eHYD Service Fake';
-  $service->url = 'http://localhost/austrofeedr/sites/default/hochwasser_simulation/wmsgw_ybbs_0.xml';
+  $service->url = 'http://localhost/austrofeedr/sites/default/files/hochwasser_simulation/wmsgw_ybbs_0.xml';
 
   $service->operations['pegelaktuell']['result'] = array('type' => 'wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_result', 'label' => 'Pegelaktuell');
   $service->datatypes = array();
@@ -23,4 +23,31 @@ function austrofeedr_hochwasser_fake_default_wsclient_service() {
   $services[$service->name] = $service;
 
   return $services;
+}
+
+
+/**
+ * Implements hook_rules_action_info().
+ */
+function austrofeedr_hochwasser_fake_rules_action_info() {
+  return array(
+    'austrofeedr_hochwasser_fake_cleanup' => array(
+      'base' => 'austrofeedr_hochwasser_fake_cleanup_action',
+      'label' => t('Hochwasser Fake Cleanup'),
+      'group' => t('AustroFeedr'),
+    ),
+  );
+}
+
+/**
+ * Rules action for Hochwasser Wasserstand update status.
+ */
+function austrofeedr_hochwasser_fake_cleanup_action() {
+  $num_deleted = db_delete('field_data_field_hw_werte')
+    ->condition('field_hw_werte_timestamp', time(), $operator = '>')
+    ->execute();
+
+  $num_deleted = db_delete('field_revision_field_hw_werte')
+    ->condition('field_hw_werte_timestamp', time(), $operator = '>')
+    ->execute();
 }

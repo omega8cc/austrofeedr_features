@@ -9,11 +9,17 @@
  */
 function austrofeedr_hochwasser_fake_default_rules_configuration() {
   $items = array();
+  $items['rules_hochwasser_fake_cleanup'] = entity_import('rules_config', '{ "rules_hochwasser_fake_cleanup" : {
+      "LABEL" : "Hochwasser Fake Cleanup",
+      "PLUGIN" : "action set",
+      "REQUIRES" : [ "austrofeedr_hochwasser_fake" ],
+      "ACTION SET" : [ { "austrofeedr_hochwasser_fake_cleanup" : [] } ]
+    }
+  }');
   $items['rules_hochwasser_fake_processor'] = entity_import('rules_config', '{ "rules_hochwasser_fake_processor" : {
       "LABEL" : "Hochwasser Fake Processor",
       "PLUGIN" : "rule",
       "REQUIRES" : [ "wsclient", "rules" ],
-      "USES VARIABLES" : { "date" : { "label" : "Schedule date", "type" : "date" } },
       "DO" : [
         { "wsclient_hw_pegelaktuell_ehyd_fake_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
         { "LOOP" : {
