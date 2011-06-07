@@ -15,8 +15,7 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
       "REQUIRES" : [ "wsclient", "rules" ],
       "USES VARIABLES" : { "date" : { "label" : "Schedule date", "type" : "date" } },
       "DO" : [
-        { "wsclient_hw_pegelaktuell_ehyd_fake_pegelaktuell" : { "PROVIDE" : { "result" : { "result2" : "Pegelaktuell" } } } },
-        { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
+        { "wsclient_hw_pegelaktuell_ehyd_fake_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
         { "LOOP" : {
             "USING" : { "list" : [ "result:featureMember" ] },
             "ITEM" : { "list_item" : "Current list item" },
