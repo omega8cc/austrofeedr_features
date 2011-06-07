@@ -17,6 +17,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
         { "LOOP" : {
             "USING" : { "list" : [ "result:featureMember" ] },
+            "ITEM" : { "list_item" : "Current list item" },
             "DO" : [
               { "entity_query" : {
                   "USING" : {
@@ -29,6 +30,41 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
                 }
               },
               { "hw_messstelle_update" : {
+                  "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
+                  "messstelle" : [ "messstelle:0" ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_hochwasser_result_processor'] = entity_import('rules_config', '{ "rules_hochwasser_result_processor" : {
+      "LABEL" : "Hochwasser Result Processor",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "pegelaktuell_result" : {
+          "label" : "Pegelaktuell result",
+          "type" : "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_result"
+        }
+      },
+      "DO" : [
+        { "LOOP" : {
+            "USING" : { "list" : [ "pegelaktuell_result:featureMember" ] },
+            "ITEM" : { "list_item" : "Current list item" },
+            "DO" : [
+              { "entity_query" : {
+                  "USING" : {
+                    "type" : "node",
+                    "property" : "field_hw_dbmsnr",
+                    "value" : [ "list-item:pegelaktuell:dbmsnr" ],
+                    "limit" : "1"
+                  },
+                  "PROVIDE" : { "entity_fetched" : { "messstelle" : "Messstelle" } }
+                }
+              },
+              { "component_rules_hw_pegelaktuell_item_processor" : {
                   "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
                   "messstelle" : [ "messstelle:0" ]
                 }
@@ -161,27 +197,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
           }
         },
         { "wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell" : { "PROVIDE" : { "result" : { "result" : "Pegelaktuell" } } } },
-        { "LOOP" : {
-            "USING" : { "list" : [ "result:featureMember" ] },
-            "DO" : [
-              { "entity_query" : {
-                  "USING" : {
-                    "type" : "node",
-                    "property" : "field_hw_dbmsnr",
-                    "value" : [ "list-item:pegelaktuell:dbmsnr" ],
-                    "limit" : "1"
-                  },
-                  "PROVIDE" : { "entity_fetched" : { "messstelle" : "Messstelle" } }
-                }
-              },
-              { "component_rules_hw_pegelaktuell_item_processor" : {
-                  "pegelaktuell_item" : [ "list-item:pegelaktuell" ],
-                  "messstelle" : [ "messstelle:0" ]
-                }
-              }
-            ]
-          }
-        }
+        { "component_rules_hochwasser_result_processor" : { "pegelaktuell_result" : [ "result" ] } }
       ]
     }
   }');
