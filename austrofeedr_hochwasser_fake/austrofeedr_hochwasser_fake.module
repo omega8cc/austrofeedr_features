@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ */
+
+// Drupal needs this blank file.
+
+/**
+ * Implementation of hook_default_wsclient_service().
+ */
+function austrofeedr_hochwasser_fake_default_wsclient_service() {
+  $services = array();
+
+  // fake service
+  $serviceFake = austrofeedr_hochwasser_pegelaktuell_import_get_wsclient_service();
+  $serviceFake->name = 'hw_pegelaktuell_ehyd_fake';
+  $serviceFake->label = 'Hochwasser Pegelaktuell eHYD Service Fake';
+  $serviceFake->url = 'http://localhost/austrofeedr/sites/default/hochwasser_simulation/wmsgw_ybbs_0.xml';
+  $services[$serviceFake->name] = $serviceFake;
+
+  return $services;
+}
