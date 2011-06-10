@@ -26,6 +26,7 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -92,11 +93,11 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_hw_messstelle']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_messstelle']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_messstelle']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_hw_messstelle']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_hw_messstelle']['element_default_classes'] = 1;
@@ -113,11 +114,11 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['external'] = 0;
   $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['name']['alter']['html'] = 0;
   $handler->display->display_options['fields']['name']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
@@ -133,11 +134,11 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['alter']['external'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['timestamp']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['timestamp']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['timestamp']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['html'] = 0;
   $handler->display->display_options['fields']['timestamp']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['timestamp']['element_default_classes'] = 1;
@@ -154,11 +155,11 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['fields']['uid']['alter']['external'] = 0;
   $handler->display->display_options['fields']['uid']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['uid']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['uid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['uid']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['uid']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['uid']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['uid']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['uid']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['uid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['uid']['element_default_classes'] = 1;
@@ -175,11 +176,11 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_hw_status_alt']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_alt']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_status_alt']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_hw_status_alt']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_hw_status_alt']['element_default_classes'] = 1;
@@ -196,11 +197,11 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['external'] = 0;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_hw_status_neu']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_neu']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_status_neu']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_hw_status_neu']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_hw_status_neu']['element_default_classes'] = 1;
@@ -223,29 +224,6 @@ function austrofeedr_hochwasser_notification_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'hochwasser-notifications';
-  $translatables['hochwasser_notifications'] = array(
-    t('Master'),
-    t('Hochwasser Notifications'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Message ID'),
-    t('.'),
-    t(','),
-    t('Messstelle'),
-    t('Name'),
-    t('Timestamp'),
-    t('Uid'),
-    t('Alter Status'),
-    t('Neuer Status'),
-    t('Page'),
-  );
   $export['hochwasser_notifications'] = $view;
 
   return $export;

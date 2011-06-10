@@ -28,6 +28,7 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -113,11 +114,11 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['entity_id']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['entity_id']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['entity_id']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['entity_id']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['entity_id']['alter']['html'] = 0;
   $handler->display->display_options['fields']['entity_id']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['entity_id']['element_default_classes'] = 1;
@@ -160,11 +161,11 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_hw_wert_hq1']['element_default_classes'] = 1;
@@ -224,33 +225,6 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'messstellen/admin';
-  $translatables['hw_messstellen_admin'] = array(
-    t('Defaults'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('ID (dbmsnr)'),
-    t('Title'),
-    t('field_hw_bezirk'),
-    t('Wasserstand Status'),
-    t('Wasserstand Trend'),
-    t('Geo Position'),
-    t('Wasserstand Werte'),
-    t('URL'),
-    t('Updated date'),
-    t('Kennwert HQ10'),
-    t('Kennwert HQ100'),
-    t('Kennwert HQ2'),
-    t('Kennwert HQ30'),
-    t('Kennwert HQ5'),
-    t('Kennwert MJNQ'),
-    t('Kennwert MQ'),
-    t('Kennwert RHHQ'),
-    t('Page'),
-  );
   $export['hw_messstellen_admin'] = $view;
 
   return $export;

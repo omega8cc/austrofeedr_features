@@ -78,6 +78,13 @@ function af_rules_debug_action($entity) {
 function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
   $services = array();
 
+  $service = austrofeedr_hochwasser_pegelaktuell_import_get_wsclient_service();
+  $services[$service->name] = $service;
+
+  return $services;
+}
+
+function austrofeedr_hochwasser_pegelaktuell_import_get_wsclient_service() {
   // Google Translate service (REST)
   $service = new WSClientServiceDescription();
   $service->name = 'hw_pegelaktuell_ehyd_service';
@@ -181,7 +188,5 @@ function austrofeedr_hochwasser_pegelaktuell_import_default_wsclient_service() {
 
   $operation['result'] = array('type' => 'pegelaktuell_result', 'label' => 'Pegelaktuell');
   $service->operations['pegelaktuell'] = $operation;
-  $services[$service->name] = $service;
-
-  return $services;
+  return $service;
 }

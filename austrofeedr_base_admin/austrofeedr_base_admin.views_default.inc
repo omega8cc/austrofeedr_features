@@ -29,6 +29,7 @@ function austrofeedr_base_admin_views_default_views() {
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
@@ -52,10 +53,10 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
   $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
@@ -70,11 +71,11 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['title_1']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['title_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['title_1']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['title_1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title_1']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['title_1']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['title_1']['element_default_classes'] = 1;
@@ -89,11 +90,11 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['changed']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['changed']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['changed']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['changed']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['changed']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['changed']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['changed']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['changed']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['changed']['alter']['html'] = 0;
   $handler->display->display_options['fields']['changed']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['changed']['element_default_classes'] = 1;
@@ -107,11 +108,11 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_update_subscription_tags']['element_default_classes'] = 1;
@@ -129,11 +130,11 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['field_update_tags']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_update_tags']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['field_update_tags']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['field_update_tags']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_update_tags']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_update_tags']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['field_update_tags']['element_default_classes'] = 1;
@@ -214,25 +215,6 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['menu']['title'] = 'Updates Admin';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  $translatables['updates_admin'] = array(
-    t('Master'),
-    t('Updates Admin'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Owner feed'),
-    t('Feed'),
-    t('Updated date'),
-    t('Subscription Tags'),
-    t('Update Tags'),
-    t('Page'),
-  );
   $export['updates_admin'] = $view;
 
   return $export;

@@ -25,6 +25,7 @@ function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -72,23 +73,6 @@ function austrofeedr_hochwasser_messstellen_updates_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['hw_messstellen_updates'] = array(
-    t('Defaults'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('term from field_hw_bezirk'),
-    t('node'),
-    t('All'),
-    t('Updates zu %1'),
-    t('Block'),
-  );
   $export['hw_messstellen_updates'] = $view;
 
   return $export;

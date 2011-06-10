@@ -25,6 +25,7 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -139,26 +140,6 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
   $handler->display->display_options['menu']['title'] = 'Messstellen Liste';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  $translatables['hw_messstellen_list'] = array(
-    t('Defaults'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Bezirk'),
-    t('Latitude'),
-    t('Longitude'),
-    t('Content: Type'),
-    t('Suche'),
-    t('Status'),
-    t('Trend'),
-    t('Page'),
-  );
   $export['hw_messstellen_list'] = $view;
 
   return $export;
