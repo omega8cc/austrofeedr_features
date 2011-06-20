@@ -98,15 +98,17 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   if((strpos($status_term->name, 'Hochwasser') === 0) &&
      (!isset($old_status_term) || strpos($old_status_term->name, 'Hochwasser') === false))
   {
-    $values = array(
-      'field_hw_messstelle' => array('und' => array(0 => array('nid' => $messstelle->nid))),
-      'field_hw_status_neu' => array('und' => array(0 => array('tid' => $status_term->tid)))
-    );
+    $node = new stdClass();
+    $node->field_hw_messstelle = array('und' => array(0 => array('nid' => $messstelle->nid)));
+    $node->field_hw_status_neu = array('und' => array(0 => array('tid' => $status_term->tid)));
     if(isset($old_status_term)) {
-      $values['field_hw_status_alt'] = array('und' => array(0 => array('tid' => $old_status_term->tid)));
+      $node->field_hw_status_alt = array('und' => array(0 => array('tid' => $old_status_term->tid)));
     }
-    $message = message_create('austrofeedr_hochwasser_notification', $values);
-    $message->save();
+    dpm($status_term);
+    $node->title = $status_term->name . ' ' . $messstelle->title;
+    $node->type = "hochwasser_update";
+    node_save($node);
+    //$message->save();
   }
 
   return array('hw_status_term' => $status_term->tid);
