@@ -90,6 +90,7 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   $terms = (taxonomy_get_term_by_name(t($status)));
   $status_term = array_shift($terms);
 
+  /*
   if(isset($messstelle->field_hw_status['und']) && isset($messstelle->field_hw_status['und'][0])) {
       $old_status_term = taxonomy_term_load($messstelle->field_hw_status['und'][0]['tid']);
   }
@@ -109,6 +110,7 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
     node_save($node);
     //$message->save();
   }
+  */
 
   return array('hw_status_term' => $status_term->tid);
 }
