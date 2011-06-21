@@ -2336,19 +2336,19 @@ function austrofeedr_hochwasser_base_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('1-j√§hrliches Hochwasser einer Messstelle.');
-  t('10-j√§hrliches Hochwasser einer Messstelle.');
-  t('100-j√§hrliches Hochwasser einer Messstelle.');
-  t('2-j√§hrliches Hochwasser einer Messstelle.');
-  t('30-j√§hrliches Hochwasser einer Messstelle.');
-  t('5-j√§hrliches Hochwasser einer Messstelle.');
+  t('1-ährliches Hochwasser einer Messstelle.');
+  t('10-jährliches Hochwasser einer Messstelle.');
+  t('100-jährliches Hochwasser einer Messstelle.');
+  t('2-jährliches Hochwasser einer Messstelle.');
+  t('30-jährliches Hochwasser einer Messstelle.');
+  t('5-jährliches Hochwasser einer Messstelle.');
   t('Alter Status');
   t('Bezirk');
   t('Body');
   t('Einheit');
   t('Einheit des Messwert (m oder m^3/s), berechnet aus Parameter');
   t('Geo Position');
-  t('Gew√§sser');
+  t('Gewässer');
   t('ID (dbmsnr)');
   t('Kennwert HQ1');
   t('Kennwert HQ10');
@@ -2363,12 +2363,12 @@ function austrofeedr_hochwasser_base_field_default_fields() {
   t('Link');
   t('Longitude');
   t('Messstelle');
-  t('Mittelwasser √ºber den gesamten Beobachtungszeitraum einer Messstelle.');
-  t('Mittleres j√§hrliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte √ºber den gesamten Beobachtungszeitraum einer Messstelle.');
+  t('Mittelwasser über den gesamten Beobachtungszeitraum einer Messstelle.');
+  t('Mittleres jährliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte über den gesamten Beobachtungszeitraum einer Messstelle.');
   t('Neuer Status');
   t('Parameter');
   t('Parameter des Messwerts: W (m) oder Q (m^3/s)');
-  t('Rechnerisch h√∂chstes Hochwasser einer Messstelle.');
+  t('Rechnerisch höchstes Hochwasser einer Messstelle.');
   t('URL');
   t('Wasserstand Aktuell');
   t('Wasserstand Last Update');
