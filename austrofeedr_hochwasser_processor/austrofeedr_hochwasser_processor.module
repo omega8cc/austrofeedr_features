@@ -104,7 +104,6 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
     if(isset($old_status_term)) {
       $node->field_hw_status_alt = array('und' => array(0 => array('tid' => $old_status_term->tid)));
     }
-    dpm($status_term);
     $node->title = $status_term->name . ' ' . $messstelle->title;
     $node->type = "hochwasser_update";
     node_save($node);
