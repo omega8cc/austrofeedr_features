@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $export = array();
@@ -17,7 +17,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $view->base_table = 'node';
   $view->human_name = 'Hochwasser Messstellen Map';
   $view->core = 0;
-  $view->api_version = '3.0-alpha1';
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Defaults */
@@ -28,22 +28,33 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = 1;
-  $handler->display->display_options['row_options']['comments'] = 0;
+  $handler->display->display_options['style_plugin'] = 'openlayers_map';
+  $handler->display->display_options['style_options']['map'] = 'hw_messstellen_map_preset';
   /* Field: Content: Bezirk */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_hw_bezirk';
-  /* Field: Fields: Latitude */
+  /* Field: Field: Latitude */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_lat';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_lat';
-  /* Field: Fields: Longitude */
+  /* Field: Field: Longitude */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_lng';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_lng';
+  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
+  $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '2';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['term_node_tid_depth']['set_breadcrumb'] = 0;
+  $handler->display->display_options['arguments']['term_node_tid_depth']['use_taxonomy_term_path'] = 0;
   /* Filter criterion: Content: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
@@ -60,7 +71,6 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['use_operator'] = FALSE;
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['title']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
@@ -70,7 +80,6 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['label'] = 'Status';
-  $handler->display->display_options['filters']['tid']['expose']['use_operator'] = FALSE;
   $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
   $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['tid']['expose']['reduce'] = 0;
@@ -86,7 +95,6 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['tid_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator_id'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['label'] = 'Trend';
-  $handler->display->display_options['filters']['tid_1']['expose']['use_operator'] = FALSE;
   $handler->display->display_options['filters']['tid_1']['expose']['operator'] = 'tid_1_op';
   $handler->display->display_options['filters']['tid_1']['expose']['identifier'] = 'trend';
   $handler->display->display_options['filters']['tid_1']['expose']['reduce'] = 0;
@@ -111,7 +119,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'hw_austria';
   $handler->display->display_options['filters']['term_node_tid_depth']['hierarchy'] = 1;
   $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = 1;
-  $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '2';
+  $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '1';
 
   /* Display: OpenLayers Data Overlay */
   $handler = $view->new_display('openlayers', 'OpenLayers Data Overlay', 'openlayers_1');
@@ -152,7 +160,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Field: Fields: Latitude */
+  /* Field: Field: Latitude */
   $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
   $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_lat';
   $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_lat';
@@ -178,7 +186,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['entity_id_1']['field_api_classes'] = 0;
-  /* Field: Fields: Longitude */
+  /* Field: Field: Longitude */
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_lng';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_lng';
@@ -304,28 +312,9 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['menu']['title'] = 'Messstellen Map';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
-  $translatables['hw_messstellen_map'] = array(
-    t('Defaults'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('Bezirk'),
-    t('Latitude'),
-    t('Longitude'),
-    t('Suche'),
-    t('Status'),
-    t('Trend'),
-    t('OpenLayers Data Overlay'),
-    t('Title'),
-    t('Nid'),
-    t('Page'),
-  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $export['hw_messstellen_map'] = $view;
 
   return $export;

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Hochwasser Hochwasser Overview feature.
+ */
+
+include_once('austrofeedr_hochwasser_overview.features.inc');

@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_openlayers_styles().
+ * Implements hook_openlayers_styles().
  */
 function austrofeedr_hochwasser_messstellen_map_openlayers_styles() {
   $export = array();

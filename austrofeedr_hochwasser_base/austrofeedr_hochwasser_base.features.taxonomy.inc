@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_taxonomy_default_vocabularies().
+ * Implements hook_taxonomy_default_vocabularies().
  */
 function austrofeedr_hochwasser_base_taxonomy_default_vocabularies() {
   return array(
@@ -36,7 +36,7 @@ function austrofeedr_hochwasser_base_taxonomy_default_vocabularies() {
       'name' => 'Status des Hochwasserstandes',
       'machine_name' => 'hw_status',
       'description' => '',
-      'hierarchy' => '1',
+      'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
       'rdf_mapping' => array(

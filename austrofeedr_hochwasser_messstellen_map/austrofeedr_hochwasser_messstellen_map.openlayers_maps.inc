@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_openlayers_maps().
+ * Implements hook_openlayers_maps().
  */
 function austrofeedr_hochwasser_messstellen_map_openlayers_maps() {
   $export = array();
@@ -45,28 +45,35 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_maps() {
       ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 1,
+        'documentDrag' => 0,
       ),
       'openlayers_behavior_panzoombar' => array(),
+      'openlayers_behavior_zoomtolayer' => array(
+        'zoomtolayer' => 'hw_messstellen_map_openlayers_1',
+        'point_zoom_level' => '11',
+      ),
     ),
     'default_layer' => 'google_physical',
     'layers' => array(
-      'control_room' => 'control_room',
       'google_satellite' => 'google_satellite',
       'google_hybrid' => 'google_hybrid',
       'google_normal' => 'google_normal',
       'google_physical' => 'google_physical',
       'osm_mapnik' => 'osm_mapnik',
       'osm_tah' => 'osm_tah',
-      'austrofeedr_hochwasser' => 'austrofeedr_hochwasser',
       'hw_messstellen_map_openlayers_1' => 'hw_messstellen_map_openlayers_1',
+    ),
+    'layer_weight' => array(
+      'hw_messstellen_map_openlayers_1' => '0',
+      'austrofeedr_hochwasser' => '0',
     ),
     'layer_styles' => array(
       'austrofeedr_hochwasser' => '0',
       'hw_messstellen_map_openlayers_1' => 'hw_messstellen_map_style',
     ),
     'layer_activated' => array(
-      'austrofeedr_hochwasser' => 'austrofeedr_hochwasser',
       'hw_messstellen_map_openlayers_1' => 'hw_messstellen_map_openlayers_1',
+      'austrofeedr_hochwasser' => 0,
     ),
     'layer_switcher' => array(
       'austrofeedr_hochwasser' => 0,
