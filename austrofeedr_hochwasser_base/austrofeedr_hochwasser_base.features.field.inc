@@ -50,6 +50,12 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'type' => 'hidden',
           'weight' => '0',
         ),
+        'rss' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '0',
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -138,11 +144,20 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'type' => 'node_reference_node',
           'weight' => '2',
         ),
+        'rss' => array(
+          'label' => 'hidden',
+          'module' => 'node_reference',
+          'settings' => array(
+            'node_reference_view_mode' => 'rss',
+          ),
+          'type' => 'node_reference_node',
+          'weight' => '2',
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'node_reference',
           'settings' => array(
-            'node_reference_view_mode' => 'teaser',
+            'node_reference_view_mode' => 'rss',
           ),
           'type' => 'node_reference_node',
           'weight' => '0',
@@ -214,6 +229,12 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'type' => 'hidden',
           'weight' => '3',
         ),
+        'rss' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -278,6 +299,12 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'rss' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
@@ -433,7 +460,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '2',
         ),
         'teaser' => array(
@@ -724,7 +751,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_hw_gewaesser',
-      'label' => 'Gew√§sser',
+      'label' => 'Gewässer',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -1049,7 +1076,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '3',
         ),
         'teaser' => array(
@@ -1127,7 +1154,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '4',
         ),
         'teaser' => array(
@@ -1324,7 +1351,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '1-j√§hrliches Hochwasser einer Messstelle.',
+      'description' => '1-jährliches Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1393,7 +1420,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '10-j√§hrliches Hochwasser einer Messstelle.',
+      'description' => '10-jährliches Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1462,7 +1489,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '100-j√§hrliches Hochwasser einer Messstelle.',
+      'description' => '100-jährliches Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1531,7 +1558,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '2-j√§hrliches Hochwasser einer Messstelle.',
+      'description' => '2-jährliches Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1600,7 +1627,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '30-j√§hrliches Hochwasser einer Messstelle.',
+      'description' => '30-jährliches Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1669,7 +1696,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '5-j√§hrliches Hochwasser einer Messstelle.',
+      'description' => '5-jährliches Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1738,7 +1765,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Mittleres j√§hrliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte √ºber den gesamten Beobachtungszeitraum einer Messstelle.',
+      'description' => 'Mittleres jährliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte über den gesamten Beobachtungszeitraum einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1807,7 +1834,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Mittelwasser √ºber den gesamten Beobachtungszeitraum einer Messstelle.',
+      'description' => 'Mittelwasser über den gesamten Beobachtungszeitraum einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1876,7 +1903,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'bundle' => 'hw_messstelle',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Rechnerisch h√∂chstes Hochwasser einer Messstelle.',
+      'description' => 'Rechnerisch höchstes Hochwasser einer Messstelle.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -2336,19 +2363,19 @@ function austrofeedr_hochwasser_base_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('1-j√§hrliches Hochwasser einer Messstelle.');
-  t('10-j√§hrliches Hochwasser einer Messstelle.');
-  t('100-j√§hrliches Hochwasser einer Messstelle.');
-  t('2-j√§hrliches Hochwasser einer Messstelle.');
-  t('30-j√§hrliches Hochwasser einer Messstelle.');
-  t('5-j√§hrliches Hochwasser einer Messstelle.');
+  t('1-jährliches Hochwasser einer Messstelle.');
+  t('10-jährliches Hochwasser einer Messstelle.');
+  t('100-jährliches Hochwasser einer Messstelle.');
+  t('2-jährliches Hochwasser einer Messstelle.');
+  t('30-jährliches Hochwasser einer Messstelle.');
+  t('5-jährliches Hochwasser einer Messstelle.');
   t('Alter Status');
   t('Bezirk');
   t('Body');
   t('Einheit');
   t('Einheit des Messwert (m oder m^3/s), berechnet aus Parameter');
   t('Geo Position');
-  t('Gew√§sser');
+  t('Gewässer');
   t('ID (dbmsnr)');
   t('Kennwert HQ1');
   t('Kennwert HQ10');
@@ -2363,12 +2390,12 @@ function austrofeedr_hochwasser_base_field_default_fields() {
   t('Link');
   t('Longitude');
   t('Messstelle');
-  t('Mittelwasser √ºber den gesamten Beobachtungszeitraum einer Messstelle.');
-  t('Mittleres j√§hrliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte √ºber den gesamten Beobachtungszeitraum einer Messstelle.');
+  t('Mittelwasser über den gesamten Beobachtungszeitraum einer Messstelle.');
+  t('Mittleres jährliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte über den gesamten Beobachtungszeitraum einer Messstelle.');
   t('Neuer Status');
   t('Parameter');
   t('Parameter des Messwerts: W (m) oder Q (m^3/s)');
-  t('Rechnerisch h√∂chstes Hochwasser einer Messstelle.');
+  t('Rechnerisch höchstes Hochwasser einer Messstelle.');
   t('URL');
   t('Wasserstand Aktuell');
   t('Wasserstand Last Update');
