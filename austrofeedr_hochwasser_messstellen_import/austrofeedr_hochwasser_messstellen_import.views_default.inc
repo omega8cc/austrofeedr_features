@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $export = array();
@@ -17,7 +17,7 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $view->base_table = 'node';
   $view->human_name = 'hw_messstellen_admin';
   $view->core = 7;
-  $view->api_version = '3.0-alpha1';
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Defaults */
@@ -140,10 +140,6 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
   $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
   $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_hw_geoposition';
   $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_hw_geoposition';
-  /* Field: Content: Wasserstand Werte */
-  $handler->display->display_options['fields']['entity_id_6']['id'] = 'entity_id_6';
-  $handler->display->display_options['fields']['entity_id_6']['table'] = 'field_data_field_hw_werte';
-  $handler->display->display_options['fields']['entity_id_6']['field'] = 'field_hw_werte';
   /* Field: Content: URL */
   $handler->display->display_options['fields']['entity_id_5']['id'] = 'entity_id_5';
   $handler->display->display_options['fields']['entity_id_5']['table'] = 'field_data_field_hw_url';

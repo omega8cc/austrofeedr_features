@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_feeds_importer_default().
+ * Implements hook_feeds_importer_default().
  */
 function austrofeedr_hochwasser_messstellen_import_feeds_importer_default() {
   $export = array();
