@@ -192,7 +192,9 @@ function hw_messstelle_update_action($pegelaktuell_item, $messstelle) {
 function hw_get_wasserstand_unbestimmt_action() {
   // Map Unbestimmt to taxonomy term and return.
   $terms = (taxonomy_get_term_by_name(t('Unbestimmt')));
-  dpm($terms);
-  $tid = $terms[0]->tid;
-  return array('hw_trend_term' => $tid);
+  foreach($terms as $term) {
+    if($term->vocabulary_machine_name == 'hw_status') {
+      return array('hw_unbestimmt_term' => $term->tid);
+    }
+  }
 }
