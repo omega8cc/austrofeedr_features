@@ -40,6 +40,15 @@ function austrofeedr_hochwasser_processor_rules_action_info() {
         'messstelle' => array('type' => 'node', 'label' => t('Messstelle')),
       ),
     ),
+    'hw_get_wasserstand_unbestimmt' => array(
+      'base' => 'hw_get_wasserstand_unbestimmt_action',
+      'label' => t('Hochwasser Wasserstand Unbestimmt get term'),
+      'group' => t('AustroFeedr'),
+      'parameter' => array(),
+      'provides' => array(
+        'hw_unbestimmt_term' => array('type' => 'taxonomy_term', 'label' => t('Hochwasser unbestimmt status term')),
+      ),
+    ),
   );
 }
 
@@ -175,4 +184,15 @@ function hw_messstelle_update_action($pegelaktuell_item, $messstelle) {
 
   entity_save('node', $wrapper);
   return;
+}
+
+/**
+ * Rules action for Hochwasser Wasserstand Unbestimmt get term.
+ */
+function hw_get_wasserstand_unbestimmt_action() {
+  // Map Unbestimmt to taxonomy term and return.
+  $terms = (taxonomy_get_term_by_name(t('Unbestimmt')));
+  dpm($terms);
+  $tid = $terms[0]->tid;
+  return array('hw_trend_term' => $tid);
 }

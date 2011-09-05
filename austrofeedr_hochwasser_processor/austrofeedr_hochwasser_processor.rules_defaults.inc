@@ -13,7 +13,9 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       "LABEL" : "Hochwasser Pegelaktuell Item Expiry Processor",
       "PLUGIN" : "rule",
       "REQUIRES" : [ "rules" ],
-      "USES VARIABLES" : { "messstelle" : { "label" : "Messstelle", "type" : "node" } },
+      "USES VARIABLES" : { "messstelle" : { "label" : "Messstelle", "type" : "node" },
+												 "hw_unbestimmt_term": { "label" : "Hochwasser unbestimmt status term", "type": "taxonomy_term" }
+								},
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "messstelle" ],
