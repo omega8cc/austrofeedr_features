@@ -13,9 +13,13 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       "LABEL" : "Hochwasser Pegelaktuell Item Expiry Processor",
       "PLUGIN" : "rule",
       "REQUIRES" : [ "rules" ],
-      "USES VARIABLES" : { "messstelle" : { "label" : "Messstelle", "type" : "node" },
-												 "hw_unbestimmt_term": { "label" : "Hochwasser unbestimmt status term", "type": "taxonomy_term" }
-								},
+      "USES VARIABLES" : {
+        "messstelle" : { "label" : "Messstelle", "type" : "node" },
+        "hw_unbestimmt_term" : {
+          "label" : "Hochwasser unbestimmt status term",
+          "type" : "taxonomy_term"
+        }
+      },
       "IF" : [
         { "node_is_of_type" : {
             "node" : [ "messstelle" ],
@@ -24,7 +28,11 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         },
         { "OR" : [
             { "data_is_empty" : { "data" : [ "messstelle:field-hw-status" ] } },
-            { "NOT data_is" : { "data" : [ "messstelle:field-hw-status" ], "value" : "186" } }
+            { "NOT data_is" : {
+                "data" : [ "messstelle:field-hw-status" ],
+                "value" : [ "hw-unbestimmt-term" ]
+              }
+            }
           ]
         },
         { "OR" : [
@@ -39,7 +47,11 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "data_set" : { "data" : [ "messstelle:field-hw-status" ], "value" : "186" } },
+        { "data_set" : {
+            "data" : [ "messstelle:field-hw-status" ],
+            "value" : [ "hw-unbestimmt-term" ]
+          }
+        },
         { "entity_save" : { "data" : [ "messstelle" ] } }
       ]
     }
@@ -141,8 +153,9 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_pegelaktuell_expiry_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_expiry_processor" : {
       "LABEL" : "Hochwasser Pegelaktuell Expiry Processor",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "austrofeedr_hochwasser_processor", "rules" ],
       "DO" : [
+        { "hw_get_wasserstand_unbestimmt" : { "PROVIDE" : { "hw_unbestimmt_term" : { "hw_unbestimmt_term" : "Hochwasser unbestimmt status term" } } } },
         { "entity_query" : {
             "USING" : {
               "type" : "node",
