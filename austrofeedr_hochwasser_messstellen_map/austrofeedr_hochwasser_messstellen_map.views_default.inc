@@ -56,6 +56,14 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['term_node_tid_depth']['set_breadcrumb'] = 0;
   $handler->display->display_options['arguments']['term_node_tid_depth']['use_taxonomy_term_path'] = 0;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'hw_messstelle' => 'hw_messstelle',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 0;
   /* Filter criterion: Content: Published or admin */
   $handler->display->display_options['filters']['status_extra']['id'] = 'status_extra';
   $handler->display->display_options['filters']['status_extra']['table'] = 'node';
@@ -66,6 +74,7 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
   $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 0;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Suche';
