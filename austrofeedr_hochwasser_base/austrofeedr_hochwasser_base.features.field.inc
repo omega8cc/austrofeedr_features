@@ -639,63 +639,6 @@ function austrofeedr_hochwasser_base_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-hw_messstelle-field_hw_geoposition'
-  $fields['node-hw_messstelle-field_hw_geoposition'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_hw_geoposition',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'geofield',
-      'settings' => array(),
-      'translatable' => '1',
-      'type' => 'geofield',
-    ),
-    'field_instance' => array(
-      'bundle' => 'hw_messstelle',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '24',
-        ),
-        'rss' => array(
-          'label' => 'inline',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '11',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '17',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_hw_geoposition',
-      'label' => 'Geo Position',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'geofield',
-        'settings' => array(),
-        'type' => 'geofield_textfield',
-        'weight' => '10',
-      ),
-    ),
-  );
-
   // Exported field: 'node-hw_messstelle-field_hw_gewaesser'
   $fields['node-hw_messstelle-field_hw_gewaesser'] = array(
     'field_config' => array(
@@ -2374,7 +2317,6 @@ function austrofeedr_hochwasser_base_field_default_fields() {
   t('Body');
   t('Einheit');
   t('Einheit des Messwert (m oder m^3/s), berechnet aus Parameter');
-  t('Geo Position');
   t('Gewässer');
   t('ID (dbmsnr)');
   t('Kennwert HQ1');
