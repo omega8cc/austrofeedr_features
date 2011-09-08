@@ -5,13 +5,14 @@
  */
 
 /**
- * Implementation of hook_default_rules_configuration().
+ * Implements hook_default_rules_configuration().
  */
 function austrofeedr_base_processing_autotag_default_rules_configuration() {
   $items = array();
   $items['processing_autotag'] = entity_import('rules_config', '{ "processing_autotag" : {
       "LABEL" : "processing_autotag_updates",
       "PLUGIN" : "reaction rule",
+      "ACTIVE" : false,
       "REQUIRES" : [ "rules" ],
       "ON" : [ "node_presave" ],
       "IF" : [

@@ -160,13 +160,13 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       "ON" : [ "feeds_import_subscription_feeds_importer" ],
       "DO" : [
         { "component_rules_autotag_tag" : {
-            "text" : [ "node:body:value" ],
+            "text" : "[node:title] [node:body]",
             "vocabulary" : "hw_austria",
             "target_terms" : [ "node:field-hw-update-bezirk" ]
           }
         },
         { "component_rules_autotag_tag" : {
-            "text" : [ "node:body:value" ],
+            "text" : "[node:title] [node:body]",
             "vocabulary" : "update_tags",
             "target_terms" : [ "node:field-update-tags" ]
           }
@@ -383,7 +383,11 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       "USES VARIABLES" : { "node" : { "label" : "Imported node", "type" : "node" } },
       "IF" : [
         { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "update" : "update" } } } },
-        { "data_is_empty" : { "data" : [ "node:field-hw-update-bezirk" ] } }
+        { "OR" : [
+            { "data_is_empty" : { "data" : [ "node:field-update-tags" ] } },
+            { "data_is_empty" : { "data" : [ "node:field-hw-update-bezirk" ] } }
+          ]
+        }
       ],
       "DO" : [
         { "feeds_skip_item" : { "entity" : [ "node" ] } },
