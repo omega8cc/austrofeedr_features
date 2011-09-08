@@ -531,7 +531,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '6',
+          'weight' => '21',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -676,9 +676,10 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
+          'type' => 'text_default',
+          'weight' => '23',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -806,7 +807,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_text',
-        'weight' => '7',
+        'weight' => '6',
       ),
     ),
   );
@@ -850,7 +851,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_url',
-          'weight' => '3',
+          'weight' => '24',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -931,11 +932,11 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 17,
+          'weight' => '22',
         ),
         'rss' => array(
           'label' => 'above',
@@ -1009,7 +1010,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '16',
+          'weight' => '36',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1117,7 +1118,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '7',
       ),
     ),
   );
@@ -1195,7 +1196,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '2',
+        'weight' => '8',
       ),
     ),
   );
@@ -1308,7 +1309,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '9',
+          'weight' => '29',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1377,7 +1378,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '12',
+          'weight' => '32',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1446,7 +1447,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '14',
+          'weight' => '34',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1515,7 +1516,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '10',
+          'weight' => '30',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1584,7 +1585,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '13',
+          'weight' => '33',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1653,7 +1654,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '11',
+          'weight' => '31',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1722,7 +1723,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '7',
+          'weight' => '27',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1791,7 +1792,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '8',
+          'weight' => '28',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1860,7 +1861,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '15',
+          'weight' => '35',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1973,7 +1974,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'datastore_field',
         'settings' => array(),
         'type' => 'datastore_field_widget_hidden',
-        'weight' => '4',
+        'weight' => '9',
       ),
     ),
   );
@@ -2012,7 +2013,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '4',
+          'weight' => '25',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -2081,7 +2082,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '5',
+          'weight' => '26',
         ),
         'rss' => array(
           'label' => 'inline',

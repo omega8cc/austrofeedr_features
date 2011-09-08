@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $export = array();
@@ -17,7 +17,7 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $view->base_table = 'node';
   $view->human_name = 'Hochwasser Messstellen Table';
   $view->core = 7;
-  $view->api_version = '3.0-alpha1';
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
@@ -36,159 +36,181 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'field_hw_bezirk' => 'field_hw_bezirk',
     'field_hw_dbmsnr' => 'field_hw_dbmsnr',
+    'field_hw_name' => 'field_hw_name',
     'field_hw_gewaesser' => 'field_hw_gewaesser',
+    'field_hw_bezirk' => 'field_hw_bezirk',
     'field_hw_wert_aktuell' => 'field_hw_wert_aktuell',
     'field_hw_einheit' => 'field_hw_einheit',
     'field_hw_last_updated' => 'field_hw_last_updated',
     'field_hw_status' => 'field_hw_status',
     'field_hw_trend' => 'field_hw_trend',
-    'field_hw_url' => 'field_hw_url',
-    'field_hw_wert_hq1' => 'field_hw_wert_hq1',
-    'field_hw_wert_hq10' => 'field_hw_wert_hq10',
-    'field_hw_wert_hq100' => 'field_hw_wert_hq100',
-    'field_hw_wert_hq2' => 'field_hw_wert_hq2',
-    'field_hw_wert_hq30' => 'field_hw_wert_hq30',
-    'field_hw_wert_hq5' => 'field_hw_wert_hq5',
-    'field_hw_wert_mjnq' => 'field_hw_wert_mjnq',
-    'field_hw_wert_mq' => 'field_hw_wert_mq',
-    'field_hw_wert_rhhq' => 'field_hw_wert_rhhq',
     'field_lat' => 'field_lat',
     'field_lng' => 'field_lng',
     'field_hw_parameter' => 'field_hw_parameter',
+    'field_hw_wert_hq1' => 'field_hw_wert_hq1',
+    'field_hw_wert_hq2' => 'field_hw_wert_hq2',
+    'field_hw_wert_hq5' => 'field_hw_wert_hq5',
+    'field_hw_wert_hq10' => 'field_hw_wert_hq10',
+    'field_hw_wert_hq30' => 'field_hw_wert_hq30',
+    'field_hw_wert_hq100' => 'field_hw_wert_hq100',
+    'field_hw_wert_mq' => 'field_hw_wert_mq',
+    'field_hw_wert_mjnq' => 'field_hw_wert_mjnq',
+    'field_hw_wert_rhhq' => 'field_hw_wert_rhhq',
   );
-  $handler->display->display_options['style_options']['default'] = 'title';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
-    ),
-    'field_hw_bezirk' => array(
-      'align' => '',
-      'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_dbmsnr' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_name' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_gewaesser' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_bezirk' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_wert_aktuell' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_einheit' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_last_updated' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_status' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_trend' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
-    ),
-    'field_hw_url' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_hq1' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_hq10' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_hq100' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_hq2' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_hq30' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_hq5' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_mjnq' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_mq' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'field_hw_wert_rhhq' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
+      'empty_column' => 0,
     ),
     'field_lat' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
     ),
     'field_lng' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
     ),
     'field_hw_parameter' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_hq1' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_hq2' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_hq5' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_hq10' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_hq30' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_hq100' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_mq' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_mjnq' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_hw_wert_rhhq' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
     ),
   );
   $handler->display->display_options['style_options']['override'] = 1;
@@ -198,12 +220,13 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Messstelle';
+  $handler->display->display_options['fields']['title']['label'] = 'Titel';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['title']['alter']['external'] = 0;
   $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
   $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
@@ -214,7 +237,70 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Content: ID (dbmsnr) */
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['id'] = 'field_hw_dbmsnr';
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['table'] = 'field_data_field_hw_dbmsnr';
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['field'] = 'field_hw_dbmsnr';
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_dbmsnr']['field_api_classes'] = 0;
+  /* Field: Content: Messtellenname */
+  $handler->display->display_options['fields']['field_hw_name']['id'] = 'field_hw_name';
+  $handler->display->display_options['fields']['field_hw_name']['table'] = 'field_data_field_hw_name';
+  $handler->display->display_options['fields']['field_hw_name']['field'] = 'field_hw_name';
+  $handler->display->display_options['fields']['field_hw_name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['hide_alter_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_name']['field_api_classes'] = 0;
+  /* Field: Content: Gewässer */
+  $handler->display->display_options['fields']['field_hw_gewaesser']['id'] = 'field_hw_gewaesser';
+  $handler->display->display_options['fields']['field_hw_gewaesser']['table'] = 'field_data_field_hw_gewaesser';
+  $handler->display->display_options['fields']['field_hw_gewaesser']['field'] = 'field_hw_gewaesser';
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_gewaesser']['field_api_classes'] = 0;
   /* Field: Content: Bezirk */
   $handler->display->display_options['fields']['field_hw_bezirk']['id'] = 'field_hw_bezirk';
   $handler->display->display_options['fields']['field_hw_bezirk']['table'] = 'field_data_field_hw_bezirk';
@@ -238,26 +324,6 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['fields']['field_hw_bezirk']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_hw_bezirk']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['field_hw_bezirk']['field_api_classes'] = 0;
-  /* Field: Content: ID (dbmsnr) */
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['id'] = 'field_hw_dbmsnr';
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['table'] = 'field_data_field_hw_dbmsnr';
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['field'] = 'field_hw_dbmsnr';
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_dbmsnr']['field_api_classes'] = 0;
   /* Field: Content: Wasserstand Aktuell */
   $handler->display->display_options['fields']['field_hw_wert_aktuell']['id'] = 'field_hw_wert_aktuell';
   $handler->display->display_options['fields']['field_hw_wert_aktuell']['table'] = 'field_data_field_hw_wert_aktuell';
@@ -372,261 +438,7 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['fields']['field_hw_trend']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_hw_trend']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_hw_trend']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert HQ1 */
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['id'] = 'field_hw_wert_hq1';
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['table'] = 'field_data_field_hw_wert_hq1';
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['field'] = 'field_hw_wert_hq1';
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_hq1']['field_api_classes'] = 0;
-  /* Field: Content: Gewässer */
-  $handler->display->display_options['fields']['field_hw_gewaesser']['id'] = 'field_hw_gewaesser';
-  $handler->display->display_options['fields']['field_hw_gewaesser']['table'] = 'field_data_field_hw_gewaesser';
-  $handler->display->display_options['fields']['field_hw_gewaesser']['field'] = 'field_hw_gewaesser';
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_gewaesser']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert HQ10 */
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['id'] = 'field_hw_wert_hq10';
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['table'] = 'field_data_field_hw_wert_hq10';
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['field'] = 'field_hw_wert_hq10';
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_hq10']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert HQ100 */
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['id'] = 'field_hw_wert_hq100';
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['table'] = 'field_data_field_hw_wert_hq100';
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['field'] = 'field_hw_wert_hq100';
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_hq100']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert HQ2 */
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['id'] = 'field_hw_wert_hq2';
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['table'] = 'field_data_field_hw_wert_hq2';
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['field'] = 'field_hw_wert_hq2';
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_hq2']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert HQ30 */
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['id'] = 'field_hw_wert_hq30';
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['table'] = 'field_data_field_hw_wert_hq30';
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['field'] = 'field_hw_wert_hq30';
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_hq30']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert HQ5 */
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['id'] = 'field_hw_wert_hq5';
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['table'] = 'field_data_field_hw_wert_hq5';
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['field'] = 'field_hw_wert_hq5';
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_hq5']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert MJNQ */
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['id'] = 'field_hw_wert_mjnq';
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['table'] = 'field_data_field_hw_wert_mjnq';
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['field'] = 'field_hw_wert_mjnq';
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_mjnq']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert MQ */
-  $handler->display->display_options['fields']['field_hw_wert_mq']['id'] = 'field_hw_wert_mq';
-  $handler->display->display_options['fields']['field_hw_wert_mq']['table'] = 'field_data_field_hw_wert_mq';
-  $handler->display->display_options['fields']['field_hw_wert_mq']['field'] = 'field_hw_wert_mq';
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_mq']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_mq']['field_api_classes'] = 0;
-  /* Field: Content: Kennwert RHHQ */
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['id'] = 'field_hw_wert_rhhq';
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['table'] = 'field_data_field_hw_wert_rhhq';
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['field'] = 'field_hw_wert_rhhq';
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_hw_wert_rhhq']['field_api_classes'] = 0;
-  /* Field: Fields: Latitude */
+  /* Field: Field: Latitude */
   $handler->display->display_options['fields']['field_lat']['id'] = 'field_lat';
   $handler->display->display_options['fields']['field_lat']['table'] = 'field_data_field_lat';
   $handler->display->display_options['fields']['field_lat']['field'] = 'field_lat';
@@ -652,7 +464,7 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['field_lat']['field_api_classes'] = 0;
-  /* Field: Fields: Longitude */
+  /* Field: Field: Longitude */
   $handler->display->display_options['fields']['field_lng']['id'] = 'field_lng';
   $handler->display->display_options['fields']['field_lng']['table'] = 'field_data_field_lng';
   $handler->display->display_options['fields']['field_lng']['field'] = 'field_lng';
@@ -698,10 +510,240 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['fields']['field_hw_parameter']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_hw_parameter']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_hw_parameter']['field_api_classes'] = 0;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Field: Content: Kennwert HQ1 */
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['id'] = 'field_hw_wert_hq1';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['table'] = 'field_data_field_hw_wert_hq1';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['field'] = 'field_hw_wert_hq1';
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq1']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert HQ2 */
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['id'] = 'field_hw_wert_hq2';
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['table'] = 'field_data_field_hw_wert_hq2';
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['field'] = 'field_hw_wert_hq2';
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq2']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert HQ5 */
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['id'] = 'field_hw_wert_hq5';
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['table'] = 'field_data_field_hw_wert_hq5';
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['field'] = 'field_hw_wert_hq5';
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq5']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert HQ10 */
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['id'] = 'field_hw_wert_hq10';
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['table'] = 'field_data_field_hw_wert_hq10';
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['field'] = 'field_hw_wert_hq10';
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq10']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert HQ30 */
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['id'] = 'field_hw_wert_hq30';
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['table'] = 'field_data_field_hw_wert_hq30';
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['field'] = 'field_hw_wert_hq30';
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq30']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert HQ100 */
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['id'] = 'field_hw_wert_hq100';
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['table'] = 'field_data_field_hw_wert_hq100';
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['field'] = 'field_hw_wert_hq100';
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_hq100']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert MQ */
+  $handler->display->display_options['fields']['field_hw_wert_mq']['id'] = 'field_hw_wert_mq';
+  $handler->display->display_options['fields']['field_hw_wert_mq']['table'] = 'field_data_field_hw_wert_mq';
+  $handler->display->display_options['fields']['field_hw_wert_mq']['field'] = 'field_hw_wert_mq';
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mq']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_mq']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert MJNQ */
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['id'] = 'field_hw_wert_mjnq';
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['table'] = 'field_data_field_hw_wert_mjnq';
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['field'] = 'field_hw_wert_mjnq';
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_mjnq']['field_api_classes'] = 0;
+  /* Field: Content: Kennwert RHHQ */
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['id'] = 'field_hw_wert_rhhq';
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['table'] = 'field_data_field_hw_wert_rhhq';
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['field'] = 'field_hw_wert_rhhq';
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['settings'] = array(
+    'thousand_separator' => ' ',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  $handler->display->display_options['fields']['field_hw_wert_rhhq']['field_api_classes'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -736,7 +778,6 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['use_operator'] = FALSE;
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['title']['expose']['multiple'] = FALSE;
   /* Filter criterion: Content: Has taxonomy term */
   $handler->display->display_options['filters']['tid']['id'] = 'tid';
