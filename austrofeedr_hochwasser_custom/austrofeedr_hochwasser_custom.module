@@ -66,16 +66,17 @@ function austrofeedr_hochwasser_custom_datastore_fusionchart_field_formatter_alt
 		);
 
 	  if($chart->chart_class == 'hochwasserstand_teaser') {
-  	  $min = 0;
+  	  $min = NULL;
   	  $max = NULL;
   	  foreach($chart->data as $value) {
   	    $max = ($max == NULL || $max < $value[1]) ? $value[1] : $max;
+  	    $min = ($min == NULL || $min > $value[1]) ? $value[1] : $min;
   	  }
 	  }
 
 		// Generate TrendZones from zones info.
 		$trendlines = array();
-		$zones_max = 0;
+		$zones_min = NULL; $zones_max = NULL;
 		foreach($zones as $zone) {
 	  	// Only display active zones when in teaser mode. Therefore skip others.
 	  	if($chart->chart_class == 'hochwasserstand_teaser') {
@@ -91,9 +92,8 @@ function austrofeedr_hochwasser_custom_datastore_fusionchart_field_formatter_alt
 		      'value' => ' ',
 		      'attributes'=> $zone,	// Insert zone as attribute.
 			);
-      if($zones_max < $zone['endValue']) {
-        $zones_max = $zone['endValue'];
-      }
+  	  $zones_min = ($zones_min == NULL || $zones_min > $zone['startValue']) ? $zone['startValue'] : $zones_min;
+  	  $zones_max = ($zones_max == NULL || $zones_max < $zone['endValue']) ? $zone['endValue'] : $zones_max;
 		}
 
 		// Add TrendZones to chart.
@@ -104,6 +104,7 @@ function austrofeedr_hochwasser_custom_datastore_fusionchart_field_formatter_alt
 		$chart->additional_xml = $trendlines_format;
 
 		// Further chart settings.
+		$chart->settings += array('yAxisMinValue' => $zones_min);
 		$chart->settings += array('yAxisMaxValue' => $zones_max);
 		$chart->settings += array('showValues' => 0);
 	}
