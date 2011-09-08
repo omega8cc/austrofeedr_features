@@ -405,7 +405,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '26',
+        'weight' => '2',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -487,7 +487,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -561,7 +561,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '14',
+        'weight' => '1',
       ),
     ),
   );
@@ -635,7 +635,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '8',
+        'weight' => '10',
       ),
     ),
   );
@@ -708,7 +708,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '15',
+        'weight' => '3',
       ),
     ),
   );
@@ -806,7 +806,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_text',
-        'weight' => '9',
+        'weight' => '7',
       ),
     ),
   );
@@ -891,7 +891,81 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '11',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-hw_messstelle-field_hw_name'
+  $fields['node-hw_messstelle-field_hw_name'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hw_name',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '1',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'hw_messstelle',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 17,
+        ),
+        'rss' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hw_name',
+      'label' => 'Messtellenname',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '2',
       ),
     ),
   );
@@ -965,7 +1039,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '25',
+        'weight' => '11',
       ),
     ),
   );
@@ -1043,7 +1117,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '5',
+        'weight' => '3',
       ),
     ),
   );
@@ -1121,7 +1195,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '2',
       ),
     ),
   );
@@ -1196,7 +1270,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '7',
+        'weight' => '5',
       ),
     ),
   );
@@ -1265,7 +1339,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '18',
+        'weight' => '16',
       ),
     ),
   );
@@ -1334,7 +1408,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '21',
+        'weight' => '20',
       ),
     ),
   );
@@ -1403,7 +1477,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '23',
+        'weight' => '22',
       ),
     ),
   );
@@ -1472,7 +1546,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '19',
+        'weight' => '17',
       ),
     ),
   );
@@ -1541,7 +1615,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '22',
+        'weight' => '21',
       ),
     ),
   );
@@ -1610,7 +1684,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '20',
+        'weight' => '19',
       ),
     ),
   );
@@ -1679,7 +1753,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '16',
+        'weight' => '14',
       ),
     ),
   );
@@ -1748,7 +1822,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '17',
+        'weight' => '15',
       ),
     ),
   );
@@ -1817,7 +1891,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '24',
+        'weight' => '23',
       ),
     ),
   );
@@ -1899,7 +1973,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'datastore_field',
         'settings' => array(),
         'type' => 'datastore_field_widget_hidden',
-        'weight' => '6',
+        'weight' => '4',
       ),
     ),
   );
@@ -1969,7 +2043,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '12',
+        'weight' => '7',
       ),
     ),
   );
@@ -2038,7 +2112,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '13',
+        'weight' => '8',
       ),
     ),
   );
@@ -2260,6 +2334,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
   t('Link');
   t('Longitude');
   t('Messstelle');
+  t('Messtellenname');
   t('Mittelwasser über den gesamten Beobachtungszeitraum einer Messstelle.');
   t('Mittleres jährliches Niederwasser. Der statistische Mittelwert der kleinsten Tagesmittelwerte über den gesamten Beobachtungszeitraum einer Messstelle.');
   t('Neuer Status');
