@@ -104,8 +104,12 @@ function austrofeedr_hochwasser_custom_datastore_fusionchart_field_formatter_alt
 		$chart->additional_xml = $trendlines_format;
 
 		// Further chart settings.
-		$chart->settings += array('yAxisMinValue' => $zones_min);
-		$chart->settings += array('yAxisMaxValue' => $zones_max);
+		if(isset($zones_min)) {
+		  $chart->settings += array('yAxisMinValue' => $zones_min);
+		}
+		if(isset($zones_max)) {
+		  $chart->settings += array('yAxisMaxValue' => $zones_max);
+		}
 		$chart->settings += array('showValues' => 0);
 	}
 

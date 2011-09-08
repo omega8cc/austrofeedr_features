@@ -391,20 +391,21 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'body',
       'label' => 'Body',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
-        'display_summary' => TRUE,
-        'text_processing' => 1,
+        'display_summary' => 1,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 20,
+          'rows' => '5',
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '13',
+        'weight' => '26',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -454,7 +455,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '1',
+          'weight' => '2',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -530,7 +531,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '11',
+          'weight' => '6',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -560,7 +561,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '14',
       ),
     ),
   );
@@ -604,7 +605,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '4',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -634,7 +635,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '24',
+        'weight' => '8',
       ),
     ),
   );
@@ -677,7 +678,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'inline',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '22',
+          'weight' => '5',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -707,7 +708,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '15',
       ),
     ),
   );
@@ -757,7 +758,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -805,7 +806,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_text',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
@@ -849,7 +850,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_url',
-          'weight' => '7',
+          'weight' => '3',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -890,7 +891,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '9',
+        'weight' => '11',
       ),
     ),
   );
@@ -934,7 +935,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '21',
+          'weight' => '16',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -964,7 +965,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '23',
+        'weight' => '25',
       ),
     ),
   );
@@ -1013,7 +1014,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1091,7 +1092,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1121,79 +1122,6 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'settings' => array(),
         'type' => 'options_select',
         'weight' => '4',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-hw_messstelle-field_hw_url'
-  $fields['node-hw_messstelle-field_hw_url'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_hw_url',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '255',
-      ),
-      'translatable' => '1',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'hw_messstelle',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '23',
-        ),
-        'rss' => array(
-          'label' => 'inline',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '8',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '16',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_hw_url',
-      'label' => 'URL',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '255',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '9',
       ),
     ),
   );
@@ -1231,7 +1159,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '2',
+          'weight' => '3',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1306,7 +1234,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '14',
+          'weight' => '9',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1337,7 +1265,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '16',
+        'weight' => '18',
       ),
     ),
   );
@@ -1375,7 +1303,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '17',
+          'weight' => '12',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1406,7 +1334,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '19',
+        'weight' => '21',
       ),
     ),
   );
@@ -1444,7 +1372,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '19',
+          'weight' => '14',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1475,7 +1403,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '21',
+        'weight' => '23',
       ),
     ),
   );
@@ -1513,7 +1441,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '15',
+          'weight' => '10',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1544,7 +1472,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '17',
+        'weight' => '19',
       ),
     ),
   );
@@ -1582,7 +1510,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '18',
+          'weight' => '13',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1613,7 +1541,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '20',
+        'weight' => '22',
       ),
     ),
   );
@@ -1651,7 +1579,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '16',
+          'weight' => '11',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1682,7 +1610,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '18',
+        'weight' => '20',
       ),
     ),
   );
@@ -1720,7 +1648,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '12',
+          'weight' => '7',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1751,7 +1679,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '14',
+        'weight' => '16',
       ),
     ),
   );
@@ -1789,7 +1717,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '13',
+          'weight' => '8',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1820,7 +1748,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '15',
+        'weight' => '17',
       ),
     ),
   );
@@ -1858,7 +1786,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '20',
+          'weight' => '15',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -1889,7 +1817,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '22',
+        'weight' => '24',
       ),
     ),
   );
@@ -1931,7 +1859,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'num_values' => '10',
           ),
           'type' => 'datastore_visualization_datastore_field_formatter',
-          'weight' => '8',
+          'weight' => '2',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -2010,7 +1938,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '9',
+          'weight' => '4',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -2041,7 +1969,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '11',
+        'weight' => '12',
       ),
     ),
   );
@@ -2079,7 +2007,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '10',
+          'weight' => '5',
         ),
         'rss' => array(
           'label' => 'inline',
@@ -2110,7 +2038,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '12',
+        'weight' => '13',
       ),
     ),
   );
@@ -2338,7 +2266,6 @@ function austrofeedr_hochwasser_base_field_default_fields() {
   t('Parameter');
   t('Parameter des Messwerts: W (m) oder Q (m^3/s)');
   t('Rechnerisch höchstes Hochwasser einer Messstelle.');
-  t('URL');
   t('Wasserstand Aktuell');
   t('Wasserstand Last Update');
   t('Wasserstand Status');
