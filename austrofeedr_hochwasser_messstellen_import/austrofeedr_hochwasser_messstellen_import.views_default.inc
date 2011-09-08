@@ -495,7 +495,7 @@ function austrofeedr_hochwasser_messstellen_import_views_default_views() {
     'prefix_suffix' => 1,
   );
   $handler->display->display_options['fields']['field_lng']['field_api_classes'] = 0;
-  /* Field: Content: URL */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_hw_url']['id'] = 'field_hw_url';
   $handler->display->display_options['fields']['field_hw_url']['table'] = 'field_data_field_hw_url';
   $handler->display->display_options['fields']['field_hw_url']['field'] = 'field_hw_url';
