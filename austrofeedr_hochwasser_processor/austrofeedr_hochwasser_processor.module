@@ -103,6 +103,7 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
       $old_status_term = taxonomy_term_load($messstelle->field_hw_status['und'][0]['tid']);
   }
 
+  /* don't send message, but change messstelle itself
   // Send warn message if status changed from below Hochwasser to above Hochwasser.
   if((strpos($status_term->name, 'Hochwasser') === 0) &&
      (!isset($old_status_term) || strpos($old_status_term->name, 'Hochwasser') === false))
@@ -117,6 +118,31 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
     $node->type = "hochwasser_update";
     node_save($node);
     //$message->save();
+  }
+  */
+
+  $messstelle_name = $messstelle->field_hw_gewaesser['und'][0]['value'] . ' / ' . $messstelle->field_hw_name['und'][0]['value'];
+
+  if((strpos($status_term->name, 'Hochwasser') === 0))
+  {
+    // Neue Hochwassermeldung falls notwendig.
+    if(!isset($old_status_term) || strpos($old_status_term->name, 'Hochwasser') === false)
+    {
+      $messstelle->title = $status_term->name . ': ' . $messstelle_name;
+      $messstelle->created = time();
+      // Hochwassermeldung Tag setzen.
+      $messstelle->field_update_tags = array('und' => array(0 => array('tid' => 217)));
+    }
+  }
+  else {
+    // Ggf. alte Meldung zurücksetzen.
+    if(isset($old_status_term) && strpos($old_status_term->name, 'Hochwasser') !== false) {
+      $messstelle->title = $messstelle_name;
+      $messstelle->field_update_tags = array();
+      $messstelle->created = time();
+      // todo: only set timestamp when changing state
+      //$node->changed = time();
+    }
   }
 
   return array('hw_status_term' => $status_term->tid);

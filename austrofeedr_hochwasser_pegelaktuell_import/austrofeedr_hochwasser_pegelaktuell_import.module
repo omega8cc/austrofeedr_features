@@ -47,31 +47,6 @@ class HochwasserHttpClientXMLFormatter extends HttpClientXMLFormatter {
 
 }
 
-
-/**
- * Implements hook_rules_action_info().
- */
-function austrofeedr_hochwasser_pegelaktuell_import_rules_action_info() {
-  return array(
-    'af_rules_debug_action' => array(
-      'base' => 'af_rules_debug_action',
-      'label' => t('Debug'),
-      'group' => t('AustroFeedr'),
-      'parameter' => array(
-        'entity' => array('type' => 'unknown', 'label' => t('Value to debug')),
-      ),
-    ),
-  );
-}
-
-/**
- * Rules action for debugging values.
- */
-function af_rules_debug_action($entity) {
-  dpm($entity);
-}
-
-
 /**
  * Implementation of hook_default_wsclient_service().
  */

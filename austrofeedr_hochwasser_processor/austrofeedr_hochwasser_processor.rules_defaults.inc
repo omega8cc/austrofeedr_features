@@ -125,7 +125,8 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hochwasser_update_processing'] = entity_import('rules_config', '{ "rules_hochwasser_update_processing" : {
       "LABEL" : "Hochwasser Update Processing",
       "PLUGIN" : "reaction rule",
-      "REQUIRES" : [ "rules" ],
+      "ACTIVE" : false,
+      "REQUIRES" : [ "rules", "feeds", "devel" ],
       "ON" : [ "node_presave" ],
       "IF" : [
         { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_hw_update_bezirk" } }
@@ -145,6 +146,34 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "text" : [ "node:body:value" ],
             "vocabulary" : [ "bezirke:0" ],
             "target_terms" : [ "node:field-hw-update-bezirk" ]
+          }
+        },
+        { "feeds_skip_item" : { "entity" : [ "node" ] } },
+        { "devel_debug" : { "value" : [ "node" ] } }
+      ]
+    }
+  }');
+  $items['rules_hw_import_filter'] = entity_import('rules_config', '{ "rules_hw_import_filter" : {
+      "LABEL" : "Hochwasser Import Filter",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules", "feeds" ],
+      "ON" : [ "feeds_import_subscription_feeds_importer" ],
+      "DO" : [
+        { "component_rules_autotag_tag" : {
+            "text" : [ "node:body:value" ],
+            "vocabulary" : "hw_austria",
+            "target_terms" : [ "node:field-hw-update-bezirk" ]
+          }
+        },
+        { "component_rules_autotag_tag" : {
+            "text" : [ "node:body:value" ],
+            "vocabulary" : "update_tags",
+            "target_terms" : [ "node:field-update-tags" ]
+          }
+        },
+        { "component_rules_hw_update_import_postprocessor" : {
+            "USING" : { "node" : [ "node" ] },
+            "PROVIDE" : { "node" : { "node2" : "Imported node" } }
           }
         }
       ]
@@ -343,9 +372,24 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "pegelaktuell_item" : [ "pegelaktuell_item" ],
             "messstelle" : [ "messstellen:0" ]
           }
-        },
-        { "devel_debug" : [] }
+        }
       ]
+    }
+  }');
+  $items['rules_hw_update_import_postprocessor'] = entity_import('rules_config', '{ "rules_hw_update_import_postprocessor" : {
+      "LABEL" : "Hochwasser Update Import Postprocessor ",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "rules", "feeds" ],
+      "USES VARIABLES" : { "node" : { "label" : "Imported node", "type" : "node" } },
+      "IF" : [
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "update" : "update" } } } },
+        { "data_is_empty" : { "data" : [ "node:field-hw-update-bezirk" ] } }
+      ],
+      "DO" : [
+        { "feeds_skip_item" : { "entity" : [ "node" ] } },
+        { "data_set" : { "data" : [ "node:title" ], "value" : "blau" } }
+      ],
+      "PROVIDES VARIABLES" : [ "node" ]
     }
   }');
   return $items;
