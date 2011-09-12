@@ -125,10 +125,12 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
 
   if((strpos($status_term->name, 'Hochwasser') === 0))
   {
+    $new_title = $status_term->name . ': ' . $messstelle_name;
+
     // Neue Hochwassermeldung falls notwendig.
-    if(!isset($old_status_term) || strpos($old_status_term->name, 'Hochwasser') === false)
+    if($messstelle->title != $new_title)
     {
-      $messstelle->title = $status_term->name . ': ' . $messstelle_name;
+      $messstelle->title = $new_title;
       $messstelle->created = time();
       // Hochwassermeldung Tag setzen.
       $messstelle->field_update_tags = array('und' => array(0 => array('tid' => 217)));
@@ -136,7 +138,8 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   }
   else {
     // Ggf. alte Meldung zurücksetzen.
-    if(isset($old_status_term) && strpos($old_status_term->name, 'Hochwasser') !== false) {
+    if($messstelle->title != $messstelle_name)
+    {
       $messstelle->title = $messstelle_name;
       $messstelle->field_update_tags = array();
       $messstelle->created = time();
