@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_default_rules_configuration().
+ * Implements hook_default_rules_configuration().
  */
 function austrofeedr_hochwasser_fake_default_rules_configuration() {
   $items = array();
@@ -70,11 +70,7 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
   $items['rules_hochwasser_fake_processor'] = entity_import('rules_config', '{ "rules_hochwasser_fake_processor" : {
       "LABEL" : "Hochwasser Fake Processor",
       "PLUGIN" : "action set",
-      "REQUIRES" : [
-        "austrofeedr_hochwasser_fake",
-        "rules",
-        "austrofeedr_hochwasser_pegelaktuell_import"
-      ],
+      "REQUIRES" : [ "austrofeedr_hochwasser_fake", "rules" ],
       "USES VARIABLES" : { "counter" : { "label" : "Counter (0-5)", "type" : "integer" } },
       "ACTION SET" : [
         { "austrofeedr_hochwasser_fake_creator" : {
@@ -83,7 +79,7 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
           }
         },
         { "component_rules_hochwasser_result_processor" : { "pegelaktuell_result" : [ "result" ] } },
-        { "af_rules_debug_action" : { "entity" : [ "counter" ] } }
+        { "af_rules_debug_action" : [] }
       ]
     }
   }');
