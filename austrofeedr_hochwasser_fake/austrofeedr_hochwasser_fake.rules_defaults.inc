@@ -93,7 +93,7 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
   $items['rules_link_set_hw_fake_trigger'] = entity_import('rules_config', '{ "rules_link_set_hw_fake_trigger" : {
       "LABEL" : "Rules link: Hochwasser Fake Trigger rules set",
       "PLUGIN" : "rule set",
-      "REQUIRES" : [ "rules", "devel" ],
+      "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "node" : { "label" : "node", "type" : "node" } },
       "RULES" : [
         { "RULE" : {
@@ -109,7 +109,10 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
               { "component_rules_hochwasser_fake_processor" : { "counter" : [ "node:field-hw-fake-counter" ] } },
               { "data_set" : {
                   "data" : [ "node:field-hw-fake-counter" ],
-                  "value" : [ "node:field-hw-fake-counter" ]
+                  "value" : {
+                    "select" : "node:field-hw-fake-counter",
+                    "num_offset" : { "value" : "1" }
+                  }
                 }
               },
               { "component_rules_hochwasser_fake_counter_corr" : {
@@ -117,8 +120,7 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
                   "PROVIDE" : { "node" : { "node2" : "Node" } }
                 }
               },
-              { "entity_save" : { "data" : [ "node" ] } },
-              { "devel_debug" : { "value" : [ "node2" ] } }
+              { "entity_save" : { "data" : [ "node" ] } }
             ],
             "LABEL" : "Hochwasser Fake Trigger"
           }
