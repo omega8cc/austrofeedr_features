@@ -3,6 +3,8 @@
  * @file
  */
 
+include_once('austrofeedr_hochwasser_fake.features.inc');
+
 // Drupal needs this blank file.
 
 /**
