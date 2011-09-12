@@ -28,7 +28,7 @@
           </gml:Point>
         </ms:msGeometry>
         <ms:gid>210</ms:gid>
-        <ms:dbmsnr>10001002</ms:dbmsnr>
+        <ms:dbmsnr>133</ms:dbmsnr>
         <ms:hzbnr>207126</ms:hzbnr>
         <ms:gewasser>Donau</ms:gewasser>
         <ms:hd>viaDonau</ms:hd>
@@ -38,7 +38,7 @@
         <ms:parameter>Q</ms:parameter>
         <ms:herkunft>F</ms:herkunft>
         
-        <ms:wert>4800</ms:wert>
+        <ms:wert>450</ms:wert>
         <ms:zp>2012-06-07 09:00:00</ms:zp>
         
         <ms:typ>0</ms:typ>
