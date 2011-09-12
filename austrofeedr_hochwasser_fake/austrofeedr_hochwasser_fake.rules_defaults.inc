@@ -43,6 +43,7 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
   $items['rules_hochwasser_fake_counter_trigger'] = entity_import('rules_config', '{ "rules_hochwasser_fake_counter_trigger" : {
       "LABEL" : "Hochwasser Fake Counter Trigger",
       "PLUGIN" : "reaction rule",
+      "ACTIVE" : false,
       "REQUIRES" : [ "rules" ],
       "ON" : [ "node_view" ],
       "IF" : [
@@ -78,8 +79,50 @@ function austrofeedr_hochwasser_fake_default_rules_configuration() {
             "PROVIDE" : { "result" : { "result" : "Pegelaktuell result" } }
           }
         },
-        { "component_rules_hochwasser_result_processor" : { "pegelaktuell_result" : [ "result" ] } },
-        { "af_rules_debug_action" : [] }
+        { "component_rules_hochwasser_result_processor" : { "pegelaktuell_result" : [ "result" ] } }
+      ]
+    }
+  }');
+  $items['rules_link_condition_hw_fake_trigger'] = entity_import('rules_config', '{ "rules_link_condition_hw_fake_trigger" : {
+      "LABEL" : "Rules link: Hochwasser Fake Trigger condition",
+      "PLUGIN" : "and",
+      "USES VARIABLES" : { "node" : { "label" : "node", "type" : "node" } },
+      "AND" : []
+    }
+  }');
+  $items['rules_link_set_hw_fake_trigger'] = entity_import('rules_config', '{ "rules_link_set_hw_fake_trigger" : {
+      "LABEL" : "Rules link: Hochwasser Fake Trigger rules set",
+      "PLUGIN" : "rule set",
+      "REQUIRES" : [ "rules", "devel" ],
+      "USES VARIABLES" : { "node" : { "label" : "node", "type" : "node" } },
+      "RULES" : [
+        { "RULE" : {
+            "PROVIDE" : { "node" : { "node2" : "Node" } },
+            "IF" : [
+              { "node_is_of_type" : {
+                  "node" : [ "node" ],
+                  "type" : { "value" : { "fake_counter" : "fake_counter" } }
+                }
+              }
+            ],
+            "DO" : [
+              { "component_rules_hochwasser_fake_processor" : { "counter" : [ "node:field-hw-fake-counter" ] } },
+              { "data_set" : {
+                  "data" : [ "node:field-hw-fake-counter" ],
+                  "value" : [ "node:field-hw-fake-counter" ]
+                }
+              },
+              { "component_rules_hochwasser_fake_counter_corr" : {
+                  "USING" : { "counter" : [ "node:field-hw-fake-counter" ], "node" : [ "node" ] },
+                  "PROVIDE" : { "node" : { "node2" : "Node" } }
+                }
+              },
+              { "entity_save" : { "data" : [ "node" ] } },
+              { "devel_debug" : { "value" : [ "node2" ] } }
+            ],
+            "LABEL" : "Hochwasser Fake Trigger"
+          }
+        }
       ]
     }
   }');
