@@ -149,6 +149,18 @@ function austrofeedr_hochwasser_pegelaktuell_import_get_wsclient_service() {
           'type' => 'text',
           'label' => 'gesamtcode',
         ),
+        'geol' => array(
+          'type' => 'text',
+          'label' => 'latitude',
+        ),
+        'geob' => array(
+          'type' => 'text',
+          'label' => 'longitude',
+        ),
+        'wertw_cm' => array(
+          'type' => 'text',
+          'label' => 'wert cm',
+        ),
       ),
     ),
   );
