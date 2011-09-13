@@ -389,10 +389,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
           ]
         }
       ],
-      "DO" : [
-        { "feeds_skip_item" : { "entity" : [ "node" ] } },
-        { "data_set" : { "data" : [ "node:title" ], "value" : "blau" } }
-      ],
+      "DO" : [ { "feeds_skip_item" : { "entity" : [ "node" ] } } ],
       "PROVIDES VARIABLES" : [ "node" ]
     }
   }');
