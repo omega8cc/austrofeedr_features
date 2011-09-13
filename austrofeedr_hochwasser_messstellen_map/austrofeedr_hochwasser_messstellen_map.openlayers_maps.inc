@@ -19,7 +19,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => '',
+    'image_path' => 'profiles/austrofeedr/themes/openlayers_themes/dark/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -65,19 +65,19 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_maps() {
     ),
     'layer_weight' => array(
       'hw_messstellen_map_openlayers_1' => '0',
-      'austrofeedr_hochwasser' => '0',
+      'hw_messstellen_map_single_openlayers_1' => '0',
     ),
     'layer_styles' => array(
-      'austrofeedr_hochwasser' => '0',
+      'hw_messstellen_map_single_openlayers_1' => '0',
       'hw_messstellen_map_openlayers_1' => 'hw_messstellen_map_style',
     ),
     'layer_activated' => array(
       'hw_messstellen_map_openlayers_1' => 'hw_messstellen_map_openlayers_1',
-      'austrofeedr_hochwasser' => 0,
+      'hw_messstellen_map_single_openlayers_1' => 0,
     ),
     'layer_switcher' => array(
-      'austrofeedr_hochwasser' => 0,
       'hw_messstellen_map_openlayers_1' => 0,
+      'hw_messstellen_map_single_openlayers_1' => 0,
     ),
     'projection' => '900913',
     'displayProjection' => '4326',
