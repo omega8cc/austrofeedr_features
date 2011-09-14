@@ -76,7 +76,7 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -92,7 +92,7 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
   $display->panels = array();
     $pane = new stdClass;
     $pane->pid = 'new-1';
-    $pane->panel = 'left';
+    $pane->panel = 'middle';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
     $pane->shown = TRUE;
@@ -116,10 +116,10 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
+    $display->panels['middle'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
-    $pane->panel = 'left';
+    $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'hw_bezirk_updates';
     $pane->shown = TRUE;
@@ -151,10 +151,10 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
     $pane->extras = array();
     $pane->position = 1;
     $display->content['new-2'] = $pane;
-    $display->panels['left'][1] = 'new-2';
+    $display->panels['middle'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
-    $pane->panel = 'right';
+    $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'hw_messstellen_map_single';
     $pane->shown = FALSE;
@@ -184,9 +184,9 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
+    $display->panels['middle'][2] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
