@@ -373,7 +373,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'rss' => array(
           'label' => 'hidden',
@@ -662,14 +662,14 @@ function austrofeedr_hochwasser_base_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'geofield',
           'settings' => array(
             'data' => 'full',
-            'map_preset' => 'hw_messstelle_map_geofield_preset',
+            'map_preset' => 'hw_messstelle_node_map_preset',
           ),
           'type' => 'geofield_openlayers',
-          'weight' => '1',
+          'weight' => '0',
         ),
         'rss' => array(
           'label' => 'above',
@@ -682,7 +682,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'module' => 'geofield',
           'settings' => array(
             'data' => 'full',
-            'map_preset' => 'hw_messstelle_map_geofield_preset',
+            'map_preset' => 'hw_messstelle_teaser_map_preset',
           ),
           'type' => 'geofield_openlayers',
           'weight' => '0',
