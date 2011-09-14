@@ -36,7 +36,7 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
     'behaviors' => array(
       'openlayers_behavior_keyboarddefaults' => array(),
       'openlayers_behavior_navigation' => array(
-        'zoomWheelEnabled' => 1,
+        'zoomWheelEnabled' => 0,
         'documentDrag' => 0,
       ),
       'openlayers_behavior_zoomtolayer' => array(
@@ -51,23 +51,19 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
     ),
     'layer_weight' => array(
       'geofield_formatter' => '0',
-      'hw_messstellen_map_single_openlayers_1' => '0',
       'hw_messstellen_map_openlayers_1' => '0',
     ),
     'layer_styles' => array(
       'hw_messstellen_map_openlayers_1' => '0',
-      'hw_messstellen_map_single_openlayers_1' => '0',
       'geofield_formatter' => 'hw_messstellen_map_style',
     ),
     'layer_activated' => array(
       'geofield_formatter' => 'geofield_formatter',
       'hw_messstellen_map_openlayers_1' => 0,
-      'hw_messstellen_map_single_openlayers_1' => 0,
     ),
     'layer_switcher' => array(
       'geofield_formatter' => 0,
       'hw_messstellen_map_openlayers_1' => 0,
-      'hw_messstellen_map_single_openlayers_1' => 0,
     ),
     'projection' => '900913',
     'displayProjection' => '4326',
@@ -105,7 +101,7 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
     'behaviors' => array(
       'openlayers_behavior_keyboarddefaults' => array(),
       'openlayers_behavior_navigation' => array(
-        'zoomWheelEnabled' => 1,
+        'zoomWheelEnabled' => 0,
         'documentDrag' => 0,
       ),
       'openlayers_behavior_zoomtolayer' => array(
@@ -120,23 +116,19 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
     ),
     'layer_weight' => array(
       'geofield_formatter' => '0',
-      'hw_messstellen_map_single_openlayers_1' => '0',
       'hw_messstellen_map_openlayers_1' => '0',
     ),
     'layer_styles' => array(
       'hw_messstellen_map_openlayers_1' => '0',
-      'hw_messstellen_map_single_openlayers_1' => '0',
       'geofield_formatter' => 'hw_messstellen_map_style',
     ),
     'layer_activated' => array(
       'geofield_formatter' => 'geofield_formatter',
       'hw_messstellen_map_openlayers_1' => 0,
-      'hw_messstellen_map_single_openlayers_1' => 0,
     ),
     'layer_switcher' => array(
       'geofield_formatter' => 0,
       'hw_messstellen_map_openlayers_1' => 0,
-      'hw_messstellen_map_single_openlayers_1' => 0,
     ),
     'projection' => '900913',
     'displayProjection' => '4326',

@@ -182,6 +182,7 @@ function austrofeedr_hochwasser_custom_page_alter(&$page) {
   // Hide Toolbar for popups.
 	if((arg(0) == 'messstellen') && (arg(2) == 'popup') && !empty($page['page_top']['toolbar'])) {
     $page['page_top']['toolbar']['#access'] = FALSE;
+    unset($page['content']['system_main']['field_hw_geoposition']);
   }
 }
 

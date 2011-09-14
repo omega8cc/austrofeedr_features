@@ -120,10 +120,10 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'openlayers_data';
   $handler->display->display_options['style_options']['data_source'] = array(
-    'value' => 'other_latlon',
+    'value' => 'wkt',
     'other_lat' => 'entity_id_1',
     'other_lon' => 'entity_id_2',
-    'wkt' => 'title',
+    'wkt' => 'field_hw_geoposition',
     'other_top' => 'title',
     'other_right' => 'title',
     'other_bottom' => 'title',
@@ -291,6 +291,32 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['field_hw_trend']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_hw_trend']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_hw_trend']['field_api_classes'] = 0;
+  /* Field: Content: Geo Position */
+  $handler->display->display_options['fields']['field_hw_geoposition']['id'] = 'field_hw_geoposition';
+  $handler->display->display_options['fields']['field_hw_geoposition']['table'] = 'field_data_field_hw_geoposition';
+  $handler->display->display_options['fields']['field_hw_geoposition']['field'] = 'field_hw_geoposition';
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_hw_geoposition']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_geoposition']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['hide_alter_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_geoposition']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_hw_geoposition']['settings'] = array(
+    'data' => 'full',
+  );
+  $handler->display->display_options['fields']['field_hw_geoposition']['field_api_classes'] = 0;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
