@@ -1,17 +1,5 @@
 <?php
 
-function austrofeedr_hochwasser_custom_entity_update($entity, $type) {
-  if($type == 'node') {
-    watchdog("debug", $entity->nid . ' ' . $entity->title);
-    $values = $entity->field_hw_geoposition['und'][0];
-    //watchdog("debug", $values['lat'] . ', ' . $values['lon']);
-    watchdog("debug", ' ' . $values['wkt']);
-    geofield_compute_values($values, "latlon");
-    $entity->field_hw_geoposition['und'][0] = $values;
-    watchdog("debug", $values['wkt']);
-  }
-}
-
 function austrofeedr_hochwasser_custom_datastore_fusionchart_field_formatter_alter(&$chart, &$entity, $entity_type) {
 
 	if($chart->chart_class == 'hochwasserstand_teaser' || $chart->chart_class == 'hochwasserstand_full') {
