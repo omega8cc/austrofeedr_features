@@ -21,7 +21,7 @@ function austrofeedr_hochwasser_fake_default_wsclient_service() {
 
     //$service->url = "asdf" . url(drupal_get_path('module', "austrofeedr_hochwasser_fake") . '/hochwasser_simulation/wmsgw_ybbs_' . $i . '.xml', array('absolute' => TRUE));
     //$service->url = 'http://localhost/austrofeedr/sites/default/files/hochwasser_simulation/wmsgw_ybbs_' . $i . '.xml';
-    $service->url = url('sites/default/files/hochwasser_simulation/wmsgw_ybbs_' . $i . '.xml', array('absolute' => TRUE));
+    $service->url = url('sites/default/files/hochwasser_simulation/wmsgw_ybbs_' . $i . '.xml');
 
     $service->operations['pegelaktuell']['result'] = array('type' => 'wsclient_hw_pegelaktuell_ehyd_service_pegelaktuell_result', 'label' => 'Pegelaktuell result');
     $service->datatypes = array();
