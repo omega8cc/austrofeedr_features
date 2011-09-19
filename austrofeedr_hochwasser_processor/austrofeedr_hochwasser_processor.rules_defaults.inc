@@ -126,7 +126,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       "LABEL" : "Hochwasser Update Processing",
       "PLUGIN" : "reaction rule",
       "ACTIVE" : false,
-      "REQUIRES" : [ "rules", "feeds", "devel" ],
+      "REQUIRES" : [ "rules", "feeds" ],
       "ON" : [ "node_presave" ],
       "IF" : [
         { "entity_has_field" : { "entity" : [ "node" ], "field" : "field_hw_update_bezirk" } }
@@ -148,8 +148,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "target_terms" : [ "node:field-hw-update-bezirk" ]
           }
         },
-        { "feeds_skip_item" : { "entity" : [ "node" ] } },
-        { "devel_debug" : { "value" : [ "node" ] } }
+        { "feeds_skip_item" : { "entity" : [ "node" ] } }
       ]
     }
   }');
@@ -158,25 +157,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       "PLUGIN" : "reaction rule",
       "REQUIRES" : [ "rules", "feeds" ],
       "ON" : [ "feeds_import_subscription_feeds_importer" ],
-      "DO" : [
-        { "component_rules_autotag_tag" : {
-            "text" : "[node:title] [node:body]",
-            "vocabulary" : "hw_austria",
-            "target_terms" : [ "node:field-hw-update-bezirk" ]
-          }
-        },
-        { "component_rules_autotag_tag" : {
-            "text" : "[node:title] [node:body]",
-            "vocabulary" : "update_tags",
-            "target_terms" : [ "node:field-update-tags" ]
-          }
-        },
-        { "component_rules_hw_update_import_postprocessor" : {
-            "USING" : { "node" : [ "node" ] },
-            "PROVIDE" : { "node" : { "node2" : "Imported node" } }
-          }
-        }
-      ]
+      "DO" : [ { "component_rules_hw_update_processor" : { "node" : [ "node" ] } } ]
     }
   }');
   $items['rules_hw_pegelaktuell_expiry_processor'] = entity_import('rules_config', '{ "rules_hw_pegelaktuell_expiry_processor" : {
@@ -391,6 +372,58 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       ],
       "DO" : [ { "feeds_skip_item" : { "entity" : [ "node" ] } } ],
       "PROVIDES VARIABLES" : [ "node" ]
+    }
+  }');
+  $items['rules_hw_update_processor'] = entity_import('rules_config', '{ "rules_hw_update_processor" : {
+      "LABEL" : "Hochwasser Update Processor",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "node" : { "label" : "Node", "type" : "node" } },
+      "IF" : [
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "update" : "update" } } } }
+      ],
+      "DO" : [
+        { "component_rules_autotag_tag" : {
+            "text" : "[node:title] [node:body]",
+            "vocabulary" : "hw_austria",
+            "target_terms" : [ "node:field-hw-update-bezirk" ]
+          }
+        },
+        { "component_rules_autotag_tag" : {
+            "text" : "[node:title] [node:body]",
+            "vocabulary" : "update_tags",
+            "target_terms" : [ "node:field-update-tags" ]
+          }
+        },
+        { "variable_add" : {
+            "USING" : {
+              "type" : "list\\u003ctaxonomy_term\\u003e",
+              "value" : [ "node:field-hw-update-bezirk" ]
+            },
+            "PROVIDE" : { "variable_added" : { "alle_bezirke" : "Alle Bezirke" } }
+          }
+        },
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-hw-update-bezirk" ] },
+            "ITEM" : { "bezirk" : "Bezirk" },
+            "DO" : [
+              { "LOOP" : {
+                  "USING" : { "list" : [ "bezirk:parents-all" ] },
+                  "ITEM" : { "parent" : "Parent" },
+                  "DO" : [
+                    { "list_add" : { "list" : [ "alle-bezirke" ], "item" : [ "parent" ], "unique" : 1 } }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "component_rules_hw_update_import_postprocessor" : {
+            "USING" : { "node" : [ "node" ] },
+            "PROVIDE" : { "node" : { "node2" : "Imported node" } }
+          }
+        }
+      ]
     }
   }');
   return $items;
