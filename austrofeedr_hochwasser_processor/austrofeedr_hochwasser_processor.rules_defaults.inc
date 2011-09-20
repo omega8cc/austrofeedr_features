@@ -357,6 +357,46 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_hw_update_bezirke'] = entity_import('rules_config', '{ "rules_hw_update_bezirke" : {
+      "LABEL" : "Hochwasser Update Bezirke",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "node" : { "label" : "Node", "type" : "node" } },
+      "IF" : [
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "update" : "update" } } } }
+      ],
+      "DO" : [
+        { "variable_add" : {
+            "USING" : {
+              "type" : "list\\u003ctaxonomy_term\\u003e",
+              "value" : [ "node:field-hw-update-bezirk" ]
+            },
+            "PROVIDE" : { "variable_added" : { "alle_bezirke" : "Alle Bezirke" } }
+          }
+        },
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-hw-update-bezirk" ] },
+            "ITEM" : { "bezirk" : "Bezirk" },
+            "DO" : [
+              { "LOOP" : {
+                  "USING" : { "list" : [ "bezirk:parents-all" ] },
+                  "ITEM" : { "parent" : "Parent" },
+                  "DO" : [
+                    { "list_add" : { "list" : [ "alle-bezirke" ], "item" : [ "parent" ], "unique" : 1 } }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        { "data_set" : {
+            "data" : [ "node:field-hw-update-bezirk" ],
+            "value" : [ "alle-bezirke" ]
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_hw_update_import_postprocessor'] = entity_import('rules_config', '{ "rules_hw_update_import_postprocessor" : {
       "LABEL" : "Hochwasser Update Import Postprocessor ",
       "PLUGIN" : "rule",
@@ -395,32 +435,81 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
             "target_terms" : [ "node:field-update-tags" ]
           }
         },
-        { "variable_add" : {
-            "USING" : {
-              "type" : "list\\u003ctaxonomy_term\\u003e",
-              "value" : [ "node:field-hw-update-bezirk" ]
-            },
-            "PROVIDE" : { "variable_added" : { "alle_bezirke" : "Alle Bezirke" } }
-          }
-        },
-        { "LOOP" : {
-            "USING" : { "list" : [ "node:field-hw-update-bezirk" ] },
-            "ITEM" : { "bezirk" : "Bezirk" },
-            "DO" : [
-              { "LOOP" : {
-                  "USING" : { "list" : [ "bezirk:parents-all" ] },
-                  "ITEM" : { "parent" : "Parent" },
-                  "DO" : [
-                    { "list_add" : { "list" : [ "alle-bezirke" ], "item" : [ "parent" ], "unique" : 1 } }
-                  ]
-                }
-              }
-            ]
-          }
-        },
+        { "component_rules_hw_update_bezirke" : { "node" : [ "node" ] } },
+        { "component_rules_hw_update_tags" : { "node" : [ "node" ] } },
         { "component_rules_hw_update_import_postprocessor" : {
             "USING" : { "node" : [ "node" ] },
             "PROVIDE" : { "node" : { "node2" : "Imported node" } }
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_hw_update_tagging'] = entity_import('rules_config', '{ "rules_hw_update_tagging" : {
+      "LABEL" : "Hochwasser Update Tagging",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : {
+        "subscription_tag" : { "label" : "Subscription Tag", "type" : "taxonomy_term" },
+        "target_update_tags" : {
+          "label" : "Target Update Tags",
+          "type" : "list\\u003ctaxonomy_term\\u003e"
+        },
+        "all_update_tags" : { "label" : "All Update Tags", "type" : "list\\u003ctaxonomy_term\\u003e" }
+      },
+      "IF" : [
+        { "list_contains" : { "list" : [ "all-update-tags" ], "item" : [ "subscription-tag" ] } }
+      ],
+      "DO" : [
+        { "list_add" : {
+            "list" : [ "target-update-tags" ],
+            "item" : [ "subscription-tag" ],
+            "unique" : 1
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_hw_update_tags'] = entity_import('rules_config', '{ "rules_hw_update_tags" : {
+      "LABEL" : "Hochwasser Update Tags",
+      "PLUGIN" : "rule",
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "node" : { "label" : "Node", "type" : "node" } },
+      "IF" : [
+        { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "update" : "update" } } } }
+      ],
+      "DO" : [
+        { "entity_query" : {
+            "USING" : {
+              "type" : "taxonomy_vocabulary",
+              "property" : "machine_name",
+              "value" : "update_tags",
+              "limit" : "1"
+            },
+            "PROVIDE" : { "entity_fetched" : { "update_tags_voc" : "Update tags" } }
+          }
+        },
+        { "entity_query" : {
+            "USING" : {
+              "type" : "taxonomy_term",
+              "property" : "vocabulary",
+              "value" : [ "update-tags-voc:0" ],
+              "limit" : "0"
+            },
+            "PROVIDE" : { "entity_fetched" : { "all_update_tags" : "All update tags" } }
+          }
+        },
+        { "LOOP" : {
+            "USING" : { "list" : [ "node:field-update-subscription-tags" ] },
+            "ITEM" : { "current_subscription_tag" : "Current supscription tag" },
+            "DO" : [
+              { "component_rules_hw_update_tagging" : {
+                  "subscription_tag" : [ "current-subscription-tag" ],
+                  "target_update_tags" : [ "node:field-update-tags" ],
+                  "all_update_tags" : [ "all_update_tags" ]
+                }
+              }
+            ]
           }
         }
       ]
