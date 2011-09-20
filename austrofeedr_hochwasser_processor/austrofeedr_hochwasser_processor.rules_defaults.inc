@@ -423,23 +423,19 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       ],
       "DO" : [
         { "component_rules_autotag_tag" : {
-            "text" : "[node:title] [node:body]",
+            "text" : "[node:title] [node:body] [node:field-update-subscription-tags]",
             "vocabulary" : "hw_austria",
             "target_terms" : [ "node:field-hw-update-bezirk" ]
           }
         },
         { "component_rules_autotag_tag" : {
-            "text" : "[node:title] [node:body]",
+            "text" : "[node:title] [node:body] [node:field-update-subscription-tags]",
             "vocabulary" : "update_tags",
             "target_terms" : [ "node:field-update-tags" ]
           }
         },
         { "component_rules_hw_update_bezirke" : { "node" : [ "node" ] } },
-        { "component_rules_hw_update_tags" : { "node" : [ "node" ] } },
-        { "component_rules_hw_update_import_postprocessor" : {
-            "USING" : { "node" : [ "node" ] }
-          }
-        }
+        { "component_rules_hw_update_import_postprocessor" : { "node" : [ "node" ] } }
       ]
     }
   }');
@@ -471,40 +467,28 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
   $items['rules_hw_update_tags'] = entity_import('rules_config', '{ "rules_hw_update_tags" : {
       "LABEL" : "Hochwasser Update Tags",
       "PLUGIN" : "rule",
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "rules", "rules_autotag" ],
       "USES VARIABLES" : { "node" : { "label" : "Node", "type" : "node" } },
       "IF" : [
         { "node_is_of_type" : { "node" : [ "node" ], "type" : { "value" : { "update" : "update" } } } }
       ],
       "DO" : [
-        { "entity_query" : {
+        { "rules_autotag_from_terms" : {
             "USING" : {
-              "type" : "taxonomy_vocabulary",
-              "property" : "machine_name",
-              "value" : "update_tags",
-              "limit" : "1"
+              "text" : [ "node:field-update-subscription-tags" ],
+              "vocabulary" : "update_tags"
             },
-            "PROVIDE" : { "entity_fetched" : { "update_tags_voc" : "Update tags" } }
-          }
-        },
-        { "entity_query" : {
-            "USING" : {
-              "type" : "taxonomy_term",
-              "property" : "vocabulary",
-              "value" : [ "update-tags-voc:0" ],
-              "limit" : "0"
-            },
-            "PROVIDE" : { "entity_fetched" : { "all_update_tags" : "All update tags" } }
+            "PROVIDE" : { "extraced_terms" : { "extraced_update_terms" : "Extracted update terms" } }
           }
         },
         { "LOOP" : {
-            "USING" : { "list" : [ "node:field-update-subscription-tags" ] },
-            "ITEM" : { "current_subscription_tag" : "Current supscription tag" },
+            "USING" : { "list" : [ "extraced-update-terms" ] },
+            "ITEM" : { "current_update_term" : "Current update term" },
             "DO" : [
-              { "component_rules_hw_update_tagging" : {
-                  "subscription_tag" : [ "current-subscription-tag" ],
-                  "target_update_tags" : [ "node:field-update-tags" ],
-                  "all_update_tags" : [ "all_update_tags" ]
+              { "list_add" : {
+                  "list" : [ "node:field-update-tags" ],
+                  "item" : [ "current-update-term" ],
+                  "unique" : 1
                 }
               }
             ]
