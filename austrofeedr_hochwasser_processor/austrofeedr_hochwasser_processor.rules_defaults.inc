@@ -410,8 +410,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
           ]
         }
       ],
-      "DO" : [ { "feeds_skip_item" : { "entity" : [ "node" ] } } ],
-      "PROVIDES VARIABLES" : [ "node" ]
+      "DO" : [ { "feeds_skip_item" : { "entity" : [ "node" ] } } ]
     }
   }');
   $items['rules_hw_update_processor'] = entity_import('rules_config', '{ "rules_hw_update_processor" : {
@@ -438,8 +437,7 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
         { "component_rules_hw_update_bezirke" : { "node" : [ "node" ] } },
         { "component_rules_hw_update_tags" : { "node" : [ "node" ] } },
         { "component_rules_hw_update_import_postprocessor" : {
-            "USING" : { "node" : [ "node" ] },
-            "PROVIDE" : { "node" : { "node2" : "Imported node" } }
+            "USING" : { "node" : [ "node" ] }
           }
         }
       ]
