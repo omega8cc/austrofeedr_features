@@ -42,14 +42,6 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
         'concatenator' => '+',
         'id' => 1,
       ),
-      1 => array(
-        'identifier' => 'Term from node',
-        'keyword' => 'term',
-        'name' => 'term_from_node',
-        'context' => 'argument_entity_id:node_1',
-        'vid' => '7',
-        'id' => 1,
-      ),
     ),
     'access' => array(
       'logic' => 'and',
@@ -138,7 +130,7 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
       'url' => '',
       'display' => 'default',
       'context' => array(
-        0 => 'relationship_term_from_node_1.parent',
+        0 => 'relationship_terms_from_node_1.tid',
       ),
       'override_title' => 0,
       'override_title_text' => 'Related News for %term:parent:name',
