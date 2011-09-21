@@ -35,14 +35,6 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
   $handler->display->display_options['fields']['entity_id']['field'] = 'field_hw_bezirk';
-  /* Field: Taxonomy term: Latitude */
-  $handler->display->display_options['fields']['entity_id_1']['id'] = 'entity_id_1';
-  $handler->display->display_options['fields']['entity_id_1']['table'] = 'field_data_field_lat';
-  $handler->display->display_options['fields']['entity_id_1']['field'] = 'field_lat';
-  /* Field: Taxonomy term: Longitude */
-  $handler->display->display_options['fields']['entity_id_2']['id'] = 'entity_id_2';
-  $handler->display->display_options['fields']['entity_id_2']['table'] = 'field_data_field_lng';
-  $handler->display->display_options['fields']['entity_id_2']['field'] = 'field_lng';
   /* Contextual filter: Content: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
@@ -267,19 +259,12 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   );
   $handler->display->display_options['fields']['field_hw_geoposition']['field_api_classes'] = 0;
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'openlayers_map';
-  $handler->display->display_options['style_options']['map'] = 'hw_messstellen_map_preset';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'messstellen-map';
-  $handler->display->display_options['menu']['weight'] = '0';
-
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['cache'] = FALSE;
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
   $export['hw_messstellen_map'] = $view;
 
   return $export;
