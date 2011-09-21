@@ -81,7 +81,10 @@ function austrofeedr_hochwasser_overview_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => '0',
+      'settings' => array(),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -116,7 +119,13 @@ function austrofeedr_hochwasser_overview_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'context',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -151,7 +160,13 @@ function austrofeedr_hochwasser_overview_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'context',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );

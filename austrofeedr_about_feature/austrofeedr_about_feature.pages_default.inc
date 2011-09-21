@@ -81,7 +81,13 @@ Nachrichten in Echtzeit spielen in Zukunft eine immer wichtigere Rolle, ob bei U
       'format' => 'plain_text',
       'substitute' => TRUE,
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -113,7 +119,13 @@ Nachrichten in Echtzeit spielen in Zukunft eine immer wichtigere Rolle, ob bei U
       'override_title' => 0,
       'override_title_text' => '',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );

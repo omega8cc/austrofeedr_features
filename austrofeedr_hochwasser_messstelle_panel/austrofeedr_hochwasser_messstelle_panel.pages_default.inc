@@ -100,7 +100,13 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
       'build_mode' => 'full',
       'context' => 'argument_entity_id:node_1',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '3600',
+        'granularity' => 'args',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -135,7 +141,13 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
       'override_title' => 0,
       'override_title_text' => 'Related News for %term:parent:name',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '3600',
+        'granularity' => 'context',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -144,41 +156,6 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
     $pane->position = 1;
     $display->content['new-2'] = $pane;
     $display->panels['middle'][1] = 'new-2';
-    $pane = new stdClass;
-    $pane->pid = 'new-3';
-    $pane->panel = 'middle';
-    $pane->type = 'views';
-    $pane->subtype = 'hw_messstellen_map_single';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 1,
-      'nodes_per_page' => '0',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'default',
-      'context' => array(
-        0 => 'relationship_terms_from_node_1.tids',
-      ),
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['middle'][2] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
