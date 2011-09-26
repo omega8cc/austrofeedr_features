@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_views_api().
+ * Implements hook_views_api().
  */
 function austrofeedr_base_admin_views_api() {
   list($module, $api) = func_get_args();

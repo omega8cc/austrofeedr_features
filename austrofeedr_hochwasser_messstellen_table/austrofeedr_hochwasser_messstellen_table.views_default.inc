@@ -22,11 +22,9 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Hochwasser Messstellen Table';
+  $handler->display->display_options['title'] = 'Open Data Export';
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'time';
-  $handler->display->display_options['cache']['results_lifespan'] = '3600';
-  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -872,9 +870,10 @@ function austrofeedr_hochwasser_messstellen_table_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'messstellen-table';
+  $handler->display->display_options['path'] = 'open-data-export';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Messstellen Table';
+  $handler->display->display_options['menu']['title'] = 'Open Data Export';
+  $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
 
   /* Display: Data export */

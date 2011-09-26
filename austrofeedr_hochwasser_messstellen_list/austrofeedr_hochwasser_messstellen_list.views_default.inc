@@ -22,6 +22,7 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
 
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->display->display_options['title'] = 'Messstellen';
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -311,9 +312,9 @@ function austrofeedr_hochwasser_messstellen_list_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'messstellen-list';
+  $handler->display->display_options['path'] = 'messstellen';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Messstellen Liste';
+  $handler->display->display_options['menu']['title'] = 'Messstellen';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $export['hw_messstellen_list'] = $view;

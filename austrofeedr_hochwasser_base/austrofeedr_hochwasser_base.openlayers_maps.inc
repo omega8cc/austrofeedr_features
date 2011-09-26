@@ -17,8 +17,8 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
   $openlayers_maps->title = 'Hochwasser Messstelle Node Map';
   $openlayers_maps->description = 'AustroFeedr Hochwasser Messstelle Node Map';
   $openlayers_maps->data = array(
-    'width' => '300px',
-    'height' => '300px',
+    'width' => '210px',
+    'height' => '210px',
     'image_path' => '',
     'css_path' => '',
     'proxy_host' => '',

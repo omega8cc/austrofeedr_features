@@ -101,11 +101,8 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
       'context' => 'argument_entity_id:node_1',
     );
     $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '3600',
-        'granularity' => 'args',
-      ),
+      'method' => '0',
+      'settings' => array(),
     );
     $pane->style = array(
       'settings' => NULL,
@@ -142,11 +139,8 @@ function austrofeedr_hochwasser_messstelle_panel_default_page_manager_handlers()
       'override_title_text' => 'Related News for %term:parent:name',
     );
     $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '3600',
-        'granularity' => 'context',
-      ),
+      'method' => '0',
+      'settings' => array(),
     );
     $pane->style = array(
       'settings' => NULL,

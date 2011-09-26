@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_field_default_fields().
+ * Implements hook_field_default_fields().
  */
 function austrofeedr_base_subscription_field_default_fields() {
   $fields = array();
@@ -328,6 +328,67 @@ function austrofeedr_base_subscription_field_default_fields() {
     ),
   );
 
+  // Exported field: 'taxonomy_term-subscription_tags-synonyms_synonym'
+  $fields['taxonomy_term-subscription_tags-synonyms_synonym'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'synonyms_synonym',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => 255,
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'subscription_tags',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 1,
+        ),
+      ),
+      'entity_type' => 'taxonomy_term',
+      'field_name' => 'synonyms_synonym',
+      'label' => 'Synonyms',
+      'required' => FALSE,
+      'settings' => array(
+        'text_processing' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'size' => 60,
+        ),
+        'type' => 'text_textfield',
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Assign which update tags should be assigned by the Basic Term Processor if an incoming update has this specific tag or any of its sub-tags.');
@@ -335,6 +396,7 @@ function austrofeedr_base_subscription_field_default_fields() {
   t('Internal terms to assign');
   t('Predefined Tags');
   t('Subscription Tags');
+  t('Synonyms');
   t('These tags will be automatically applied to updates from this subscription.');
 
   return $fields;

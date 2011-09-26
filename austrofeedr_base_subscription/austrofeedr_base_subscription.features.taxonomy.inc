@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_taxonomy_default_vocabularies().
+ * Implements hook_taxonomy_default_vocabularies().
  */
 function austrofeedr_base_subscription_taxonomy_default_vocabularies() {
   return array(

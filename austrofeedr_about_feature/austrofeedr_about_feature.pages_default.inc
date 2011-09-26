@@ -61,7 +61,7 @@ function austrofeedr_about_feature_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'About';
+  $display->title = '';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
@@ -69,7 +69,7 @@ function austrofeedr_about_feature_default_page_manager_pages() {
     $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => '',
@@ -81,13 +81,7 @@ Nachrichten in Echtzeit spielen in Zukunft eine immer wichtigere Rolle, ob bei U
       'format' => 'plain_text',
       'substitute' => TRUE,
     );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
+    $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
@@ -119,13 +113,7 @@ Nachrichten in Echtzeit spielen in Zukunft eine immer wichtigere Rolle, ob bei U
       'override_title' => 0,
       'override_title_text' => '',
     );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '604800',
-        'granularity' => 'none',
-      ),
-    );
+    $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
@@ -134,7 +122,7 @@ Nachrichten in Echtzeit spielen in Zukunft eine immer wichtigere Rolle, ob bei U
     $pane->position = 1;
     $display->content['new-2'] = $pane;
     $display->panels['middle'][1] = 'new-2';
-  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-2';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;

@@ -99,6 +99,7 @@ function austrofeedr_about_feature_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
+          'About' => 'About',
           'Aggregation' => 'Aggregation',
           'Data' => 'Data',
           'Processing' => 'Processing',

@@ -5,7 +5,7 @@
  */
 
 /**
- * Implementation of hook_views_default_views().
+ * Implements hook_views_default_views().
  */
 function austrofeedr_base_admin_views_default_views() {
   $export = array();
@@ -17,7 +17,7 @@ function austrofeedr_base_admin_views_default_views() {
   $view->base_table = 'node';
   $view->human_name = 'Updates Admin';
   $view->core = 7;
-  $view->api_version = '3.0-alpha1';
+  $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
@@ -122,7 +122,7 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['fields']['field_update_subscription_tags']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_update_subscription_tags']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['field_update_subscription_tags']['field_api_classes'] = 0;
-  /* Field: Content: Update Tags */
+  /* Field: Content: Update tags */
   $handler->display->display_options['fields']['field_update_tags']['id'] = 'field_update_tags';
   $handler->display->display_options['fields']['field_update_tags']['table'] = 'field_data_field_update_tags';
   $handler->display->display_options['fields']['field_update_tags']['field'] = 'field_update_tags';
@@ -205,13 +205,11 @@ function austrofeedr_base_admin_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['required'] = FALSE;
   $handler->display->display_options['filters']['title']['expose']['multiple'] = FALSE;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'updates-list';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Updates Admin';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';

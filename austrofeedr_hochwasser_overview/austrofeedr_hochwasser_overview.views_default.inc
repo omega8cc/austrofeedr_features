@@ -39,14 +39,6 @@ function austrofeedr_hochwasser_overview_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['links'] = 1;
   $handler->display->display_options['row_options']['comments'] = 0;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = FALSE;
-  $handler->display->display_options['empty']['area']['content'] = 'asdf nope';
-  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -74,7 +66,7 @@ function austrofeedr_hochwasser_overview_views_default_views() {
   $handler->display->display_options['arguments']['tid']['field'] = 'tid';
   $handler->display->display_options['arguments']['tid']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['tid']['title_enable'] = 1;
-  $handler->display->display_options['arguments']['tid']['title'] = 'Related News for %1';
+  $handler->display->display_options['arguments']['tid']['title'] = 'Nachrichten aus %1';
   $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['tid']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
@@ -87,7 +79,6 @@ function austrofeedr_hochwasser_overview_views_default_views() {
   );
   $handler->display->display_options['arguments']['tid']['validate_options']['type'] = 'tids';
   $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = 0;
-  $handler->display->display_options['arguments']['tid']['validate']['fail'] = 'empty';
   $handler->display->display_options['arguments']['tid']['break_phrase'] = 1;
   $handler->display->display_options['arguments']['tid']['add_table'] = 1;
   $handler->display->display_options['arguments']['tid']['require_value'] = 0;
