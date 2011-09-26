@@ -439,66 +439,6 @@ function austrofeedr_hochwasser_admin_views_default_views() {
   $handler->display->display_options['fields']['entity_id_4']['id'] = 'entity_id_4';
   $handler->display->display_options['fields']['entity_id_4']['table'] = 'field_data_field_hw_trend';
   $handler->display->display_options['fields']['entity_id_4']['field'] = 'field_hw_trend';
-  /* Field: Taxonomy term: Latitude */
-  $handler->display->display_options['fields']['field_lat']['id'] = 'field_lat';
-  $handler->display->display_options['fields']['field_lat']['table'] = 'field_data_field_lat';
-  $handler->display->display_options['fields']['field_lat']['field'] = 'field_lat';
-  $handler->display->display_options['fields']['field_lat']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_lat']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_lat']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_lat']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_lat']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_lat']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_lat']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_lat']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_lat']['hide_alter_empty'] = 0;
-  $handler->display->display_options['fields']['field_lat']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_lat']['field_api_classes'] = 0;
-  /* Field: Taxonomy term: Longitude */
-  $handler->display->display_options['fields']['field_lng']['id'] = 'field_lng';
-  $handler->display->display_options['fields']['field_lng']['table'] = 'field_data_field_lng';
-  $handler->display->display_options['fields']['field_lng']['field'] = 'field_lng';
-  $handler->display->display_options['fields']['field_lng']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_lng']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_lng']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_lng']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_lng']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_lng']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_lng']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_lng']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_lng']['hide_alter_empty'] = 0;
-  $handler->display->display_options['fields']['field_lng']['settings'] = array(
-    'thousand_separator' => ' ',
-    'decimal_separator' => '.',
-    'scale' => '2',
-    'prefix_suffix' => 1,
-  );
-  $handler->display->display_options['fields']['field_lng']['field_api_classes'] = 0;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_hw_url']['id'] = 'field_hw_url';
-  $handler->display->display_options['fields']['field_hw_url']['table'] = 'field_data_field_hw_url';
-  $handler->display->display_options['fields']['field_hw_url']['field'] = 'field_hw_url';
   /* Field: Content: Kennwert HQ1 */
   $handler->display->display_options['fields']['field_hw_wert_hq1']['id'] = 'field_hw_wert_hq1';
   $handler->display->display_options['fields']['field_hw_wert_hq1']['table'] = 'field_data_field_hw_wert_hq1';
@@ -583,6 +523,10 @@ function austrofeedr_hochwasser_admin_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'messstellen/admin';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Messstellen Editor';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-austrofeedr-admin';
   $export['hw_messstellen_admin'] = $view;
 
   $view = new view;
@@ -598,8 +542,10 @@ function austrofeedr_hochwasser_admin_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Content';
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'administer content';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
@@ -743,7 +689,7 @@ function austrofeedr_hochwasser_admin_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['operations'] = array(
     'node_assign_owner_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'use_queue' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -792,6 +738,13 @@ function austrofeedr_hochwasser_admin_views_default_views() {
       'label' => '',
     ),
     'rules_hw_update_processor' => array(
+      'selected' => 0,
+      'use_queue' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'rules_hw_update_processor_save' => array(
       'selected' => 1,
       'use_queue' => 0,
       'skip_confirmation' => 0,
@@ -799,14 +752,14 @@ function austrofeedr_hochwasser_admin_views_default_views() {
       'label' => '',
     ),
     'node_make_sticky_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'use_queue' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'node_make_unsticky_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'use_queue' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -819,7 +772,7 @@ function austrofeedr_hochwasser_admin_views_default_views() {
       'label' => '',
     ),
     'node_promote_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'use_queue' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -840,7 +793,7 @@ function austrofeedr_hochwasser_admin_views_default_views() {
       'label' => '',
     ),
     'node_unpromote_action' => array(
-      'selected' => 1,
+      'selected' => 0,
       'use_queue' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -883,7 +836,7 @@ function austrofeedr_hochwasser_admin_views_default_views() {
     ),
   );
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['enable_select_all_pages'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_type'] = '0';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_type'] = '1';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_result'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['merge_single_action'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['force_single'] = 0;
@@ -1287,6 +1240,10 @@ function austrofeedr_hochwasser_admin_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'admin/hw_updates_editor';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Updates Editor';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-austrofeedr-admin';
   $export['hw_updates_editor'] = $view;
 
   return $export;
