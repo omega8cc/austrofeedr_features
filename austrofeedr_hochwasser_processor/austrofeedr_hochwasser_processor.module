@@ -103,23 +103,7 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
       $old_status_term = taxonomy_term_load($messstelle->field_hw_status['und'][0]['tid']);
   }
 
-  /* don't send message, but change messstelle itself
-  // Send warn message if status changed from below Hochwasser to above Hochwasser.
-  if((strpos($status_term->name, 'Hochwasser') === 0) &&
-     (!isset($old_status_term) || strpos($old_status_term->name, 'Hochwasser') === false))
-  {
-    $node = new stdClass();
-    $node->field_hw_messstelle = array('und' => array(0 => array('nid' => $messstelle->nid)));
-    $node->field_hw_status_neu = array('und' => array(0 => array('tid' => $status_term->tid)));
-    if(isset($old_status_term)) {
-      $node->field_hw_status_alt = array('und' => array(0 => array('tid' => $old_status_term->tid)));
-    }
-    $node->title = $status_term->name . ' ' . $messstelle->title;
-    $node->type = "hochwasser_update";
-    node_save($node);
-    //$message->save();
-  }
-  */
+  /* update messstelle */
 
   $messstelle_name = $messstelle->field_hw_gewaesser['und'][0]['value'] . ' / ' . $messstelle->field_hw_name['und'][0]['value'];
 
@@ -132,8 +116,19 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
     {
       $messstelle->title = $new_title;
       $messstelle->created = time();
+
+      $node = new stdClass();
+      $node->field_hw_messstelle = array('und' => array(0 => array('nid' => $messstelle->nid)));
+      $node->field_hw_status_neu = array('und' => array(0 => array('tid' => $status_term->tid)));
+      if(isset($old_status_term)) {
+        $node->field_hw_status_alt = array('und' => array(0 => array('tid' => $old_status_term->tid)));
+      }
+      $node->title = $new_title;
+      $node->type = "hochwasser_update";
+
       // Hochwassermeldung Tag setzen.
-      $messstelle->field_update_tags = array('und' => array(0 => array('tid' => 217)));
+      $node->field_update_tags = array('und' => array(0 => array('tid' => 217)));
+      node_save($node);
     }
   }
   else {

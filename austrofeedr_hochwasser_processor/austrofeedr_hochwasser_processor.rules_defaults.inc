@@ -439,5 +439,21 @@ function austrofeedr_hochwasser_processor_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_hw_update_view_redirect'] = entity_import('rules_config', '{ "rules_hw_update_view_redirect" : {
+      "LABEL" : "Hochwasser Update View Redirect",
+      "PLUGIN" : "reaction rule",
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "node_view" ],
+      "IF" : [
+        { "node_is_of_type" : {
+            "node" : [ "node" ],
+            "type" : { "value" : { "hochwasser_update" : "hochwasser_update" } }
+          }
+        },
+        { "data_is" : { "data" : [ "view-mode" ], "value" : "full" } }
+      ],
+      "DO" : [ { "redirect" : { "url" : [ "node:field-hw-messstelle:url" ] } } ]
+    }
+  }');
   return $items;
 }
