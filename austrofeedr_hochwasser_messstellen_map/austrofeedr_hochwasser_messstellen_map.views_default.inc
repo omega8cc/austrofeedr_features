@@ -106,6 +106,15 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
   $handler->display->display_options['style_options']['map'] = 'hw_messstellen_map_preset';
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['label'] = 'Legende Header';
+  $handler->display->display_options['footer']['area']['empty'] = FALSE;
+  $handler->display->display_options['footer']['area']['content'] = '<h3>Legende</h3>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = 0;
   /* Footer: Global: View area */
   $handler->display->display_options['footer']['view']['id'] = 'view';
   $handler->display->display_options['footer']['view']['table'] = 'views';
