@@ -38,13 +38,13 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['footer']['area']['empty'] = FALSE;
   $handler->display->display_options['footer']['area']['content'] = '<div class="hw-map-legende">
   <h3>Legende</h3>
-  <ul>
-    <li><img src="sites/default/files/map_icons/niederwasser.png" alt="Niederwasser Icon" /> Niederwasser</li>
-    <li><img src="sites/default/files/map_icons/mittelwasser.png" alt="Mittelwasser Icon" /> Mittelwasser</li>
-    <li><img src="sites/default/files/map_icons/erhoete_wasserfuehrung.png" alt="Erhöhte Wasserführung Icon" /> erhöhte Wasserführung</li>
-    <li><img src="sites/default/files/map_icons/hochwasserstufe_1.png" alt="Hochwasserstufe 1 Icon" /> Hochwasserstufe 1</li>
-    <li><img src="sites/default/files/map_icons/hochwasserstufe_2.png" alt="Hochwasserstufe 2 Icon" /> Hochwasserstufe 2</li>
+  <ol>
     <li><img src="sites/default/files/map_icons/hochwasserstufe_3.png" alt="Hochwasserstufe 3 Icon" /> Hochwasserstufe 3</li>
+    <li><img src="sites/default/files/map_icons/hochwasserstufe_2.png" alt="Hochwasserstufe 2 Icon" /> Hochwasserstufe 2</li>
+    <li><img src="sites/default/files/map_icons/hochwasserstufe_1.png" alt="Hochwasserstufe 1 Icon" /> Hochwasserstufe 1</li>
+    <li><img src="sites/default/files/map_icons/erhoete_wasserfuehrung.png" alt="Erhöhte Wasserführung Icon" /> erhöhte Wasserführung</li>
+    <li><img src="sites/default/files/map_icons/mittelwasser.png" alt="Mittelwasser Icon" /> Mittelwasser</li>
+    <li><img src="sites/default/files/map_icons/niederwasser.png" alt="Niederwasser Icon" /> Niederwasser</li>
   </ul>
 </div>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
