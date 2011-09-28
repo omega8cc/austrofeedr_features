@@ -157,7 +157,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'hidden',
           'module' => 'node_reference',
           'settings' => array(
-            'node_reference_view_mode' => 'rss',
+            'node_reference_view_mode' => 'teaser',
           ),
           'type' => 'node_reference_node',
           'weight' => '0',
@@ -383,7 +383,7 @@ function austrofeedr_hochwasser_base_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
