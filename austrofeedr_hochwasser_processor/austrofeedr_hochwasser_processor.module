@@ -111,19 +111,14 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   $title_changed = $messstelle->title != $new_title;
 
   if($title_changed) {
-    austrofeedr_hochwasser_processor_messstelle_message_reset($messstelle);
-  }
+    $messstelle->title = $new_title;
 
-  if($hochwasser_aktiv)
-  {
-    $new_title = $status_term->name . ': ' . $messstelle_name;
+    // Alte Meldungen entfernen.
+    austrofeedr_hochwasser_processor_messstelle_message_reset($messstelle);
 
     // Neue Hochwassermeldung falls notwendig.
-    if($title_changed)
+    if($hochwasser_aktiv)
     {
-      $messstelle->title = $new_title;
-      $messstelle->created = time();
-
       $node = new stdClass();
       $node->field_hw_messstelle = array('und' => array(0 => array('nid' => $messstelle->nid)));
       $node->field_hw_status_neu = array('und' => array(0 => array('tid' => $status_term->tid)));
@@ -136,17 +131,6 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
       // Hochwassermeldung Tag setzen.
       $node->field_update_tags = array('und' => array(0 => array('tid' => 217)));
       node_save($node);
-    }
-  }
-  else {
-    // Ggf. alte Meldung zurücksetzen.
-    if($title_changed)
-    {
-      $messstelle->title = $messstelle_name;
-      $messstelle->field_update_tags = array();
-      $messstelle->created = time();
-      // todo: only set timestamp when changing state
-      //$node->changed = time();
     }
   }
 
