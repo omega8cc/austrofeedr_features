@@ -18,7 +18,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_styles() {
   $openlayers_styles->description = 'Basic Messstellen style.';
   $openlayers_styles->data = array(
     'pointRadius' => 7,
-    'fillColor' => '#0033BB',
+    'fillColor' => '#333333',
     'strokeColor' => '#000000',
     'strokeWidth' => 1,
     'fillOpacity' => 0.8,
