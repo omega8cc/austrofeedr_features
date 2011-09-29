@@ -106,13 +106,20 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   /* update messstelle */
 
   $messstelle_name = $messstelle->field_hw_gewaesser['und'][0]['value'] . ' / ' . $messstelle->field_hw_name['und'][0]['value'];
+  $hochwasser_aktiv = (strpos($status_term->name, 'Hochwasser') === 0);
+  $new_title = ($hochwasser_aktiv ? $status_term->name . ': ' : '') . $messstelle_name;
+  $title_changed = $messstelle->title != $new_title;
 
-  if((strpos($status_term->name, 'Hochwasser') === 0))
+  if($title_changed) {
+    austrofeedr_hochwasser_processor_messstelle_message_reset($messstelle);
+  }
+
+  if($hochwasser_aktiv)
   {
     $new_title = $status_term->name . ': ' . $messstelle_name;
 
     // Neue Hochwassermeldung falls notwendig.
-    if($messstelle->title != $new_title)
+    if($title_changed)
     {
       $messstelle->title = $new_title;
       $messstelle->created = time();
@@ -133,7 +140,7 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   }
   else {
     // Ggf. alte Meldung zurücksetzen.
-    if($messstelle->title != $messstelle_name)
+    if($title_changed)
     {
       $messstelle->title = $messstelle_name;
       $messstelle->field_update_tags = array();
@@ -144,6 +151,19 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   }
 
   return array('hw_status_term' => $status_term->tid);
+}
+
+/*
+ * Delete all former messages.
+ */
+function austrofeedr_hochwasser_processor_messstelle_message_reset($messstelle) {
+  $result = db_query(
+  	"SELECT f.entity_id FROM {field_data_field_hw_messstelle} f, {node} n " .
+    "WHERE n.nid = f.field_hw_messstelle_nid " .
+    " AND f.bundle = :bundle AND n.nid = :nid", array(':bundle' => 'hochwasser_update', ':nid' => $messstelle->nid));
+  foreach($result->fetchAll() as $node) {
+    node_delete($node->entity_id);
+  }
 }
 
 /**
