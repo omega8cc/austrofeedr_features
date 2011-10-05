@@ -106,17 +106,19 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
   /* update messstelle */
 
   $messstelle_name = $messstelle->field_hw_gewaesser['und'][0]['value'] . ' / ' . $messstelle->field_hw_name['und'][0]['value'];
+  $hochwasser_aktiv = (strpos($status_term->name, 'Hochwasser') === 0);
+  $new_title = ($hochwasser_aktiv ? $status_term->name . ': ' : '') . $messstelle_name;
+  $title_changed = $messstelle->title != $new_title;
 
-  if((strpos($status_term->name, 'Hochwasser') === 0))
-  {
-    $new_title = $status_term->name . ': ' . $messstelle_name;
+  if($title_changed) {
+    $messstelle->title = $new_title;
+
+    // Alte Meldungen entfernen.
+    austrofeedr_hochwasser_processor_messstelle_message_reset($messstelle);
 
     // Neue Hochwassermeldung falls notwendig.
-    if($messstelle->title != $new_title)
+    if($hochwasser_aktiv)
     {
-      $messstelle->title = $new_title;
-      $messstelle->created = time();
-
       $node = new stdClass();
       $node->field_hw_messstelle = array('und' => array(0 => array('nid' => $messstelle->nid)));
       $node->field_hw_status_neu = array('und' => array(0 => array('tid' => $status_term->tid)));
@@ -131,19 +133,21 @@ function hw_wasserstand_update_status_action($pegelaktuell_item, $messstelle) {
       node_save($node);
     }
   }
-  else {
-    // Ggf. alte Meldung zurücksetzen.
-    if($messstelle->title != $messstelle_name)
-    {
-      $messstelle->title = $messstelle_name;
-      $messstelle->field_update_tags = array();
-      $messstelle->created = time();
-      // todo: only set timestamp when changing state
-      //$node->changed = time();
-    }
-  }
 
   return array('hw_status_term' => $status_term->tid);
+}
+
+/*
+ * Delete all former messages.
+ */
+function austrofeedr_hochwasser_processor_messstelle_message_reset($messstelle) {
+  $result = db_query(
+  	"SELECT f.entity_id FROM {field_data_field_hw_messstelle} f, {node} n " .
+    "WHERE n.nid = f.field_hw_messstelle_nid " .
+    " AND f.bundle = :bundle AND n.nid = :nid", array(':bundle' => 'hochwasser_update', ':nid' => $messstelle->nid));
+  foreach($result->fetchAll() as $node) {
+    node_delete($node->entity_id);
+  }
 }
 
 /**

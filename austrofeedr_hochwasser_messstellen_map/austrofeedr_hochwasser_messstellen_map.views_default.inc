@@ -11,6 +11,81 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $export = array();
 
   $view = new view;
+  $view->name = 'hw_legende';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'taxonomy_term_data';
+  $view->human_name = 'Hochwasser Legende';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Legende';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['type'] = 'ol';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Taxonomy term: Image */
+  $handler->display->display_options['fields']['field_hw_status_image']['id'] = 'field_hw_status_image';
+  $handler->display->display_options['fields']['field_hw_status_image']['table'] = 'field_data_field_hw_status_image';
+  $handler->display->display_options['fields']['field_hw_status_image']['field'] = 'field_hw_status_image';
+  $handler->display->display_options['fields']['field_hw_status_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hw_status_image']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_hw_status_image']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['hide_alter_empty'] = 0;
+  $handler->display->display_options['fields']['field_hw_status_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hw_status_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_hw_status_image']['field_api_classes'] = 0;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = 1;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'hw_status' => 'hw_status',
+  );
+  $export['hw_legende'] = $view;
+
+  $view = new view;
   $view->name = 'hw_messstellen_map';
   $view->description = 'openlayers';
   $view->tag = 'austrofeedr';
@@ -31,6 +106,23 @@ function austrofeedr_hochwasser_messstellen_map_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'openlayers_map';
   $handler->display->display_options['style_options']['map'] = 'hw_messstellen_map_preset';
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['label'] = 'Legende Header';
+  $handler->display->display_options['footer']['area']['empty'] = FALSE;
+  $handler->display->display_options['footer']['area']['content'] = '<h3>Legende</h3>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = 0;
+  /* Footer: Global: View area */
+  $handler->display->display_options['footer']['view']['id'] = 'view';
+  $handler->display->display_options['footer']['view']['table'] = 'views';
+  $handler->display->display_options['footer']['view']['field'] = 'view';
+  $handler->display->display_options['footer']['view']['label'] = 'Legende';
+  $handler->display->display_options['footer']['view']['empty'] = FALSE;
+  $handler->display->display_options['footer']['view']['view_to_insert'] = 'hw_legende:default';
+  $handler->display->display_options['footer']['view']['inherit_arguments'] = 0;
   /* Field: Content: Bezirk */
   $handler->display->display_options['fields']['entity_id']['id'] = 'entity_id';
   $handler->display->display_options['fields']['entity_id']['table'] = 'field_data_field_hw_bezirk';
