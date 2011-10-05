@@ -17,8 +17,8 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
   $openlayers_maps->title = 'Hochwasser Messstelle Node Map';
   $openlayers_maps->description = 'AustroFeedr Hochwasser Messstelle Node Map';
   $openlayers_maps->data = array(
-    'width' => '210px',
-    'height' => '210px',
+    'width' => '350px',
+    'height' => '247px',
     'image_path' => '',
     'css_path' => '',
     'proxy_host' => '',
@@ -72,6 +72,7 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
       'select' => 'hw_messstellen_map_style',
       'temporary' => 'hw_messstellen_map_style',
     ),
+    'map_name' => 'hw_messstelle_node_map_preset',
   );
   $export['hw_messstelle_node_map_preset'] = $openlayers_maps;
 
@@ -82,8 +83,8 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
   $openlayers_maps->title = 'Hochwasser Messstelle Teaser Map';
   $openlayers_maps->description = 'AustroFeedr Hochwasser Messstelle Teaser Map';
   $openlayers_maps->data = array(
-    'width' => '150px',
-    'height' => '150px',
+    'width' => '340px',
+    'height' => '247px',
     'image_path' => '',
     'css_path' => '',
     'proxy_host' => '',
@@ -137,6 +138,7 @@ function austrofeedr_hochwasser_base_openlayers_maps() {
       'select' => 'hw_messstellen_map_style',
       'temporary' => 'hw_messstellen_map_style',
     ),
+    'map_name' => 'hw_messstelle_teaser_map_preset',
   );
   $export['hw_messstelle_teaser_map_preset'] = $openlayers_maps;
 

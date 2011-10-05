@@ -86,6 +86,7 @@ function austrofeedr_hochwasser_messstellen_map_openlayers_maps() {
       'select' => 'hw_messstellen_map_style',
       'temporary' => 'hw_messstellen_map_style',
     ),
+    'map_name' => 'hw_messstellen_map_preset',
   );
   $export['hw_messstellen_map_preset'] = $openlayers_maps;
 
